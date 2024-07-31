@@ -1,4 +1,5 @@
 .body {
+    padding: 10px;
     display: none;
 }
 
@@ -33,6 +34,14 @@
 #small-container {
     display: flex;
     flex-direction: column;
+}
+
+.panel {
+    border-radius: 5px;
+}
+.panel:hover {
+    background-color: rgb(241, 241, 241);
+
 }
 
 #panel-1 {
