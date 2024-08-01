@@ -1,41 +1,75 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: repeating-linear-gradient(
+        90deg,
+        rgb(249, 253, 200),
+        rgb(249, 253, 200) 100px,
+        rgb(251, 252, 244) 100px,
+        rgb(251, 252, 244) 200px
+    );
+    
+}
 .body {
     padding: 10px;
     display: none;
+}
+.header {
+    
 }
 
 #head-1 {
     display: block;
 }
-
-#page {
+#kitty-1 {
+    width: 29.5%;
+    margin-top: 10px;
+    padding: 0 10px;
+    display: block;
+}
+#kitty-2 {
+    position: relative;
+    width: 35%;
+    padding: 0 10px;
+    display: block;
+    bottom: 39px;
+    left: 4px
     
+    
+}
+
+#page-1 {
+    background-color: white;
     display: flex;
+    padding-right: 80px;
+    padding-bottom: 50px;
+    border: black solid 3px;
+    border-radius: 5px;
 }
 
 #buttons {
-    margin-top: 50px;
-    margin-right: 50px;
+    padding: 25px;
 }
 
 .body-button {
+    
     cursor: pointer;
 }
 
 .body-button:hover {
     color: gray
 }
-
 #panel-container {
     display: flex;
     align-items: center;
     
 }
-
 #small-container {
     display: flex;
     flex-direction: column;
 }
-
 .panel {
     border-radius: 5px;
 }
@@ -43,33 +77,31 @@
     background-color: rgb(241, 241, 241);
 
 }
-
 #panel-1 {
     width: 656px;
-    height: 200px;
+    height: 300px;
     margin-top: 50px;
-    border: 3px solid black;
+    border: 1px solid black;
     
 }
-
 #panel-2 {
     margin-top: 50px;
     margin-right: 50px;
     width: 300px;
     height: 600px;
-    border: 3px solid black
+    border: 1px solid black
 }
 #panel-3 {
     margin-top: 50px;
     width: 300px;
-    height: 300px;
-    border: 3px solid black
+    height: 272px;
+    border: 1px solid black
 }
 #panel-4 {
     margin-top: 50px;
     width: 300px;
-    height: 300px;
-    border: 3px solid black
+    height: 272px;
+    border: 1px solid black
 }
 
 .draggable.dragging {
