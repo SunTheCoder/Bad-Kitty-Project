@@ -66,6 +66,13 @@ body {
     
     
 }
+#thought-bubble-1{
+    display: block;
+    position: relative;
+    width: 35%;
+    bottom: 305px;
+    left: 190px
+}
 #eyes-1 {
     width:75%;
 }
@@ -90,11 +97,23 @@ body {
 
     
 }
+#eyes-3 {
+    width:75%;
+}
+#eyes-3-kitty {
+    position: relative;
+    bottom: 275px;
+    right: 200px;
+    width:40%;
+
+
+    
+}
 
 .body-button {
     
     cursor: pointer;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
 }
 
 .body-button:hover {

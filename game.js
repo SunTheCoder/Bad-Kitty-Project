@@ -12,6 +12,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const eyes1kitty = document.getElementById('eyes-1-kitty')
     const eyes2 = document.getElementById('eyes-2')
     const eyes2kitty = document.getElementById('eyes-2-kitty')
+    const eyes3 = document.getElementById('eyes-3')
+
 
 
     // panel1.addEventListener('click', () => {
@@ -38,6 +40,12 @@ window.addEventListener('DOMContentLoaded', () => {
         panel1.innerHTML =`<img id="kitty-1" class="body" src="/Pensive-Kitty-Blank.png" alt="">
              
         <img id="eyes-2-kitty" class="body-button" src="/Pensive-Kitty-Eyes-v2.png" alt="">`
+
+    })
+    eyes3.addEventListener('click', () => {
+        panel1.innerHTML =`<img id="kitty-1" class="body" src="/Pensive-Kitty-Blank.png" alt="">
+             
+        <img id="eyes-3-kitty" class="body-button" src="/Pensive-Kitty-Eyes-Closed-White.png" alt="">`
 
     })
 
