@@ -28,24 +28,35 @@ window.addEventListener('DOMContentLoaded', () => {
     //     kitty1.style.display = 'block'
     //     kitty2.style.display = 'none'
     // })
+
     eyes1.addEventListener('click', () => {
         
-        panel1.innerHTML =`<img id="kitty-1" class="body" src="/Pensive-Kitty-Blank.png" alt="">
-             
-        <img id="eyes-1-kitty" class="body-button" src="/Pensive-Kitty-Eyes.png" alt="">`
+        panel1.innerHTML =`<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
+
+        <img src="/Assets/Thought-Bubble-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
         
+        <img id="eyes-1-kitty" class="body-button" src="/Assets/Pensive-Kitty-Eyes.png" alt="">
+        
+        <img src="/Assets/kitty-treat-bag.png" alt="" id="treat-thought">`
 
     })
     eyes2.addEventListener('click', () => {
-        panel1.innerHTML =`<img id="kitty-1" class="body" src="/Pensive-Kitty-Blank.png" alt="">
-             
-        <img id="eyes-2-kitty" class="body-button" src="/Pensive-Kitty-Eyes-v2.png" alt="">`
+        panel1.innerHTML =`<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
+
+        <img src="/Assets/Thought-Bubble-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
+        
+        <img id="eyes-2-kitty" class="body-button" src="/Assets/Pensive-Kitty-Eyes-v2.png" alt="">
+        <img src="/Assets/kitty-treat-bag.png" alt="" id="treat-thought">`
 
     })
     eyes3.addEventListener('click', () => {
-        panel1.innerHTML =`<img id="kitty-1" class="body" src="/Pensive-Kitty-Blank.png" alt="">
-             
-        <img id="eyes-3-kitty" class="body-button" src="/Pensive-Kitty-Eyes-Closed-White.png" alt="">`
+        panel1.innerHTML =`<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
+
+        <img src="/Assets/Thought-Bubble-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
+        
+        <img id="eyes-3-kitty" class="body-button" src="/Assets/Pensive-Kitty-Eyes-Closed-White.png" alt="">
+        <img src="/Assets/kitty-treat-bag.png" alt="" id="treat-thought">`
+
 
     })
 
