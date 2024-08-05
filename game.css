@@ -35,12 +35,12 @@ h3{
 #eye-1 {
     left: 750px;
     rotate: -90deg;
-    top: 450px
+    top: 485px
 }
 #eye-2 {
     left: 865px;
     rotate: -90deg;
-    top: 450px
+    top: 485px
 }
 #face {
     width: 30%;
@@ -81,10 +81,10 @@ h3{
 }
 #treat-thought {
     display: block;
-    position: relative;
-    width: 9%;
-    left: 300px;
-    bottom: 401px;
+    position: absolute;
+    width: 3%;
+    left: 815px;
+    bottom: 261px;
     rotate: 10deg;
 }
 
