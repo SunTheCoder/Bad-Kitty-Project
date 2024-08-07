@@ -12,6 +12,7 @@ body {
     );
     
 }
+
 .body {
     padding: 10px;
     display: none;
@@ -83,8 +84,8 @@ h3{
     display: block;
     position: absolute;
     width: 3%;
-    left: 815px;
-    bottom: 261px;
+    left: 800px;
+    bottom: 175px;
     rotate: 10deg;
 }
 
@@ -229,4 +230,42 @@ h3{
 
 .draggable.dragging {
     opacity: .5;
+}
+#zzz {
+    display: block;
+    position: relative;
+    right: 50px;
+    width: 120%;
+}
+#wall-sneak {
+    display: block;
+    position: relative;
+    padding: 10px;  
+    left: 30px;
+    width: 80%;
+}
+#rip {
+    display: block;
+    position: relative;
+    margin: auto;
+    top: 15px;
+    
+    width: 90%;
+}
+#mad {
+    display: block;
+    position: relative;
+    margin: auto;
+    top: 105px;
+    
+    width: 100%;
+}
+#knock {
+    display: block;
+    position: relative;
+    margin: auto;
+    
+    
+    width: 100%;
+}
 }
