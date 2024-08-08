@@ -225,6 +225,7 @@ h3{
     height: 200px;
 }
 #mini-panel-bottom{
+    height: 60px;
     border-bottom: none;
 }
 
@@ -268,4 +269,24 @@ h3{
     
     width: 100%;
 }
+/* text-select-container{
+    position: absolute;
+} */
+
+#text-select{
+    display: block;
+    position: relative;
+    right: 83px;
+    margin: 0;
+    padding: 0;
+
 }
+#text-select-label{
+    display: block;
+    position: relative;
+    right: 195px;
+    margin: 0;
+    padding: 0;
+
+}
+
