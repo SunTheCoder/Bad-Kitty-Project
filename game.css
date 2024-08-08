@@ -82,10 +82,10 @@ h3{
 }
 #treat-thought {
     display: block;
-    position: absolute;
-    width: 3%;
-    left: 800px;
-    bottom: 175px;
+    position: relative;
+    width: 8%;
+    bottom: 395px;
+    left: 300px;
     rotate: 10deg;
 }
 
@@ -240,9 +240,9 @@ h3{
 #wall-sneak {
     display: block;
     position: relative;
-    padding: 10px;  
-    left: 30px;
-    width: 80%;
+    
+    
+    width: 100%;
 }
 #rip {
     display: block;
