@@ -285,39 +285,53 @@ h3{
     
     width: 100%;
 }
-/* text-select-container{
-    position: absolute;
-} */
 
-#text-select{
-    display: block;
-    position: relative;
-    right: 83px;
-    margin: 0;
-    padding: 0;
-
-}
-#text-select-label{
-    display: block;
-    position: relative;
-    right: 195px;
-    margin: 0;
-    padding: 0;
-
-}
 
 
 
 /* NAVIGATION */
 
-#page-2-button, #page-1-button {
+#page-2-button, #page-1-button, #reset-button {
     margin: 10px;
     background-color: white;
     border-radius: 3px;
     border: solid black 1px;
 }
 
-#page-2-button:hover, #page-1-button:hover {
+#page-2-button:hover, #page-1-button:hover, #reset-button:hover {
     background-color: lightgray;
     cursor: pointer;
+}
+
+/* PANEL 2 TEXT AND DROPDOWN */
+
+#p-text {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    right: 195px;
+    margin: 0;
+    padding: 0;
+}
+
+/* text-select-container{
+    position: absolute;
+} */
+
+#text-select{
+    /* display: block;
+    position: relative; */
+    /* right: 83px; */
+    width: 25%;
+    margin: auto;
+    padding: 0;
+
+}
+#text-select-label{
+    /* display: block;
+    position: relative; */
+    /* right: 195px; */
+    margin: 0;
+    padding: 0;
+
 }
