@@ -122,7 +122,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     const page2ContainerHtml = 
 
-    `<img src="/Assets/kitty-treat-bag.png" alt="" id="treat-thought">
+    `
+    <canvas id="drawingCanvas" width="650" height="300">
 
     <div class="draggable panel" id="panel-1" draggable="true">
         
@@ -140,7 +141,33 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         <img id="eyes-4-kitty" class="body-button" src="/Assets/" alt="" hidden >
 
-    </div>
+        <div id="drawing-container">
+        </div>
+        
+        
+        </div>
+
+        
+        
+    </canvas>
+
+    <div id="tools">
+    <label for="brushSize">Brush Size:</label>
+    <input type="range" id="brushSize" min="1" max="20" value="5" onchange="setBrushSize(this.value)">
+    
+    <label for="brushColor">Brush Color:</label>
+    <input type="color" id="brushColor" value="#000000" onchange="setBrushColor(this.value)">
+
+    <button id="clearCanvas" onclick="clearCanvas()">Clear</button>
+
+<script>
+function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+</script>
+</div>
+
+
 
     <div id="panel-container">
 
@@ -184,8 +211,61 @@ window.addEventListener('DOMContentLoaded', (event) => {
             if (counter % 2 === 0) {
                 // page1.innerHTML = page1html
                 pageContainer.innerHTML = page2ContainerHtml
+
+                 const clearCanvas = document.getElementById('clearCanvas')
+
+            clearCanvas.addEventListener('click', () => {
+                
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+            })
+    
                 
                 page2button.innerText = 'Page 1'
+
+// Get the canvas and context
+const canvas = document.getElementById('drawingCanvas');
+const ctx = canvas.getContext('2d');
+
+// Variables to manage drawing state
+let drawing = false;
+
+// Set initial drawing settings
+ctx.lineWidth = 5;
+ctx.strokeStyle = '#000000'; // default black color
+
+// Event listeners for drawing
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', stopDrawing);
+canvas.addEventListener('mouseout', stopDrawing);
+
+function startDrawing(e) {
+    drawing = true;
+    ctx.beginPath();
+    ctx.moveTo(e.offsetX, e.offsetY);
+}
+
+function draw(e) {
+    if (!drawing) return;
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke();
+}
+
+function stopDrawing() {
+    drawing = false;
+    ctx.closePath();
+}
+
+// Example tool functions to change brush size and color
+function setBrushSize(size) {
+    ctx.lineWidth = size;
+}
+
+function setBrushColor(color) {
+    ctx.strokeStyle = color;
+}
+
             
             return
             }
@@ -274,4 +354,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
             </div>`
     })
 
+   
+    
+
 })
+
