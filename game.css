@@ -62,7 +62,7 @@ h3{
     position: relative;
     /* text-align: center; */
     width: 8%;
-    top: 215px;
+    top: 165px;
     left: 20px;
     rotate: 10deg;
 }
@@ -128,7 +128,7 @@ h3{
 }
 #eyes-1-kitty {
     position: relative;
-    bottom: 368px;
+    bottom: 495px;
     right: 221px;
     width:15%;
 
@@ -176,7 +176,7 @@ h3{
     display: block;
     position: relative;
     width: 25%;
-    bottom: 436px;
+    bottom: 513px;
     left: 462px;
 
 }
@@ -231,6 +231,27 @@ h3{
     width: 300px;
     height: 272px;
     border: 1px solid black
+}
+
+#panel-5 {
+
+    /* margin-left: 90px; */
+    margin-top: 50px;
+    width: 450px;
+    height: 136px;
+    border: 1px solid black;
+
+}
+#panel-6 {
+
+    /* margin-left: 90px; */
+    margin-top: 50px;
+    width: 450px;
+    height: 272px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 15px;
+
 }
 
 .mini-panel {
@@ -342,4 +363,31 @@ h3{
     background-color: #fff;
     cursor: crosshair;
     margin: 50px 0 0
+}
+
+/* tutorials */
+
+#tutorial-1 {
+    position: absolute;
+    left: 465px;
+    font-family: monospace;
+    font-size: large;
+    text-align: left;
+}
+
+#tutorial-2 {
+    position: absolute;
+    left: 865px;
+    font-family: monospace;
+    font-size: large;
+    text-align: left;
+}
+
+#tutorial-3 {
+    position: absolute;
+    left: 540px;
+    top: 928px;
+    font-family: monospace;
+    font-size: large;
+    text-align: left;
 }

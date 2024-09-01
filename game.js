@@ -1,6 +1,10 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
     event.preventDefault()
+
+    const tutorial1 = document.getElementById('tutorial-1')
+
+    const buttons = document.getElementById('buttons')
     
     const resetButton = document.getElementById('reset-button')
 
@@ -19,7 +23,36 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     let counter = 1; //for page traversal
 
+    let inactivityTime = function () {
+        let time;
+        const timeoutSeconds = 120; // Time in seconds (2 minutes)
+    
+        // Reset the timer on any user interaction
+        function resetTimer() {
+            clearTimeout(time);
+            time = setTimeout(reloadPage, timeoutSeconds * 1000);  // Convert seconds to milliseconds
+        }
+    
+        // Reload the page
+        function reloadPage() {
+            location.reload();
+        }
+    
+        // Listen for user events that reset the timer
+        window.onload = resetTimer;
+        document.onmousemove = resetTimer;
+        document.onkeypress = resetTimer;
+        document.ontouchstart = resetTimer; // For mobile devices
+    
+        // Start the timer initially
+        resetTimer();
+    };
+    
+    // Start the inactivity timer
+    inactivityTime();
+
     eyes1.addEventListener('click', () => {
+
         
         const html = `<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
 
@@ -30,8 +63,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
         panel1.innerHTML = html
 
         sessionStorage.setItem('eye-choice', html)
+
+        tutorial1.innerText = 'Well done! Scroll to the next panel!'
+
+        setTimeout(() => {
+            tutorial1.style.display = 'none'
+        }, 4000)
         
     })
+    
     eyes2.addEventListener('click', () => {
 
         const html = `<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
@@ -43,6 +83,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         panel1.innerHTML = html
         
         sessionStorage.setItem('eye-choice', html)
+
         
     })
     eyes3.addEventListener('click', () => {
@@ -123,6 +164,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const page2ContainerHtml = 
 
     `
+ 
+    <div class="draggable panel" id="panel-5" draggable="true">
+
+
+    </div>
+
+    <div class="draggable panel" id="panel-5" draggable="true">
+
+
+    </div>
+
+
+    
+    
     <canvas id="drawingCanvas" width="650" height="300">
 
     <div class="draggable panel" id="panel-1" draggable="true">
@@ -167,41 +222,11 @@ function clearCanvas() {
 </script>
 </div>
 
+<div class="draggable panel" id="panel-6" draggable="true">
 
 
-    <div id="panel-container">
-
-        <div class="draggable panel" id="panel-2" draggable="true">
-
-            <div class="mini-panel" id="mini-panel-lg">
-                <img src="/Assets/sneaky-kitty-wall-sketch.png" alt="" id="wall-sneak">
-            </div>
-            <div class="mini-panel" id="mini-panel-bottom">
-                <img src="/Assets/package-rip.png" alt="" id="rip">
-            </div>
-            
-            <label id="text-select-label" for="text-select" class="text">Choose text:</label>
-            <select name="speech" id="text-select" class="text">
-                <option value="">--text--</option>
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="hamster">Hamster</option>
-                <option value="parrot">Parrot</option>
-                <option value="spider">Spider</option>
-                <option value="goldfish">Goldfish</option>
-            </select>
-            <div class="mini-panel"><img src="/Assets/mad-kitty-sketch.png" alt="" id="mad"></div>
-        </div>
-
-        <div id="small-container">
-            <div class="draggable panel" id="panel-3" draggable="true">
-                <img src="/Assets/chewy.png" alt="" id="knock">
-            </div>
-            <div class="draggable panel" id="panel-4" draggable="true">
-                <img id="zzz" src="/Assets/zzz-kitty-sketch.png" alt="">
-            </div>
-        </div>
-    </div>
+</div>
+    
 
     </div>`
 
@@ -219,7 +244,22 @@ function clearCanvas() {
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
             })
-    
+
+            buttons.innerHTML = `
+
+            <img id="eyes-1" class="body-button" src="/Assets/eye-filler.png" alt="">
+            
+            <img id="eyes-2" class="body-button" src="/Assets/eye-filler.png" alt="" >
+
+            <img id="eyes-3" class="body-button" src="/Assets/eye-filler.png" alt="" >
+
+            <img id="eyes-4" class="body-button" src="/Assets/eye-filler.png" alt="" >
+            
+            
+            `
+
+                    tutorial1.innerText = ''
+
                 
                 page2button.innerText = 'Page 1'
 
@@ -266,6 +306,14 @@ function setBrushColor(color) {
     ctx.strokeStyle = color;
 }
 
+document.getElementById('brushSize').addEventListener('input', function() {
+    setBrushSize(this.value);
+});
+
+document.getElementById('brushColor').addEventListener('input', function() {
+    setBrushColor(this.value);
+});
+
             
             return
             }
@@ -274,6 +322,22 @@ function setBrushColor(color) {
             // page1.innerHTML = page2html
 
             page2button.innerText = 'Page 2'
+
+            buttons.innerHTML = `
+
+            <img id="eyes-1" class="body-button" src="/Assets/Pensive-Kitty-Eyes.png" alt="">
+            
+            
+            
+            <img id="eyes-2" class="body-button" src="/Assets/Pensive-Kittey-Eyes-v2.png" alt="" >
+
+
+            <img id="eyes-3" class="body-button" src="/Assets/Pensive-Kitty-Eyes-Closed-Black.png" alt="" >
+
+            <img id="eyes-4" class="body-button" src="/Assets/Pensive-Kitty-devious-black.png" alt="" >
+            
+            
+            `
             
             return
 
@@ -353,9 +417,6 @@ function setBrushColor(color) {
                 </div>
             </div>`
     })
-
-   
-    
 
 })
 
