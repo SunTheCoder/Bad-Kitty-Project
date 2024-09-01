@@ -71,7 +71,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }, 4000)
         
     })
-    
     eyes2.addEventListener('click', () => {
 
         const html = `<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">

@@ -370,15 +370,16 @@ h3{
 #tutorial-1 {
     position: absolute;
     left: 465px;
-    font-family: monospace;
+    font-family: 'Comic Neue';
     font-size: large;
     text-align: left;
 }
 
 #tutorial-2 {
     position: absolute;
-    left: 865px;
-    font-family: monospace;
+    left: 860px;
+    top: 535px;
+    font-family: 'Comic Neue';
     font-size: large;
     text-align: left;
 }
@@ -386,8 +387,8 @@ h3{
 #tutorial-3 {
     position: absolute;
     left: 540px;
-    top: 928px;
-    font-family: monospace;
+    top: 923px;
+    font-family: 'Comic Neue';
     font-size: large;
     text-align: left;
 }
