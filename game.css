@@ -190,6 +190,7 @@ h3{
 }
 #eyes-4 {
     width:75%;
+    
 }
 #eyes-4-kitty {
     position: relative;
@@ -201,6 +202,10 @@ h3{
     
 }
 
+.side-eye {
+    opacity: 1;
+    transition: opacity 3s ease-in-out;
+}
 #happy-kitty-1 {
     display: block;
     position: absolute;
@@ -212,7 +217,7 @@ h3{
 }
 
 .body-button {
-    
+   
     cursor: pointer;
     padding-bottom: 30px;
 }

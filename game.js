@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     event.preventDefault()
 
+    const tutorials = Array.from(document.querySelectorAll('.tutorial'))
     const tutorial1 = document.getElementById('tutorial-1')
     const tutorial2 = document.getElementById('tutorial-2')
     const tutorial3 = document.getElementById('tutorial-3')
@@ -18,10 +19,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     const panel1 = document.getElementById('panel-1')
 
+    const eyeButtons = Array.from(document.querySelectorAll('.body-button'))
     const eyes1 = document.getElementById('eyes-1')
-    
     const eyes2 = document.getElementById('eyes-2')
-    
     const eyes3 = document.getElementById('eyes-3')
     const eyes4 = document.getElementById('eyes-4')
     
@@ -58,86 +58,39 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     // Start the inactivity timer
     inactivityTime();
+    
 
 
-
-    eyes1.addEventListener('click', () => {
+    eyeButtons.forEach(button => {button.addEventListener('click', (event) => { 
 
         
         const html = `<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
-
+        
         <img src="/Assets/thought-bubble-panel-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
         
-        <img id="eyes-1-kitty" class="body-button" src="/Assets/Pensive-Kitty-Eyes.png" alt="">`
-
-        panel1.innerHTML = html
-
-        sessionStorage.setItem('eye-choice', html)
-
-        tutorial1.innerText = 'Well done! Scroll to the next panel!'
-
-        setTimeout(() => {
-            tutorial1.style.opacity = 0
-        }, 5000)
+        <img id="eyes-1-kitty" class="body-button" src="${event.target.getAttribute('src')}" alt="">`
         
-    })
-    eyes2.addEventListener('click', () => {
-
-        const html = `<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
-
-        <img src="/Assets/thought-bubble-panel-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
-        
-        <img id="eyes-2-kitty" class="body-button" src="/Assets/Pensive-Kitty-Eyes-v2.png" alt="">`
-
         panel1.innerHTML = html
         
         sessionStorage.setItem('eye-choice', html)
 
-        tutorial1.innerText = 'Well done! Scroll to the next panel!'
-
-        setTimeout(() => {
-            tutorial1.style.opacity = 0
-        }, 5000)
-
         
-    })
-    eyes3.addEventListener('click', () => {
-        panel1.innerHTML =`<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
+        eyeButtons.forEach((eyes) => { eyes.style.opacity = 0});
 
-        <img src="/Assets/thought-bubble-panel-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
-        
-        <img id="eyes-3-kitty" class="body-button" src="/Assets/Pensive-Kitty-Eyes-Closed-White.png" alt="">`
-
-        panel1.innerHTML = html
-
-        sessionStorage.setItem('eye-choice', html)
 
         tutorial1.innerText = 'Well done! Scroll to the next panel!'
+        tutorial1.style.top = '15px'
 
         setTimeout(() => {
-            tutorial1.style.opacity = 0
-        }, 5000)
+                    tutorial1.style.opacity = 0
+                }, 5000)
+        })
+
 
     })
 
-    eyes4.addEventListener('click', () => {
-        panel1.innerHTML =`<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
 
-        <img src="/Assets/thought-bubble-panel-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
-        
-        <img id="eyes-4-kitty" class="body-button" src="/Assets/Pensive-Kitty-devious-white.png" alt="">`
-
-        panel1.innerHTML = html
-
-        sessionStorage.setItem('eye-choice', html)
-
-        tutorial1.innerText = 'Well done! Scroll to the next panel!'
-
-        setTimeout(() => {
-            tutorial1.style.opacity = 0
-        }, 5000)
-
-    })
+    
 
     treats.forEach((treat) => {
 
@@ -147,8 +100,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
             treats.filter((treat) => treat !== event.target).forEach((treat) => { treat.style.display = 'none' });
 
             tutorial2.innerText = 'Mmmmm! Kitty definitely likes that choice!'
-            tutorial2.style.top = '565px'
-            tutorial2.style.left = '830px'
+            tutorial2.style.top = '15px'
+            tutorial2.style.left = '420px'
 
             setTimeout(() => {
                 tutorial2.style.opacity = 0
@@ -159,15 +112,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     })
 
-    // treat.addEventListener('click', () => {
-    //     tutorial2.innerText = 'Great choice! Now go to the next panel!'
-
-    //     setTimeout(() => {
-    //         tutorial2.style.display = 'none'
-    //     }, 5000)
-    // });
-
-
+   
     
 
     page2button.addEventListener('click', () => {
@@ -297,6 +242,8 @@ function clearCanvas() {
 
     </div>`
 
+
+        //EXPAND ON CONDITION SO THAT PAGE IS DONE BEFORE PROGRESSING TO THE NEXT PAGE
         if (sessionStorage.getItem('eye-choice')) {
         counter++
 
@@ -324,8 +271,8 @@ function clearCanvas() {
             
             
             `
-
-                    tutorial1.innerText = ''
+                    tutorials.forEach((tutorial) => {tutorial.innerText = ''})
+                   
 
                 
                 page2button.innerText = 'Page 1'
