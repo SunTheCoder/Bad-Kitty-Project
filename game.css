@@ -93,7 +93,7 @@ h3{
 /* kitty surronding page */
 
 #face {
-    width: 30%;
+    width: 25%;
 }
 .paws {
     position: absolute;
@@ -426,8 +426,8 @@ h3{
 
 #tutorial-3 {
     position: absolute;
-    left: 540px;
-    top: 923px;
+    left: 110px;
+    top: 375px;
     font-family: 'Comic Neue';
     font-size: large;
     text-align: left;
