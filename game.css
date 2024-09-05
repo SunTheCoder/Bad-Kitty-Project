@@ -33,6 +33,7 @@ h3{
 }
 
 #page-1, #page-2 {
+    position: relative;
     width: 750px;
     background-color: white;
     display: flex;
@@ -57,14 +58,37 @@ h3{
     rotate: -90deg;
     top: 485px
 }
+
+#tuna-thought {
+    position: absolute;
+    
+    width: 15%;
+    top: 190px;
+    left: 590px;
+    rotate: 10deg;
+    z-index: 1;
+
+}
+
+#chicken-thought {
+    position: absolute;
+    width: 13%;
+    top: 220px;
+    left: 410px;
+    rotate: -70deg;
+    z-index: 1;
+
+}
+
 #treat-thought {
     /* display: block; */
-    position: relative;
+    position: absolute;
     /* text-align: center; */
     width: 8%;
-    top: 165px;
-    left: 20px;
+    top: 130px;
+    left: 520px;
     rotate: 10deg;
+    z-index: 1;
 }
 /* kitty surronding page */
 
@@ -73,17 +97,22 @@ h3{
 }
 .paws {
     position: absolute;
-    width: 12%;
+    width: 25%;
+    z-index: 1;
 }
 #right-paw {
-    left: 320px;
+    left: -90px;
+    
     rotate: -90deg;
-    top: 980px
+    transform: scaleY(-1);
+    transform: scaleX(-1);
+    
+    top: 420px
 }
 #left-paw {
-    right: 320px;
+    right: -90px;
     rotate: 90deg;
-    top: 660px
+    top: 330px
 }
 
 #head-1 {
@@ -140,7 +169,7 @@ h3{
 }
 #eyes-2-kitty {
     position: relative;
-    bottom: 368px;
+    bottom: 497px;
     right: 221px;
     width:15%;
 
@@ -174,10 +203,11 @@ h3{
 
 #happy-kitty-1 {
     display: block;
-    position: relative;
-    width: 25%;
+    position: absolute;
+    width: 10%;
     bottom: 513px;
-    left: 462px;
+    left: 810px;
+    top: 700px
 
 }
 
@@ -209,7 +239,7 @@ h3{
 #panel-1 {
     width: 656px;
     height: 300px;
-    /* margin-top: 50px; */
+    margin-top: 87px;
     border: 1px solid black;
     
 }
@@ -330,7 +360,9 @@ h3{
     display: flex;
     flex-direction: column;
     position: relative;
-    right: 195px;
+    font-family: 'Comic Neue';
+    right: 75px;
+    bottom: 15px;
     margin: 0;
     padding: 0;
 }
@@ -367,18 +399,26 @@ h3{
 
 /* tutorials */
 
+.tutorial {
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+}
+
 #tutorial-1 {
     position: absolute;
-    left: 465px;
+    left: 100px;
+    top: -15px;
     font-family: 'Comic Neue';
     font-size: large;
     text-align: left;
+
 }
 
 #tutorial-2 {
+    
     position: absolute;
-    left: 860px;
-    top: 535px;
+    left: 445px;
+    top: -15px;
     font-family: 'Comic Neue';
     font-size: large;
     text-align: left;

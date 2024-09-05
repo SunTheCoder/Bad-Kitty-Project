@@ -3,7 +3,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
     event.preventDefault()
 
     const tutorial1 = document.getElementById('tutorial-1')
+    const tutorial2 = document.getElementById('tutorial-2')
+    const tutorial3 = document.getElementById('tutorial-3')
 
+    const treat = document.getElementById('treat-thought')
+    const tunaCan = document.getElementById('tuna-thought')
+    const friedchicken = document.getElementById('chicken-thought')
+    const treats = Array.from(document.querySelectorAll('.treats'))
+    
+    
     const buttons = document.getElementById('buttons')
     
     const resetButton = document.getElementById('reset-button')
@@ -51,6 +59,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // Start the inactivity timer
     inactivityTime();
 
+
+
     eyes1.addEventListener('click', () => {
 
         
@@ -67,8 +77,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         tutorial1.innerText = 'Well done! Scroll to the next panel!'
 
         setTimeout(() => {
-            tutorial1.style.display = 'none'
-        }, 4000)
+            tutorial1.style.opacity = 0
+        }, 5000)
         
     })
     eyes2.addEventListener('click', () => {
@@ -83,6 +93,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
         
         sessionStorage.setItem('eye-choice', html)
 
+        tutorial1.innerText = 'Well done! Scroll to the next panel!'
+
+        setTimeout(() => {
+            tutorial1.style.opacity = 0
+        }, 5000)
+
         
     })
     eyes3.addEventListener('click', () => {
@@ -91,6 +107,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
         <img src="/Assets/thought-bubble-panel-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
         
         <img id="eyes-3-kitty" class="body-button" src="/Assets/Pensive-Kitty-Eyes-Closed-White.png" alt="">`
+
+        panel1.innerHTML = html
+
+        sessionStorage.setItem('eye-choice', html)
+
+        tutorial1.innerText = 'Well done! Scroll to the next panel!'
+
+        setTimeout(() => {
+            tutorial1.style.opacity = 0
+        }, 5000)
 
     })
 
@@ -101,18 +127,61 @@ window.addEventListener('DOMContentLoaded', (event) => {
         
         <img id="eyes-4-kitty" class="body-button" src="/Assets/Pensive-Kitty-devious-white.png" alt="">`
 
+        panel1.innerHTML = html
+
+        sessionStorage.setItem('eye-choice', html)
+
+        tutorial1.innerText = 'Well done! Scroll to the next panel!'
+
+        setTimeout(() => {
+            tutorial1.style.opacity = 0
+        }, 5000)
+
     })
+
+    treats.forEach((treat) => {
+
+        treat.addEventListener('click', (event) => {
+
+
+            treats.filter((treat) => treat !== event.target).forEach((treat) => { treat.style.display = 'none' });
+
+            tutorial2.innerText = 'Mmmmm! Kitty definitely likes that choice!'
+            tutorial2.style.top = '565px'
+            tutorial2.style.left = '830px'
+
+            setTimeout(() => {
+                tutorial2.style.opacity = 0
+            }, 5000)
+
+        });
+
+
+    })
+
+    // treat.addEventListener('click', () => {
+    //     tutorial2.innerText = 'Great choice! Now go to the next panel!'
+
+    //     setTimeout(() => {
+    //         tutorial2.style.display = 'none'
+    //     }, 5000)
+    // });
+
+
+    
 
     page2button.addEventListener('click', () => {
         
     const page1ContainerHtmlVar = 
         
     `<img src="/Assets/kitty-treat-bag.png" alt="" id="treat-thought">
+     <img src="/Assets/Tuna.png" alt="tuna" id="tuna-thought">
+     <img src="/Assets/friedchicken.png" alt="chicken" id="chicken-thought">
 
     <div class="draggable panel" id="panel-1" draggable="true">  
     
     ${sessionStorage.getItem('eye-choice')}
-    <img src="/Assets/happy-kitty-thought.png" alt="" id="happy-kitty-1" class="">
+    
 
         <img id="eyes-1-kitty" class="body-button" src="/Assets/Pensive-Kitty-Eyes.png" alt="" hidden>
 
@@ -132,6 +201,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 <img src="/Assets/sneaky-kitty-wall-sketch.png" alt="" id="wall-sneak">
             </div>
             <div class="mini-panel" id="mini-panel-bottom">
+        
                 <img src="/Assets/package-rip.png" alt="" id="rip">
             </div>
             
@@ -150,7 +220,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         <div id="small-container">
             <div class="draggable panel" id="panel-3" draggable="true">
-                <img src="/Assets/chewy.png" alt="" id="knock">
+                <img src="/Assets/questioning-kitty.png" alt="" id="knock">
             </div>
             <div class="draggable panel" id="panel-4" draggable="true">
                 <img id="zzz" src="/Assets/zzz-kitty-sketch.png" alt="">
@@ -174,8 +244,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     </div>
 
-
-    
     
     <canvas id="drawingCanvas" width="650" height="300">
 
@@ -359,9 +427,6 @@ document.getElementById('brushColor').addEventListener('input', function() {
             <img src="/Assets/thought-bubble-panel-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
 
             <img src="/Assets/happy-kitty-thought.png" alt="" id="happy-kitty-1" class="">
-
-
-
          
             <img id="eyes-1-kitty" class="body-button" src="/Assets/Pensive-Kitty-Eyes.png" alt="" hidden>
 
@@ -371,11 +436,6 @@ document.getElementById('brushColor').addEventListener('input', function() {
 
             <img id="eyes-4-kitty" class="body-button" src="/Assets/Pensive-Kitty-devious-white.png" alt="" hidden >
 
-            
-
-
-   
-           
 
         </div>
 
