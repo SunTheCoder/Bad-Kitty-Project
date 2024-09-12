@@ -27,6 +27,7 @@ body {
     justify-content: center;
     display: flex;
     align-items: center;
+    font-family: 'Comic Neue'
 }
 h3{
     margin-bottom: 60px;
@@ -93,7 +94,7 @@ h3{
 /* kitty surronding page */
 
 #face {
-    width: 25%;
+    width: 600px;
 }
 .paws {
     position: absolute;

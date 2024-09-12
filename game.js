@@ -75,7 +75,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
         sessionStorage.setItem('eye-choice', html)
 
         
-        eyeButtons.forEach((eyes) => { eyes.style.opacity = 0});
+        eyeButtons.filter((treat) => treat !== event.target).forEach((eyes) => { eyes.style.display = 'none' });
+
+        event.target.style.opacity = 0;
+        event.target.style.cursor = 'default';
 
 
         tutorial1.innerText = 'Well done! Scroll to the next panel!'
