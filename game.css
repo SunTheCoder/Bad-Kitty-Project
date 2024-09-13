@@ -457,3 +457,14 @@ html, body {
 
 
 
+#canvas-container {
+  position: relative;
+}
+
+/* #kitty-outline {
+    position: absolute;
+    width: 300px;
+    left: 270px;
+    top: 454px;
+    z-index: 0;
+} */

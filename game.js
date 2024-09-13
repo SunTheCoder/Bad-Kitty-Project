@@ -2,6 +2,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     event.preventDefault()
 
+    let lastVisibleTime = new Date().getTime();
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+            const currentTime = new Date().getTime();
+            const timeDifference = currentTime - lastVisibleTime;
+
+            // Check if the time difference is long enough to assume the device was asleep
+            if (timeDifference > 60000) {  // 60 seconds (adjust this as needed)
+                location.reload();  // Refresh the page
+            }
+        } else {
+            lastVisibleTime = new Date().getTime();  // Update the time when the page becomes hidden
+        }
+    });
+
+
     const tutorials = Array.from(document.querySelectorAll('.tutorial'))
     const tutorial1 = document.getElementById('tutorial-1')
     const tutorial2 = document.getElementById('tutorial-2')
@@ -204,6 +221,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     </div>
 
     
+    
     <canvas id="drawingCanvas" width="650" height="300">
 
     
@@ -212,6 +230,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         
         
     </canvas>
+
+    
 
     <div id="tools">
     <label for="brushSize">Brush Size:</label>
@@ -252,6 +272,19 @@ function clearCanvas() {
             clearCanvas.addEventListener('click', () => {
                 
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                    // Create a new image object on reset
+                    const img = new Image();
+
+                    // Set the source of the image
+                    img.src = "./Assets/Kitty-outline.png";
+                    img.id = "kitty-outline" // Replace with your image URL or path
+
+                    // Once the image is loaded, draw it on the canvas
+                    img.onload = function() {
+                        // Draw the image at x: 50, y: 50, and scale it to 300x200 pixels
+                        ctx.drawImage(img, 50, 20, 300, 280);
+                    };
                 
             })
 
@@ -372,16 +405,13 @@ document.getElementById('brushColor').addEventListener('input', function() {
 
             buttons.innerHTML = `
 
-            <img id="eyes-1" class="body-button" src="/Assets/Pensive-Kitty-Eyes.png" alt="">
+            <img id="eyes-1" class="body-button" src="/Assets/eye-filler.png" alt="">
             
-            
-            
-            <img id="eyes-2" class="body-button" src="/Assets/Pensive-Kittey-Eyes-v2.png" alt="" >
+            <img id="eyes-2" class="body-button" src="/Assets/eye-filler.png" alt="" >
 
+            <img id="eyes-3" class="body-button" src="/Assets/eye-filler.png" alt="" >
 
-            <img id="eyes-3" class="body-button" src="/Assets/Pensive-Kitty-Eyes-Closed-Black.png" alt="" >
-
-            <img id="eyes-4" class="body-button" src="/Assets/Pensive-Kitty-devious-black.png" alt="" >
+            <img id="eyes-4" class="body-button" src="/Assets/eye-filler.png" alt="" >
             
             
             `
