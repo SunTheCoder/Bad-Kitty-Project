@@ -195,27 +195,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     <canvas id="drawingCanvas" width="650" height="300">
 
-    <div class="draggable panel" id="panel-1" draggable="true">
-        
-        <img id="kitty-1" class="body" src="/Assets/" alt="">
-
-        <img src="/Assets/" alt="" id="thought-bubble-1" class="speech-bubble">
-
-        <img src="/Assets/" alt="" id="happy-kitty-1" class="">
     
-        <img id="eyes-1-kitty" class="body-button" src="/Assets/" alt="" hidden>
-
-        <img id="eyes-2-kitty" class="body-button" src="/Assets/" alt="" hidden >
-
-        <img id="eyes-3-kitty" class="body-button" src="/Assets/" alt="" hidden >
-
-        <img id="eyes-4-kitty" class="body-button" src="/Assets/" alt="" hidden >
-
-        <div id="drawing-container">
-        </div>
         
-        
-        </div>
 
         
         
@@ -237,8 +218,9 @@ function clearCanvas() {
 </script>
 </div>
 
-<div class="draggable panel" id="panel-6" draggable="true">
+<div id="panel-6" class="draggable panel" >
 
+    <img src="/Assets/zzz-treats.png" alt="satisfied kitty" id="kitty-satisfied">
 
 </div>
     
@@ -283,6 +265,19 @@ function clearCanvas() {
 // Get the canvas and context
 const canvas = document.getElementById('drawingCanvas');
 const ctx = canvas.getContext('2d');
+
+// Create a new image object
+const img = new Image();
+
+// Set the source of the image
+img.src = "./Assets/Kitty-outline.png";
+img.id = "kitty-outline" // Replace with your image URL or path
+
+// Once the image is loaded, draw it on the canvas
+img.onload = function() {
+    // Draw the image at x: 50, y: 50, and scale it to 300x200 pixels
+    ctx.drawImage(img, 50, 20, 300, 280);
+};
 
 // Variables to manage drawing state
 let drawing = false;
