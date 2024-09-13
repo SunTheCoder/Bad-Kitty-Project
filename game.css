@@ -442,7 +442,7 @@ h3{
 
 
 /* Media query for screens 768px or less */
-@media (max-width: 768px) {
+@media (max-width: 770px) {
     /* Center the page content */
     #page-1, #page-2 {
         width: 90%; /* Take up 90% of the screen width */
