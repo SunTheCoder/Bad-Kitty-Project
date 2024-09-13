@@ -291,71 +291,62 @@ let drawing = false;
 ctx.lineWidth = 5;
 ctx.strokeStyle = '#000000'; // default black color
 
-// Function to start drawing
-function startDrawing(event) {
-    drawing = true;
-
-    // Prevent scrolling when touching the canvas
-    event.preventDefault();
-
-    // Handle both touch and mouse events
-    if (event.type === 'mousedown') {
-        ctx.beginPath();
-        ctx.moveTo(event.offsetX, event.offsetY);
-    } else if (event.type === 'touchstart') {
-        const touch = event.touches[0];
-        const rect = canvas.getBoundingClientRect();
-        ctx.beginPath();
-        ctx.moveTo(touch.clientX - rect.left, touch.clientY - rect.top);
-    }
-}
-
-// Function to draw on the canvas
-function draw(event) {
-    if (!drawing) return;
-
-    // Prevent scrolling when touching the canvas
-    event.preventDefault();
-
-    // Handle both touch and mouse events
-    if (event.type === 'mousemove') {
-        ctx.lineTo(event.offsetX, event.offsetY);
-        ctx.stroke();
-    } else if (event.type === 'touchmove') {
-        const touch = event.touches[0];
-        const rect = canvas.getBoundingClientRect();
-        ctx.lineTo(touch.clientX - rect.left, touch.clientY - rect.top);
-        ctx.stroke();
-    }
-}
-
-// Function to stop drawing
-function stopDrawing() {
-    drawing = false;
-    ctx.closePath(); // End the drawing path
-}
-
-// Mouse and touch event listeners for drawing
+// Event listeners for drawing
 canvas.addEventListener('mousedown', startDrawing);
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', stopDrawing);
 canvas.addEventListener('mouseout', stopDrawing);
-
 canvas.addEventListener('touchstart', startDrawing);
 canvas.addEventListener('touchmove', draw);
 canvas.addEventListener('touchend', stopDrawing);
 
-// Function to set brush size
+function startDrawing(e) {
+    drawing = true;
+    event.preventDefault();
+                    const pos = getEventPos(event);
+    ctx.beginPath();
+    ctx.moveTo(e.offsetX, e.offsetY);
+}
+
+function draw(event) {
+    if (!drawing) return;
+    event.preventDefault();
+    const pos = getEventPos(event);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+}
+
+function stopDrawing() {
+    drawing = false;
+    ctx.closePath();
+}
+
+// Get correct coordinates for touch or mouse events
+function getEventPos(event) {
+    const rect = canvas.getBoundingClientRect();
+    if (event.touches) {
+        return {
+            x: event.touches[0].clientX - rect.left,
+            y: event.touches[0].clientY - rect.top
+        };
+    } else {
+        return {
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top
+        };
+    }
+}
+
+
+// Example tool functions to change brush size and color
 function setBrushSize(size) {
     ctx.lineWidth = size;
 }
 
-// Function to set brush color
 function setBrushColor(color) {
     ctx.strokeStyle = color;
 }
 
-// Add event listeners for brush size and color changes
 document.getElementById('brushSize').addEventListener('input', function() {
     setBrushSize(this.value);
 });
@@ -363,12 +354,6 @@ document.getElementById('brushSize').addEventListener('input', function() {
 document.getElementById('brushColor').addEventListener('input', function() {
     setBrushColor(this.value);
 });
-
-// Example tool functions to change brush size and color
-function clearCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
-
 
             
             return
