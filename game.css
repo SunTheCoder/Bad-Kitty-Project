@@ -1,6 +1,7 @@
 /* panel code */
 
 body {
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +13,7 @@ body {
         rgb(251, 252, 244) 100px,
         rgb(251, 252, 244) 200px
     );
-    
+    padding: 10px;
 }
 
 .body {
@@ -437,4 +438,51 @@ h3{
     font-family: 'Comic Neue';
     font-size: large;
     text-align: left;
+}
+
+
+/* Media query for screens 768px or less */
+@media (max-width: 768px) {
+    /* Center the page content */
+    #page-1, #page-2 {
+        width: 90%; /* Take up 90% of the screen width */
+        padding-right: 20px; /* Reduce padding */
+        padding-bottom: 20px; /* Reduce padding */
+    }
+
+    /* Adjust font sizes for better readability */
+    h1, h2, h3 {
+        font-size: 1.5rem; /* Smaller headings on small screens */
+    }
+
+    /* Adjust image and element sizes to scale properly */
+    .paws {
+        width: 15%; /* Smaller paws on smaller screens */
+    }
+
+    #kitty-1, #kitty-2 {
+        width: 45%; /* Make kitty images smaller */
+    }
+
+    /* Reduce size of thought bubbles and other absolute-positioned elements */
+    #tuna-thought, #chicken-thought, #treat-thought {
+        width: 20%; /* Make the thought bubbles smaller */
+    }
+
+    /* Adjust panels to be more flexible */
+    #panel-1, #panel-2, #panel-3, #panel-4, #panel-5, #panel-6 {
+        width: 90%; /* Full-width on smaller screens */
+        height: auto; /* Let the height adjust automatically */
+        margin: 10px auto; /* Center the panels */
+    }
+
+    /* Adjust text select dropdown */
+    #text-select {
+        width: 100%; /* Full width for dropdowns */
+    }
+
+    /* Adjust other images */
+    #zzz, #wall-sneak, #rip, #mad, #knock {
+        width: 100%; /* Make all images responsive */
+    }
 }
