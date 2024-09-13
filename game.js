@@ -345,6 +345,31 @@ canvas.addEventListener('touchstart', startDrawing);
 canvas.addEventListener('touchmove', draw);
 canvas.addEventListener('touchend', stopDrawing);
 
+// Function to set brush size
+function setBrushSize(size) {
+    ctx.lineWidth = size;
+}
+
+// Function to set brush color
+function setBrushColor(color) {
+    ctx.strokeStyle = color;
+}
+
+// Add event listeners for brush size and color changes
+document.getElementById('brushSize').addEventListener('input', function() {
+    setBrushSize(this.value);
+});
+
+document.getElementById('brushColor').addEventListener('input', function() {
+    setBrushColor(this.value);
+});
+
+// Example tool functions to change brush size and color
+function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+
             
             return
             }
