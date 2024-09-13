@@ -191,17 +191,13 @@ h3{
     
 }
 #eyes-4 {
-    width:75%;
-    
+    width:75%;    
 }
 #eyes-4-kitty {
     position: relative;
     bottom: 361px;
     right: 222px;
     width:15%;
-
-
-    
 }
 
 .side-eye {
@@ -439,7 +435,6 @@ h3{
     font-size: large;
     text-align: left;
 }
-
 
 html, body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
