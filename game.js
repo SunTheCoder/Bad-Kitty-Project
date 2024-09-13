@@ -100,6 +100,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
         treat.addEventListener('click', (event) => {
 
 
+            // Storing multiple attributes
+            const treatChoice = {
+                src: event.target.getAttribute('src'),
+                id: event.target.getAttribute('id'), // Add other attributes like 'alt' if needed
+                class: event.target.getAttribute('class') // Add other classes if needed
+
+            };
+
+            sessionStorage.setItem('treat-choice', JSON.stringify(treatChoice));
+
             treats.filter((treat) => treat !== event.target).forEach((treat) => { treat.style.display = 'none' });
 
             tutorial2.innerText = 'Mmmmm! Kitty definitely likes that choice!'
@@ -115,16 +125,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     })
 
+    
    
     
-
     page2button.addEventListener('click', () => {
+    // Retrieving the stored attributes
+    const storedChoice = JSON.parse(sessionStorage.getItem('treat-choice'));
         
     const page1ContainerHtmlVar = 
         
-    `<img src="/Assets/kitty-treat-bag.png" alt="" id="treat-thought">
-     <img src="/Assets/Tuna.png" alt="tuna" id="tuna-thought">
-     <img src="/Assets/friedchicken.png" alt="chicken" id="chicken-thought">
+    `<img id=${storedChoice.id} class=${storedChoice.class} src=${storedChoice.src}>
+    
 
     <div class="draggable panel" id="panel-1" draggable="true">  
     
@@ -229,7 +240,7 @@ function clearCanvas() {
 
 
         //EXPAND ON CONDITION SO THAT PAGE IS DONE BEFORE PROGRESSING TO THE NEXT PAGE
-        if (sessionStorage.getItem('eye-choice')) {
+        if (sessionStorage.getItem('eye-choice') && sessionStorage.getItem('treat-choice')) {
         counter++
 
             if (counter % 2 === 0) {
