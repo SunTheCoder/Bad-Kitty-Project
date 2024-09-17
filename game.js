@@ -204,7 +204,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 <img src="/Assets/questioning-kitty.png" alt="" id="knock">
             </div>
             <div class="draggable panel" id="panel-4" draggable="true">
-                <img id="zzz" src="/Assets/zzz-kitty-sketch.png" alt="">
+                <img id="zzz" src="" alt="">
             </div>
         </div>
     </div>
