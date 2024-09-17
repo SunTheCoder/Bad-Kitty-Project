@@ -471,17 +471,17 @@ html, body {
 } */
 
 #comic-output {
-    font-family: 'Comic Sans MS', 'Bangers', cursive;
-    font-size: 32px;
+    font-family: 'Bangers';
+    font-size: 100px;
+    rotate: -25deg;
     color: #000;
     text-shadow: 2px 2px #f00, -2px -2px #ff0;
-    background: #fff;
-    padding: 10px;
-    border-radius: 5px;
+    
     max-width: 400px;
-    margin-top: 10px;
-    /* z-index: 1000; /* Ensure it's above any other elements */
-    /* position: relative;  */
+    left: 25px;
+    bottom:300px;
+    z-index: 1000; /* Ensure it's above any other elements */
+    position: absolute; 
 }
 
 #comic-text {
