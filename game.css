@@ -487,13 +487,15 @@ html, body {
 #comic-text {
     z-index: 1000; /* Ensure it's above any other elements */
     position: relative;
-    right: 75px
+    right: 114px;
+    
+    
 }
 
 #add-text {
     z-index: 1000; /* Ensure it's above any other elements */
     position: relative;
-    right: 250px;
+    right: 284px;
     top: 70px;
     
 }
@@ -504,7 +506,7 @@ html, body {
 #reset-text {
     z-index: 1000; /* Ensure it's above any other elements */
     position: relative;
-    right: 157px;
+    right: 197px;
     top: 80px;
 }
 #comic-text-fun {
