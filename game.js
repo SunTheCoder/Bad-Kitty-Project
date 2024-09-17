@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
+    const addText = document.getElementById('add-text')
 
     const tutorials = Array.from(document.querySelectorAll('.tutorial'))
     const tutorial1 = document.getElementById('tutorial-1')
@@ -76,7 +77,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // Start the inactivity timer
     inactivityTime();
     
+    //text area
+    addText.addEventListener('click', (event) => {
 
+        event.preventDefault()
+
+        const userInput = document.getElementById('comic-text').value;
+        const comicOutput = document.getElementById('comic-output');
+        
+        // Apply the comic style
+        comicOutput.innerText = userInput;
+        
+        // Optionally clear the input field after adding the text
+        document.getElementById('comic-text').value = '';
+    });
+    
 
     eyeButtons.forEach(button => {button.addEventListener('click', (event) => { 
 

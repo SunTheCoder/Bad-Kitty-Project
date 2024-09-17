@@ -469,3 +469,32 @@ html, body {
     top: 454px;
     z-index: 0;
 } */
+
+#comic-output {
+    font-family: 'Comic Sans MS', 'Bangers', cursive;
+    font-size: 32px;
+    color: #000;
+    text-shadow: 2px 2px #f00, -2px -2px #ff0;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 400px;
+    margin-top: 10px;
+    /* z-index: 1000; /* Ensure it's above any other elements */
+    /* position: relative;  */
+}
+
+#comic-text {
+    z-index: 1000; /* Ensure it's above any other elements */
+    position: relative;
+}
+
+#add-text {
+    z-index: 1000; /* Ensure it's above any other elements */
+    position: relative;
+    
+}
+#add-text:hover {
+    cursor: pointer;
+    
+}
