@@ -19,6 +19,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 
     const addText = document.getElementById('add-text')
+    const comicText = document.getElementById('comic-text')
 
     const tutorials = Array.from(document.querySelectorAll('.tutorial'))
     const tutorial1 = document.getElementById('tutorial-1')
@@ -78,9 +79,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
     inactivityTime();
     
     //text area
+    let addTextCounter = 0
     addText.addEventListener('click', (event) => {
-
         event.preventDefault()
+        
+        if (document.getElementById('comic-text').value.length <= 5) {
+        
+        addTextCounter++;
 
         const userInput = document.getElementById('comic-text').value;
         const comicOutput = document.getElementById('comic-output');
@@ -90,6 +95,25 @@ window.addEventListener('DOMContentLoaded', (event) => {
         
         // Optionally clear the input field after adding the text
         document.getElementById('comic-text').value = '';
+        document.getElementById('comic-text').style.opacity = '0';
+        addText.style.opacity = '0';
+        } else {
+            alert('You can only add up to 5 characters to the comic.')
+        }
+    });
+    
+    document.getElementById('reset-text').addEventListener('click', () => {
+        // Reset the counter
+        addTextCounter = 0;
+    
+        // Clear the comic output
+        document.getElementById('comic-output').innerText = '';
+    
+        // Show the input field again and reset its value
+        document.getElementById('comic-text').style.opacity = '1';
+        document.getElementById('comic-text').value = '';
+        addText.style.opacity = '1';
+
     });
     
 
