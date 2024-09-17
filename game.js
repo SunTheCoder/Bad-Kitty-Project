@@ -179,7 +179,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         <div class="draggable panel" id="panel-2" draggable="true">
 
             <div class="mini-panel" id="mini-panel-lg">
-                <img src="/Assets/sneaky-kitty-wall-sketch.png" alt="" id="wall-sneak">
+                <img src="/Assets/sneaky-kitty-sketch.png" alt="" id="wall-sneak">
             </div>
             <div class="mini-panel" id="mini-panel-bottom">
         
