@@ -125,6 +125,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
             };
 
+            console.log(treatChoice);
+
             sessionStorage.setItem('treat-choice', JSON.stringify(treatChoice));
 
             treats.filter((treat) => treat !== event.target).forEach((treat) => { treat.style.display = 'none' });
@@ -146,6 +148,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
    
     
     page2button.addEventListener('click', () => {
+
+    if (sessionStorage.getItem('eye-choice') && sessionStorage.getItem('treat-choice')) {
+        counter++
     // Retrieving the stored attributes
     const storedChoice = JSON.parse(sessionStorage.getItem('treat-choice'));
         
@@ -260,8 +265,7 @@ function clearCanvas() {
 
 
         //EXPAND ON CONDITION SO THAT PAGE IS DONE BEFORE PROGRESSING TO THE NEXT PAGE
-        if (sessionStorage.getItem('eye-choice') && sessionStorage.getItem('treat-choice')) {
-        counter++
+      
 
             if (counter % 2 === 0) {
                 // page1.innerHTML = page1html
@@ -419,7 +423,8 @@ document.getElementById('brushColor').addEventListener('input', function() {
             return
 
         } else {
-            alert('Must make a selection before going to page 2')
+            console.log('Selections not made'); // Add this to verify if the condition fails
+            alert('Must make all selections before going to page 2');
         }
 
     })
