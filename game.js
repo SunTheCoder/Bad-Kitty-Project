@@ -84,6 +84,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         event.preventDefault()
         
         if (document.getElementById('comic-text').value.length <= 5) {
+
+        sessionStorage.setItem('comic-word-choice', document.getElementById('comic-text').value);
+        console.log('Comic word choice:', sessionStorage.getItem('comic-word-choice'));
         
         addTextCounter++;
 
