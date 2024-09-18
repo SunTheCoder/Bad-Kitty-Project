@@ -502,19 +502,10 @@ document.getElementById('brushColor').addEventListener('input', function() {
                     <img src="/Assets/package-rip.png" alt="" id="rip">
                 </div>
                 
-                <p id="p-text" class="text"> I am a hungry kitty 
-                <label id="text-select-label" for="text-select" class="text"></label>
-                <select name="speech" id="text-select" class="text">
-                    <option value="">--text--</option>
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="hamster">Hamster</option>
-                    <option value="parrot">Parrot</option>
-                    <option value="spider">Spider</option>
-                    <option value="goldfish">Goldfish</option>
-                </select>
-                so hungry i am
-                </p> 
+                <textarea id="comic-text" placeholder="Type your comic text here"></textarea>
+                        <button id="add-text" type="button">Add Text</button>
+                        <button id="reset-text">Reset Text</button>
+                        <div id="comic-output"></div>
 
                 <div class="mini-panel"><img src="/Assets/mad-kitty-sketch.png" alt="" id="mad"></div>
             </div>
