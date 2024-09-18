@@ -191,7 +191,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     page2button.addEventListener('click', () => {
 
-    if (sessionStorage.getItem('eye-choice') && sessionStorage.getItem('treat-choice')) {
+    if (sessionStorage.getItem('eye-choice') && sessionStorage.getItem('treat-choice') && sessionStorage.getItem('comic-word-choice')){
         counter++
     // Retrieving the stored attributes
     const storedChoice = JSON.parse(sessionStorage.getItem('treat-choice'));
@@ -228,16 +228,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 <img src="/Assets/package-rip.png" alt="" id="rip">
             </div>
             
-            <label id="text-select-label" for="text-select" class="text">Choose text:</label>
-            <select name="speech" id="text-select" class="text">
-                <option value="">--text--</option>
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="hamster">Hamster</option>
-                <option value="parrot">Parrot</option>
-                <option value="spider">Spider</option>
-                <option value="goldfish">Goldfish</option>
-            </select>
+            <textarea id="comic-text" style="opacity: 0" placeholder="Type your comic text here"></textarea>
+                        <button id="add-text" style="opacity: 0" type="button">Add Text</button>
+                        <button id="reset-text"style="opacity: 0" >Reset Text</button>
+                        <div id="comic-output">${sessionStorage.getItem('comic-word-choice')}</div>
+
             <div class="mini-panel"><img src="/Assets/mad-kitty-sketch.png" alt="" id="mad"></div>
         </div>
 
