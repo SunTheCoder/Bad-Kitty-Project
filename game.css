@@ -443,6 +443,16 @@ h3{
     text-align: left;
 }
 
+#tutorial-4 {
+    position: absolute;
+    left: 200px;
+    bottom: -240px;
+    font-family: 'Comic Neue';
+    font-size: large;
+    text-align: center;
+    
+}
+
 html, body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
