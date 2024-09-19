@@ -87,6 +87,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         sessionStorage.setItem('comic-word-choice', document.getElementById('comic-text').value);
         console.log('Comic word choice:', sessionStorage.getItem('comic-word-choice'));
+
+        tutorial3.innerHTML = 'Ooooh. <br> Pretty text! <br> Nice!!'
+        tutorial3.style.bottom = '360px'
+        
+
+            setTimeout(() => {
+                tutorial3.style.opacity = 0
+            }, 2000)
         
         addTextCounter++;
 
@@ -109,6 +117,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // Reset the counter
         addTextCounter = 0;
     
+        tutorial3.innerHTML = 'Create <br> your own <br> comic text. <br> ↓↓'
+        tutorial3.style.opacity = 1
+        tutorial3.style.bottom = '375px'
+        
         // Clear the comic output
         document.getElementById('comic-output').innerText = '';
     
