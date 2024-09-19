@@ -436,8 +436,8 @@ h3{
 
 #tutorial-3 {
     position: absolute;
-    left: 110px;
-    top: 375px;
+    left: 5px;
+    bottom: 375px;
     font-family: 'Comic Neue';
     font-size: large;
     text-align: left;
