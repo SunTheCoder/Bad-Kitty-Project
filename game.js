@@ -203,6 +203,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     page2button.addEventListener('click', () => {
 
+     // Check if the dialog has been shown before
+     if (!sessionStorage.getItem('page2DialogShown')) {
+        // Show the confirmation dialog
+        const userConfirmed = window.confirm('Your changes will be saved, and you won’t be able to change your selections. Are you sure you want to move to Page 2?');
+
+        // If the user confirms, proceed to page 2
+        if (!userConfirmed) {
+            // User clicked 'No', don't proceed
+            return;
+        }
+
+        // Set a flag in sessionStorage to prevent showing the dialog again
+        sessionStorage.setItem('page2DialogShown', 'true');
+    }
+
     if (sessionStorage.getItem('eye-choice') && sessionStorage.getItem('treat-choice') && sessionStorage.getItem('comic-word-choice')){
         counter++
     // Retrieving the stored attributes
