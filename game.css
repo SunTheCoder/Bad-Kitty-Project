@@ -82,6 +82,10 @@ h3{
 
 }
 
+.treats {
+    cursor: pointer;
+}
+
 #treat-thought {
     /* display: block; */
     position: absolute;
@@ -162,6 +166,7 @@ h3{
     bottom: 495px;
     right: 221px;
     width:15%;
+    cursor: default
 
 
     

@@ -18,6 +18,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
+    const page1 = document.getElementById('page1');
+
     const addText = document.getElementById('add-text')
     const comicText = document.getElementById('comic-text')
 
@@ -193,6 +195,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 tutorial2.style.opacity = 0
             }, 5000)
 
+            event.target.style.cursor = 'default';
+
         });
 
 
@@ -206,6 +210,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         
         if (sessionStorage.getItem('eye-choice') && sessionStorage.getItem('treat-choice') && sessionStorage.getItem('comic-word-choice')){
             counter++
+
+            sessionStorage.setItem('page1HTML', JSON.stringify(document.getElementById('container').innerHTML));
+
             // Check if the dialog has been shown before
             if (!sessionStorage.getItem('page2DialogShown')) {
                // Show the confirmation dialog
