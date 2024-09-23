@@ -639,10 +639,10 @@ document.getElementById('brushColor').addEventListener('input', function() {
         link2.click();
     
         // QR code generation (if needed)
-        const qr = qrcode(0, 'L');
-        qr.addData('Here could be a URL to download images or info');
-        qr.make();
-        document.getElementById('qrCanvas').innerHTML = qr.createImgTag(6); // Size of QR code
+        // const qr = qrcode(0, 'L');
+        // qr.addData('Here could be a URL to download images or info');
+        // qr.make();
+        // document.getElementById('qrCanvas').innerHTML = qr.createImgTag(6); // Size of QR code
     });
 
 })
