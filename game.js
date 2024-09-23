@@ -217,6 +217,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 paw.style.opacity = '0';
             })
 
+            tutorials.forEach(tutorial => {
+                tutorial.style.opacity = '0';
+            });
+
             allButtons.forEach(button => {
                 button.style.opacity = '0'
                 
@@ -229,6 +233,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 button.style.opacity = '1';
                 
             })
+
+            tutorials.forEach(tutorial => {
+                tutorial.style.opacity = '1';
+            });
 
             // Check if the dialog has been shown before
             if (!sessionStorage.getItem('page2DialogShown')) {
@@ -500,7 +508,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
             })
 
             allButtons.forEach(button => {
-                button.style.display = 'block';
+                button.style.opacity = '1';
             })
 
             page2button.innerText = 'Page 2'
@@ -631,10 +639,10 @@ document.getElementById('brushColor').addEventListener('input', function() {
         link2.click();
     
         // QR code generation (if needed)
-        // const qr = qrcode(0, 'L');
-        // qr.addData('Here could be a URL to download images or info');
-        // qr.make();
-        // document.getElementById('qrCanvas').innerHTML = qr.createImgTag(6); // Size of QR code
+        const qr = qrcode(0, 'L');
+        qr.addData('Here could be a URL to download images or info');
+        qr.make();
+        document.getElementById('qrCanvas').innerHTML = qr.createImgTag(6); // Size of QR code
     });
 
 })
