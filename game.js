@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    const page1 = document.getElementById('page1');
+    const qr = document.getElementById('qrCanvas');
 
     const addText = document.getElementById('add-text')
     const comicText = document.getElementById('comic-text')
@@ -32,11 +32,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const tunaCan = document.getElementById('tuna-thought')
     const friedchicken = document.getElementById('chicken-thought')
     const treats = Array.from(document.querySelectorAll('.treats'))
+    const paws = Array.from(document.querySelectorAll('.paws'))
     
     
     const buttons = document.getElementById('buttons')
     
     const resetButton = document.getElementById('reset-button')
+    const saveButton = document.getElementById('save-button')
 
     const panel1 = document.getElementById('panel-1')
 
@@ -211,7 +213,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
         if (sessionStorage.getItem('eye-choice') && sessionStorage.getItem('treat-choice') && sessionStorage.getItem('comic-word-choice')){
             counter++
 
+            paws.forEach(paw => {
+                paw.style.display = 'none';
+            })
+
             sessionStorage.setItem('page1HTML', JSON.stringify(document.getElementById('container').innerHTML));
+            console.log(JSON.parse(sessionStorage.getItem('page1HTML')));
 
             // Check if the dialog has been shown before
             if (!sessionStorage.getItem('page2DialogShown')) {
@@ -226,6 +233,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
        
                // Set a flag in sessionStorage to prevent showing the dialog again
                sessionStorage.setItem('page2DialogShown', 'true');
+               saveButton.style.display = 'block';
+               qr.style.display = 'block';
            }
     // Retrieving the stored attributes
     const storedChoice = JSON.parse(sessionStorage.getItem('treat-choice'));
@@ -331,6 +340,7 @@ function clearCanvas() {
 
 </div>
     
+
 
     </div>`
 
@@ -475,6 +485,9 @@ document.getElementById('brushColor').addEventListener('input', function() {
             
             pageContainer.innerHTML = page1ContainerHtmlVar
             // page1.innerHTML = page2html
+            paws.forEach(paw => {
+                paw.style.display = 'block';
+            })
 
             page2button.innerText = 'Page 2'
 
@@ -553,6 +566,61 @@ document.getElementById('brushColor').addEventListener('input', function() {
                 </div>
             </div>`
     })
+
+
+    saveButton.addEventListener('click', async () => {
+
+        paws.forEach(paw => {
+            paw.style.display = 'none';
+        })
+        
+        // Retrieve the HTML string from sessionStorage
+        const page1HTML = JSON.parse(sessionStorage.getItem('page1HTML'));
+
+        // Create a new div and insert the saved HTML into it
+        const page1Container = document.createElement('div');
+        page1Container.innerHTML = page1HTML;
+        document.body.appendChild(page1Container);  // Append to the body (or any other container)
+
+        // Add CSS styles to make sure the container is rendered correctly before capturing
+        page1Container.style.position = 'absolute';  // Ensure the div is visible on screen
+        page1Container.style.zIndex = '-1';  // Hide it visually but keep it in the DOM
+
+        // Now capture the newly created container
+        const page1Canvas = await html2canvas(page1Container);
+        const page1Image = page1Canvas.toDataURL('image/png');
+
+        // Remove the temporary container after capturing it
+        document.body.removeChild(page1Container);
+
+        // Create and trigger a download link for the image
+        const link1 = document.createElement('a');
+        link1.href = page1Image;
+        link1.download = 'page1.png';
+        link1.click();
+        
+        // Capture page 2
+
+        
+        const page2 = document.getElementById('page-1');
+        const page2Canvas = await html2canvas(page2);
+        const page2Image = page2Canvas.toDataURL('image/png');
+    
+        // Save images (you can save them programmatically, or show them to the user)
+        
+    
+        const link2 = document.createElement('a');
+        link2.href = page2Image;
+        link2.download = 'page2.png';
+        link2.click();
+    
+        // Generate QR code for saving
+        const qr = qrcode(0, 'L');
+        qr.addData('Here could be a URL to download images or info');
+        qr.make();
+    
+        document.getElementById('qrCanvas').innerHTML = qr.createImgTag(6); // Size of QR code
+      });
 
 })
 

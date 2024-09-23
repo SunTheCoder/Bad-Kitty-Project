@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/game.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
     <script src="/game.js"></script>
     
     <title>Bad Kitty Makes Comics!</title>
@@ -146,6 +148,9 @@
    
     <button id="page-2-button" type="button"><a >Page 2</button>
     <button onclick="location.reload();" id="reset-button" type="button"><a >Reset</button>
+    
+    <button id="save-button" style="display: none">Save Pages</button>
+    <canvas id="qrCanvas" style="display: none"></canvas>
         
 </div>
     
