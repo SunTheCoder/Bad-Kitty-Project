@@ -227,8 +227,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 
             })
 
+            document.getElementById('qrContainer').style.display = 'none';
+
             sessionStorage.setItem('page1HTML', JSON.stringify(document.getElementById('container').innerHTML));
             console.log(JSON.parse(sessionStorage.getItem('page1HTML')));
+
+            document.getElementById('qrContainer').style.display = 'block';
+
 
             allButtons.forEach(button => {
                 button.style.opacity = '1';
