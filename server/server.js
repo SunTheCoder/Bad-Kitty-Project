@@ -16,6 +16,7 @@ app.use(express.json({ limit: '50mb' }));
 
 // Route to handle uploading images to S3
 app.post('/upload-images', async (req, res) => {
+    console.log('Request Body:', req.body);
     try {
         const { page1, page2 } = req.body;
 
