@@ -633,7 +633,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
     document.body.removeChild(page1Container);
 
     // Capture page 2
-    const page2 = document.getElementById('page-1');
+    const page2 = document.getElementById('container');
 
     // Wait for images in page2 to load
     await Promise.all(
