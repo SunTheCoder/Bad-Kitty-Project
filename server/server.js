@@ -9,16 +9,24 @@ require('dotenv').config();
 const PORT = process.env.PORT || 3000 // Render will set PORT in production
 
 // Enable CORS for all routes and origins
-app.use(cors());
+app.use(cors({
+    origin: '*',  // Allow all origins (you can restrict this in production)
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+}));
 
 // Middleware to parse JSON and handle large payloads
-app.use(express.json({ limit: '50mb' }));
+app.use(express.json({ limit: '100mb' }));
 
 // Route to handle uploading images to S3
-app.post('/upload-images', async (req, res) => {
+app.post('/upload-images', upload.none(), async (req, res) => {
     console.log('Request Body:', req.body);
     try {
         const { page1, page2 } = req.body;
+
+        if (!page1 || !page2) {
+            return res.status(400).json({ error: 'Missing image data' });
+        }
 
         // Convert base64 to Buffer (needed for S3 upload)
         const page1Buffer = Buffer.from(page1.replace(/^data:image\/png;base64,/, ''), 'base64');
