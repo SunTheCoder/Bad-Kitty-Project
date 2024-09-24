@@ -18,7 +18,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    const qr = document.getElementById('qrCanvas');
+    // const qr = document.getElementById('qrCanvas');
+    // const qr2 = document.getElementById('qrCanvas3');
 
     const addText = document.getElementById('add-text')
     const comicText = document.getElementById('comic-text')
@@ -238,6 +239,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 tutorial.style.opacity = '1';
             });
 
+            
+
+
             // Check if the dialog has been shown before
             if (!sessionStorage.getItem('page2DialogShown')) {
                // Show the confirmation dialog
@@ -252,7 +256,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                // Set a flag in sessionStorage to prevent showing the dialog again
                sessionStorage.setItem('page2DialogShown', 'true');
                saveButton.style.display = 'block';
-               qr.style.display = 'block';
+            //    qr.style.display = 'block';
            }
     // Retrieving the stored attributes
     const storedChoice = JSON.parse(sessionStorage.getItem('treat-choice'));
@@ -358,6 +362,7 @@ function clearCanvas() {
 
 </div>
     
+
 
 
     </div>`
@@ -591,59 +596,99 @@ document.getElementById('brushColor').addEventListener('input', function() {
 
 
     saveButton.addEventListener('click', async () => {
-        paws.forEach(paw => {
-            paw.style.opacity = '0';
-        });
-    
-        // Retrieve the HTML string from sessionStorage
-        const page1HTML = JSON.parse(sessionStorage.getItem('page1HTML'));
-    
-        // Create a new div and insert the saved HTML into it
-        const page1Container = document.createElement('div');
-        page1Container.innerHTML = page1HTML;
-        document.body.appendChild(page1Container);  // Append to the body (or any other container)
-    
-        // Add CSS styles to make sure the container is rendered correctly before capturing
-        page1Container.style.position = 'absolute';  // Ensure the div is visible on screen
-        page1Container.style.zIndex = '-1';  // Hide it visually but keep it in the DOM
-    
-        // Get the actual height of the element
-        const page1Height = page1Container.offsetHeight;
-    
-        // Now capture the newly created container, reducing the height by 50px
-        const page1Canvas = await html2canvas(page1Container, {
-            width: page1Container.offsetWidth,
-            height: page1Height - 40 // Subtract 50 pixels from the total height
-        });
-    
-        const page1Image = page1Canvas.toDataURL('image/png');
-    
-        // Remove the temporary container after capturing it
-        document.body.removeChild(page1Container);
-    
-        // Create and trigger a download link for the image
-        const link1 = document.createElement('a');
-        link1.href = page1Image;
-        link1.download = 'page1.png';
-        link1.click();
-    
-        // Capture page 2
-        const page2 = document.getElementById('page-1');
-        const page2Canvas = await html2canvas(page2);
-        const page2Image = page2Canvas.toDataURL('image/png');
-    
-        // Save images (you can save them programmatically, or show them to the user)
-        const link2 = document.createElement('a');
-        link2.href = page2Image;
-        link2.download = 'page2.png';
-        link2.click();
-    
-        // QR code generation (if needed)
-        // const qr = qrcode(0, 'L');
-        // qr.addData('Here could be a URL to download images or info');
-        // qr.make();
-        // document.getElementById('qrCanvas').innerHTML = qr.createImgTag(6); // Size of QR code
+    paws.forEach(paw => {
+        paw.style.opacity = '0';
     });
+
+    // Capture page 1
+    const page1HTML = JSON.parse(sessionStorage.getItem('page1HTML'));
+    const page1Container = document.createElement('div');
+    page1Container.innerHTML = page1HTML;
+    document.body.appendChild(page1Container);
+    page1Container.style.position = 'absolute';
+    page1Container.style.zIndex = '-1';
+
+    // Wait for images in page1Container to load
+    await Promise.all(
+        Array.from(page1Container.querySelectorAll('img')).map(img => {
+            return new Promise((resolve, reject) => {
+                if (img.complete) {
+                    resolve();  // Image already loaded
+                } else {
+                    img.onload = resolve;  // Wait for image to load
+                    img.onerror = reject;  // Handle loading errors
+                }
+            });
+        })
+    );
+
+    // Capture page 1 with html2canvas after all images are loaded
+    const page1Canvas = await html2canvas(page1Container);
+    const page1Image = page1Canvas.toDataURL('image/png');
+    document.body.removeChild(page1Container);
+
+    // Capture page 2
+    const page2 = document.getElementById('page-1');
+
+    // Wait for images in page2 to load
+    await Promise.all(
+        Array.from(page2.querySelectorAll('img')).map(img => {
+            return new Promise((resolve, reject) => {
+                if (img.complete) {
+                    resolve();  // Image already loaded
+                } else {
+                    img.onload = resolve;  // Wait for image to load
+                    img.onerror = reject;  // Handle loading errors
+                }
+            });
+        })
+    );
+
+    const page2Canvas = await html2canvas(page2);
+    const page2Image = page2Canvas.toDataURL('image/png');
+
+    // Create form data to send images to the backend
+    const formData = new FormData();
+    formData.append('page1', page1Image);
+    formData.append('page2', page2Image);
+
+    // Send the images to the backend to upload to S3
+    fetch('http://localhost:3000/upload-images', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        // data.page1Url and data.page2Url contain the URLs of the images on S3
+        console.log('Page 1 Image URL:', data.page1Url);
+        console.log('Page 2 Image URL:', data.page2Url);
+
+        // Generate a QR code for Page 1 Image URL
+        if (data.page1Url) {
+            const qr = qrcode(0, 'L');
+            qr.addData(data.page1Url);  // Add the S3 URL of the first image to the QR code
+            qr.make();
+            // document.getElementById('qrCanvas').style.display = 'block';
+            // document.getElementById('qrCanvas').style.zIndex = '9999';
+            // document.getElementById('qrCanvas').style.opacity = '1';
+            document.getElementById('qrDiv').innerHTML = qr.createImgTag(4);  // Adjust the size with the argument (6)
+        }
+
+        // Generate a QR code for Page 2 Image URL
+        if (data.page2Url) {
+            const qr2 = qrcode(0, 'L');
+            qr2.addData(data.page2Url);
+            qr2.make();
+            // document.getElementById('qrCanvas2').style.display = 'block';
+            document.getElementById('qrDiv2').innerHTML = qr2.createImgTag(4);  // Adjust the size with the argument (6)
+        }
+    })
+    .catch(error => {
+        console.error('Error uploading images:', error);
+    });
+});
+
+    
 
 })
 

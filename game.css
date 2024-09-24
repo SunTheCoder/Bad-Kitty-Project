@@ -357,14 +357,14 @@ h3{
 
 /* NAVIGATION */
 
-#page-2-button, #page-1-button, #reset-button, #clearCanvas {
+#page-2-button, #page-1-button, #reset-button, #clearCanvas, #save-button {
     margin: 10px;
     background-color: white;
     border-radius: 3px;
     border: solid black 1px;
 }
 
-#page-2-button:hover, #page-1-button:hover, #reset-button:hover, #clearCanvas:hover {
+#page-2-button:hover, #page-1-button:hover, #reset-button:hover, #clearCanvas:hover, #save-button:hover{
     background-color: lightgray;
     cursor: pointer;
 }
@@ -522,6 +522,19 @@ html, body {
     right: 197px;
     top: 80px;
 }
+
+#save-button {
+    margin: auto
+}
+
 #comic-text-fun {
     position: absolute;
+}
+
+
+#qrContainer {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    
 }
