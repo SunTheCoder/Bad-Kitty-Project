@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const cors = require('cors');  // Import CORS middleware
-const { uploadFileToS3 } = require('./s3service'); // Import the S3 upload function
+const { uploadFileToS3 } = require('./s3Service'); // Import the S3 upload function
 const upload = multer();  // Initialize multer for handling file uploads
 const app = express();
 require('dotenv').config();
