@@ -9,7 +9,7 @@ const s3 = new S3Client({
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     }
 });
-
+//
 // Function to upload a file to S3
 const uploadFileToS3 = async (fileContent, fileName) => {
     const params = {
