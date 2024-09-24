@@ -652,6 +652,10 @@ document.getElementById('brushColor').addEventListener('input', function() {
     formData.append('page1', page1Image);
     formData.append('page2', page2Image);
 
+    formData.forEach((value, key) => {
+        console.log(`${key}: ${value}`);
+    });
+
     console.log('Page 1 Image:', page1Image);
     console.log('Page 2 Image:', page2Image);
     console.log('FormData:', formData);
