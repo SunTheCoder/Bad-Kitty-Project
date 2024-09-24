@@ -653,7 +653,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
     formData.append('page2', page2Image);
 
     // Send the images to the backend to upload to S3
-    fetch('http://localhost:3000/upload-images', {
+    fetch('https://bad-kitty-project.onrender.com/upload-images', {
         method: 'POST',
         body: formData
     })
