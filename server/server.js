@@ -4,6 +4,9 @@ const cors = require('cors');  // Import CORS middleware
 const { uploadFileToS3 } = require('./s3Service'); // Import the S3 upload function
 const upload = multer();  // Initialize multer for handling file uploads
 const app = express();
+require('dotenv').config();
+
+const PORT = process.ENV.PORT || 3000 // Render will set PORT in production
 
 // Enable CORS for all routes and origins
 app.use(cors());
@@ -35,6 +38,6 @@ app.post('/upload-images', upload.none(), async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log('Server started on port 3000');
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
 });
