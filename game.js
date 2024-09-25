@@ -339,11 +339,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
     </div>
 
     
+    <p id="tutorial-5" class="tutorial">
+    
+            It's your turn to draw! <br> If you don't need the outline <br> ↓ just hit "Clear Outline" 
+            
+            
+    
+        </p>
     
     <canvas id="drawingCanvas" width="650" height="300">
 
     
-        
+
 
         
         

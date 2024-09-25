@@ -422,7 +422,7 @@ h3{
 #tutorial-1 {
     position: absolute;
     left: 100px;
-    top: -15px;
+    top: -10px;
     font-family: 'Comic Neue';
     font-size: large;
     text-align: left;
@@ -433,7 +433,7 @@ h3{
     
     position: absolute;
     left: 445px;
-    top: -15px;
+    top: -10px;
     font-family: 'Comic Neue';
     font-size: large;
     text-align: left;
@@ -451,7 +451,16 @@ h3{
 #tutorial-4 {
     position: absolute;
     left: 50px;
-    bottom: -10px;
+    top: -10px;
+    font-family: 'Comic Neue';
+    font-size: large;
+    text-align: center;
+    
+}
+#tutorial-5 {
+    position: absolute;
+    right: 50px;
+    top: 340px;
     font-family: 'Comic Neue';
     font-size: large;
     text-align: center;
@@ -614,4 +623,18 @@ html, body {
         left: 19px;
         
     }
+}
+
+@media only screen and (max-width: 390px) {
+    /* Styles specific to this screen size */
+    
+    body {
+        font-size: 14px; /* Adjust the font size */
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    
 }
