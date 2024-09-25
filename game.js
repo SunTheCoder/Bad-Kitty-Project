@@ -11,6 +11,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
             // Check if the time difference is long enough to assume the device was asleep
             if (timeDifference > 60000) {  // 60 seconds (adjust this as needed)
+                // Clears all session storage data
+                sessionStorage.clear();
+
                 location.reload();  // Refresh the page
             }
         } else {
