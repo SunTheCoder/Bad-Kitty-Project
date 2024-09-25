@@ -649,7 +649,9 @@ document.getElementById('brushColor').addEventListener('input', function() {
         const page1Image = clippedPage1Canvas.toDataURL('image/png');
     
         // Capture page 2
+        document.getElementById('tools').display = 'none';
         const page2 = document.getElementById('container');
+        document.getElementById('tools').display = 'block';
     
         // Wait for images in page2 to load
         await Promise.all(
