@@ -670,7 +670,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
             
             // Clip the bottom 50 pixels of page2Canvas
             const clippedPage2Canvas = document.createElement('canvas');
-            const clipHeight2 = page2Canvas.height - 178;  // Clip the bottom 50 pixels
+            const clipHeight2 = page2Canvas.height - 179;  // Clip the bottom 50 pixels
             clippedPage2Canvas.width = page2Canvas.width;
             clippedPage2Canvas.height = clipHeight2;
             
