@@ -441,8 +441,8 @@ h3{
 
 #tutorial-3 {
     position: absolute;
-    left: 5px;
-    bottom: 375px;
+    left: 15px;
+    bottom: 340px;
     font-family: 'Comic Neue';
     font-size: large;
     text-align: left;
@@ -483,6 +483,8 @@ html, body {
     z-index: 0;
 } */
 
+
+
 #comic-output {
     font-family: 'Bangers';
     font-size: 75px;
@@ -491,8 +493,8 @@ html, body {
     text-shadow: 2px 2px #f00, -2px -2px #ff0;
     
     max-width: 400px;
-    left: 25px;
-    bottom:300px;
+    left: 100px;
+    bottom:330px;
     z-index: 1000; /* Ensure it's above any other elements */
     position: absolute; 
 }
@@ -500,15 +502,28 @@ html, body {
 #comic-text {
     z-index: 1000; /* Ensure it's above any other elements */
     position: relative;
-    right: 114px;
+    bottom: 10px;
     
+    /* top: 120px; */
+    /* left: 80px; */
+    font-family: 'Comic Neue';
+    
+    max-width: 120px;
+    font-size: 15px;
+    color: #000;
+    
+    
+}
+
+#comic-text-fun {
+    position: absolute;
     
 }
 
 #add-text {
     z-index: 1000; /* Ensure it's above any other elements */
     position: relative;
-    right: 284px;
+    right: 120px;
     top: 70px;
     
 }
@@ -520,16 +535,15 @@ html, body {
     z-index: 1000; /* Ensure it's above any other elements */
     position: relative;
     right: 197px;
-    top: 80px;
+    top: 95px;
 }
 
 #save-button {
     margin: auto
 }
 
-#comic-text-fun {
-    position: absolute;
-}
+
+
 
 
 #qrContainer {
@@ -537,4 +551,67 @@ html, body {
     justify-content: space-evenly;
     margin-top: 30px;
     
+}
+
+
+
+
+/* For iPad Air and similar devices (max-width: 820px) */
+@media only screen and (max-width: 820px) {
+    /* Styles specific to this screen size */
+    
+    body {
+        font-size: 14px; /* Adjust the font size */
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #container {
+        /* width: 100%; Make the container full width */
+        padding: 20px;
+        
+    }
+
+    #face {
+        position: relative;
+        top: 20px
+    }
+
+    
+
+    #eyes-1, #eyes-2 {
+        position: relative;
+        left: 6px
+    }
+
+    /* #comic-text {
+          right: 0px  
+    } */
+
+    img {
+        max-width: 100%; /* Ensure images are responsive */
+        height: auto;
+    }
+
+    /* Any buttons or elements that need resizing */
+    /* button {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.2em;
+    } */
+
+    /* Any other adjustments to fit within 820 x 1180 */
+    #yourOtherElements {
+        /* Example */
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #tutorial-3 {
+        
+        left: 19px;
+        
+    }
 }
