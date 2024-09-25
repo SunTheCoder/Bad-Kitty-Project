@@ -649,10 +649,9 @@ document.getElementById('brushColor').addEventListener('input', function() {
         const page1Image = clippedPage1Canvas.toDataURL('image/png');
     
         // Capture page 2
-        document.getElementById('tools').display = 'none';
+        document.getElementById('tools').opacity = '0';
         const page2 = document.getElementById('container');
-        document.getElementById('tools').display = 'block';
-    
+        
         // Wait for images in page2 to load
         await Promise.all(
             Array.from(page2.querySelectorAll('img')).map(img => {
@@ -665,21 +664,23 @@ document.getElementById('brushColor').addEventListener('input', function() {
                     }
                 });
             })
-        );
-    
-        let page2Canvas = await html2canvas(page2);
-    
-        // Clip the bottom 50 pixels of page2Canvas
-        const clippedPage2Canvas = document.createElement('canvas');
-        const clipHeight2 = page2Canvas.height - 300;  // Clip the bottom 50 pixels
-        clippedPage2Canvas.width = page2Canvas.width;
-        clippedPage2Canvas.height = clipHeight2;
-    
-        const page2Ctx = clippedPage2Canvas.getContext('2d');
-        page2Ctx.drawImage(page2Canvas, 0, 0, page2Canvas.width, clipHeight2, 0, 0, page2Canvas.width, clipHeight2); // Draw original with clipped height
-    
-        const page2Image = clippedPage2Canvas.toDataURL('image/png');
-    
+            );
+            
+            let page2Canvas = await html2canvas(page2);
+            
+            // Clip the bottom 50 pixels of page2Canvas
+            const clippedPage2Canvas = document.createElement('canvas');
+            const clipHeight2 = page2Canvas.height - 300;  // Clip the bottom 50 pixels
+            clippedPage2Canvas.width = page2Canvas.width;
+            clippedPage2Canvas.height = clipHeight2;
+            
+            const page2Ctx = clippedPage2Canvas.getContext('2d');
+            page2Ctx.drawImage(page2Canvas, 0, 0, page2Canvas.width, clipHeight2, 0, 0, page2Canvas.width, clipHeight2); // Draw original with clipped height
+            
+            const page2Image = clippedPage2Canvas.toDataURL('image/png');
+            
+            document.getElementById('tools').opacity = '1';
+            
         // Create form data to send images to the backend
         const formData = new FormData();
         formData.append('page1', page1Image);
