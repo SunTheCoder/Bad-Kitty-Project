@@ -637,13 +637,14 @@ document.getElementById('brushColor').addEventListener('input', function() {
         let page1Canvas = await html2canvas(page1Container);
         document.body.removeChild(page1Container);
     
-        // Clip the bottom 50 pixels of page1Canvas
+        // Create a new canvas and clip the bottom 50 pixels of page1Canvas
         const clippedPage1Canvas = document.createElement('canvas');
         const clipHeight1 = page1Canvas.height - 50;  // Clip the bottom 50 pixels
         clippedPage1Canvas.width = page1Canvas.width;
         clippedPage1Canvas.height = clipHeight1;
+    
         const page1Ctx = clippedPage1Canvas.getContext('2d');
-        page1Ctx.drawImage(page1Canvas, 0, 0, page1Canvas.width, clipHeight1); // Draw original with clipped height
+        page1Ctx.drawImage(page1Canvas, 0, 0, page1Canvas.width, clipHeight1, 0, 0, page1Canvas.width, clipHeight1); // Draw original with clipped height
     
         const page1Image = clippedPage1Canvas.toDataURL('image/png');
     
@@ -668,11 +669,12 @@ document.getElementById('brushColor').addEventListener('input', function() {
     
         // Clip the bottom 50 pixels of page2Canvas
         const clippedPage2Canvas = document.createElement('canvas');
-        const clipHeight2 = page2Canvas.height - 300;  // Clip the bottom 50 pixels
+        const clipHeight2 = page2Canvas.height - 50;  // Clip the bottom 50 pixels
         clippedPage2Canvas.width = page2Canvas.width;
         clippedPage2Canvas.height = clipHeight2;
+    
         const page2Ctx = clippedPage2Canvas.getContext('2d');
-        page2Ctx.drawImage(page2Canvas, 0, 0, page2Canvas.width, clipHeight2); // Draw original with clipped height
+        page2Ctx.drawImage(page2Canvas, 0, 0, page2Canvas.width, clipHeight2, 0, 0, page2Canvas.width, clipHeight2); // Draw original with clipped height
     
         const page2Image = clippedPage2Canvas.toDataURL('image/png');
     
@@ -712,12 +714,13 @@ document.getElementById('brushColor').addEventListener('input', function() {
                 document.getElementById('qrDiv2').innerHTML = qr2.createImgTag(4);  // Adjust the size with the argument (6)
             }
     
-            // sessionStorage.clear();
+            sessionStorage.clear();
         })
         .catch(error => {
             console.error('Error uploading images:', error);
         });
     });
+    
     
 
     
