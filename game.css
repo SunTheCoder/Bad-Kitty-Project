@@ -451,7 +451,7 @@ h3{
 #tutorial-4 {
     position: absolute;
     left: 50px;
-    top: -10px;
+    bottom: -10px;
     font-family: 'Comic Neue';
     font-size: large;
     text-align: center;
