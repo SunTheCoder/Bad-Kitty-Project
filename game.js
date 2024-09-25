@@ -701,6 +701,8 @@ document.getElementById('brushColor').addEventListener('input', function() {
             // document.getElementById('qrCanvas2').style.display = 'block';
             document.getElementById('qrDiv2').innerHTML = qr2.createImgTag(4);  // Adjust the size with the argument (6)
         }
+
+        sessionStorage.clear();
     })
     .catch(error => {
         console.error('Error uploading images:', error);
