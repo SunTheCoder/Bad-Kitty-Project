@@ -649,7 +649,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
         const page1Image = clippedPage1Canvas.toDataURL('image/png');
     
         // Capture page 2
-        document.getElementById('tools').opacity = '0';
+        document.getElementById('tools').style.opacity = '0';
         const page2 = document.getElementById('container');
         
         // Wait for images in page2 to load
@@ -679,8 +679,8 @@ document.getElementById('brushColor').addEventListener('input', function() {
             
             const page2Image = clippedPage2Canvas.toDataURL('image/png');
             
-            document.getElementById('tools').opacity = '1';
-            
+            document.getElementById('tools').style.opacity = '1';
+
         // Create form data to send images to the backend
         const formData = new FormData();
         formData.append('page1', page1Image);
