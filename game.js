@@ -364,8 +364,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     <label for="brushColor">Brush Color:</label>
     <input type="color" id="brushColor" value="#000000" onchange="setBrushColor(this.value)">
+    
+    <button id="removeOutline">Remove Outline</button>
 
-    <button id="clearCanvas" onclick="clearCanvas()">Clear</button>
+    <button id="clearCanvas" onclick="clearCanvas()">Reset Canvas</button>
 
 <script>
 function clearCanvas() {
@@ -411,6 +413,8 @@ function clearCanvas() {
                         // Draw the image at x: 50, y: 50, and scale it to 300x200 pixels
                         ctx.drawImage(img, 50, 20, 300, 280);
                     };
+
+                    
                 
             })
 
@@ -448,6 +452,16 @@ img.onload = function() {
     // Draw the image at x: 50, y: 50, and scale it to 300x200 pixels
     ctx.drawImage(img, 50, 20, 300, 280);
 };
+
+// Logic for removing the outline
+const removeOutlineButton = document.getElementById('removeOutline');
+
+removeOutlineButton.addEventListener('click', () => {
+    // Clear the portion of the canvas where the outline was drawn
+    ctx.clearRect(50, 20, 300, 280);  // Adjust the coordinates and size to match the image
+    
+    console.log('Outline removed!');
+});
 
 // Variables to manage drawing state
 let drawing = false;
