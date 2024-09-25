@@ -365,7 +365,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     <label for="brushColor">Brush Color:</label>
     <input type="color" id="brushColor" value="#000000" onchange="setBrushColor(this.value)">
     
-    <button id="removeOutline">Remove Outline</button>
+    <button id="removeOutline">Clear Outline</button>
 
     <button id="clearCanvas" onclick="clearCanvas()">Reset Canvas</button>
 
