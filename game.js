@@ -605,109 +605,120 @@ document.getElementById('brushColor').addEventListener('input', function() {
 
     saveButton.addEventListener('click', async () => {
 
-    window.confirm('Your changes will be saved and a QR code will be generated below, so that you can take your creation with you! However, you won’t be able to change your selections. Are you finished?');
-
-    paws.forEach(paw => {
-        paw.style.opacity = '0';
-    });
-
-    // Capture page 1
-    const page1HTML = JSON.parse(sessionStorage.getItem('page1HTML'));
-    const page1Container = document.createElement('div');
-    page1Container.innerHTML = page1HTML;
-    document.body.appendChild(page1Container);
-    page1Container.style.position = 'absolute';
-    page1Container.style.zIndex = '-1';
-
-    // Wait for images in page1Container to load
-    await Promise.all(
-        Array.from(page1Container.querySelectorAll('img')).map(img => {
-            return new Promise((resolve, reject) => {
-                if (img.complete) {
-                    resolve();  // Image already loaded
-                } else {
-                    img.onload = resolve;  // Wait for image to load
-                    img.onerror = reject;  // Handle loading errors
-                }
-            });
+        window.confirm('Your changes will be saved and a QR code will be generated below, so that you can take your creation with you! However, you won’t be able to change your selections. Are you finished?');
+    
+        paws.forEach(paw => {
+            paw.style.opacity = '0';
+        });
+    
+        // Capture page 1
+        const page1HTML = JSON.parse(sessionStorage.getItem('page1HTML'));
+        const page1Container = document.createElement('div');
+        page1Container.innerHTML = page1HTML;
+        document.body.appendChild(page1Container);
+        page1Container.style.position = 'absolute';
+        page1Container.style.zIndex = '-1';
+    
+        // Wait for images in page1Container to load
+        await Promise.all(
+            Array.from(page1Container.querySelectorAll('img')).map(img => {
+                return new Promise((resolve, reject) => {
+                    if (img.complete) {
+                        resolve();  // Image already loaded
+                    } else {
+                        img.onload = resolve;  // Wait for image to load
+                        img.onerror = reject;  // Handle loading errors
+                    }
+                });
+            })
+        );
+    
+        // Capture page 1 with html2canvas after all images are loaded
+        let page1Canvas = await html2canvas(page1Container);
+        document.body.removeChild(page1Container);
+    
+        // Clip the bottom 50 pixels of page1Canvas
+        const clippedPage1Canvas = document.createElement('canvas');
+        const clipHeight1 = page1Canvas.height - 50;  // Clip the bottom 50 pixels
+        clippedPage1Canvas.width = page1Canvas.width;
+        clippedPage1Canvas.height = clipHeight1;
+        const page1Ctx = clippedPage1Canvas.getContext('2d');
+        page1Ctx.drawImage(page1Canvas, 0, 0, page1Canvas.width, clipHeight1); // Draw original with clipped height
+    
+        const page1Image = clippedPage1Canvas.toDataURL('image/png');
+    
+        // Capture page 2
+        const page2 = document.getElementById('container');
+    
+        // Wait for images in page2 to load
+        await Promise.all(
+            Array.from(page2.querySelectorAll('img')).map(img => {
+                return new Promise((resolve, reject) => {
+                    if (img.complete) {
+                        resolve();  // Image already loaded
+                    } else {
+                        img.onload = resolve;  // Wait for image to load
+                        img.onerror = reject;  // Handle loading errors
+                    }
+                });
+            })
+        );
+    
+        let page2Canvas = await html2canvas(page2);
+    
+        // Clip the bottom 50 pixels of page2Canvas
+        const clippedPage2Canvas = document.createElement('canvas');
+        const clipHeight2 = page2Canvas.height - 50;  // Clip the bottom 50 pixels
+        clippedPage2Canvas.width = page2Canvas.width;
+        clippedPage2Canvas.height = clipHeight2;
+        const page2Ctx = clippedPage2Canvas.getContext('2d');
+        page2Ctx.drawImage(page2Canvas, 0, 0, page2Canvas.width, clipHeight2); // Draw original with clipped height
+    
+        const page2Image = clippedPage2Canvas.toDataURL('image/png');
+    
+        // Create form data to send images to the backend
+        const formData = new FormData();
+        formData.append('page1', page1Image);
+        formData.append('page2', page2Image);
+    
+        formData.forEach((value, key) => {
+            console.log(`${key}: ${value}`);
+        });
+    
+        // Send the images to the backend to upload to S3
+        fetch('https://bad-kitty-project.onrender.com/upload-images', {
+            method: 'POST',
+            body: formData
         })
-    );
-
-    // Capture page 1 with html2canvas after all images are loaded
-    const page1Canvas = await html2canvas(page1Container);
-    const page1Image = page1Canvas.toDataURL('image/png');
-    document.body.removeChild(page1Container);
-
-    // Capture page 2
-    const page2 = document.getElementById('container');
-
-    // Wait for images in page2 to load
-    await Promise.all(
-        Array.from(page2.querySelectorAll('img')).map(img => {
-            return new Promise((resolve, reject) => {
-                if (img.complete) {
-                    resolve();  // Image already loaded
-                } else {
-                    img.onload = resolve;  // Wait for image to load
-                    img.onerror = reject;  // Handle loading errors
-                }
-            });
+        .then(response => response.json())
+        .then(data => {
+            // data.page1Url and data.page2Url contain the URLs of the images on S3
+            console.log('Page 1 Image URL:', data.page1Url);
+            console.log('Page 2 Image URL:', data.page2Url);
+    
+            // Generate a QR code for Page 1 Image URL
+            if (data.page1Url) {
+                const qr = qrcode(0, 'L');
+                qr.addData(data.page1Url);  // Add the S3 URL of the first image to the QR code
+                qr.make();
+                document.getElementById('qrDiv').innerHTML = qr.createImgTag(4);  // Adjust the size with the argument (6)
+            }
+    
+            // Generate a QR code for Page 2 Image URL
+            if (data.page2Url) {
+                const qr2 = qrcode(0, 'L');
+                qr2.addData(data.page2Url);
+                qr2.make();
+                document.getElementById('qrDiv2').innerHTML = qr2.createImgTag(4);  // Adjust the size with the argument (6)
+            }
+    
+            sessionStorage.clear();
         })
-    );
-
-    const page2Canvas = await html2canvas(page2);
-    const page2Image = page2Canvas.toDataURL('image/png');
-
-    // Create form data to send images to the backend
-    const formData = new FormData();
-    formData.append('page1', page1Image);
-    formData.append('page2', page2Image);
-
-    formData.forEach((value, key) => {
-        console.log(`${key}: ${value}`);
+        .catch(error => {
+            console.error('Error uploading images:', error);
+        });
     });
-
-    console.log('Page 1 Image:', page1Image);
-    console.log('Page 2 Image:', page2Image);
-    console.log('FormData:', formData);
-
-    // Send the images to the backend to upload to S3
-    fetch('https://bad-kitty-project.onrender.com/upload-images', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        // data.page1Url and data.page2Url contain the URLs of the images on S3
-        console.log('Page 1 Image URL:', data.page1Url);
-        console.log('Page 2 Image URL:', data.page2Url);
-
-        // Generate a QR code for Page 1 Image URL
-        if (data.page1Url) {
-            const qr = qrcode(0, 'L');
-            qr.addData(data.page1Url);  // Add the S3 URL of the first image to the QR code
-            qr.make();
-            // document.getElementById('qrCanvas').style.display = 'block';
-            // document.getElementById('qrCanvas').style.zIndex = '9999';
-            // document.getElementById('qrCanvas').style.opacity = '1';
-            document.getElementById('qrDiv').innerHTML = qr.createImgTag(4);  // Adjust the size with the argument (6)
-        }
-
-        // Generate a QR code for Page 2 Image URL
-        if (data.page2Url) {
-            const qr2 = qrcode(0, 'L');
-            qr2.addData(data.page2Url);
-            qr2.make();
-            // document.getElementById('qrCanvas2').style.display = 'block';
-            document.getElementById('qrDiv2').innerHTML = qr2.createImgTag(4);  // Adjust the size with the argument (6)
-        }
-
-        sessionStorage.clear();
-    })
-    .catch(error => {
-        console.error('Error uploading images:', error);
-    });
-});
+    
 
     
 
