@@ -605,7 +605,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
 
     saveButton.addEventListener('click', async () => {
 
-    window.confirm('Your changes will be saved and a QR code will be generated so that you can take your creation with you! However, you won’t be able to change your selections. Are you finished?');
+    window.confirm('Your changes will be saved and a QR code will be generated below, so that you can take your creation with you! However, you won’t be able to change your selections. Are you finished?');
 
     paws.forEach(paw => {
         paw.style.opacity = '0';
