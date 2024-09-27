@@ -347,6 +347,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         <div class="draggable panel" id="panel-5" draggable="true">
 
+        <img id="kitty-walking" src="./Assets/kittywalking.png" alt="kitty walking" />
+
 
     </div>
 
