@@ -617,7 +617,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
                     <img src="/Assets/sneaky-kitty-wall-sketch.png" alt="" id="wall-sneak">
                 </div>
                 <div class="mini-panel" id="mini-panel-bottom">
-                    <img src="/Assets/package-rip.png" alt="" id="rip">
+                    <img src="/Assets/treatpounce.png" alt="" id="rip">
                 </div>
                 
                 <textarea id="comic-text" placeholder="Type your comic text here"></textarea>
