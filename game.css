@@ -208,6 +208,7 @@ h3{
 .side-eye {
     opacity: 1;
     transition: opacity 3s ease-in-out;
+    
 }
 #happy-kitty-1 {
     display: block;
@@ -538,7 +539,7 @@ html, body {
 
 #comic-output {
     font-family: 'Bangers';
-    font-size: 75px;
+    font-size: 50px;
     rotate: -25deg;
     color: #000;
     text-shadow: 2px 2px #f00, -2px -2px #ff0;
