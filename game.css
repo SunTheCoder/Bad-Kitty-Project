@@ -293,6 +293,48 @@ h3{
 
 }
 
+#panel-10 {
+    
+
+    display: flex;
+
+    margin-top: 50px;
+    width: 270px;
+    height: 312px;
+    border: 1px solid black;
+    margin-right: 52px
+    
+}
+
+#kicking-door {
+    width: 92.5%;
+}
+
+#panel-11 {
+    
+    display: flex;
+   margin-top: 50px;
+   width: 270px;
+   height: 312px;
+   border: 1px solid black;
+   margin-left: 52px
+
+   
+   
+}
+
+#angry-at-door {
+    position: relative;
+    width: 80%;
+    height: 60%;
+    top: 63px;
+    margin: auto;
+}
+
+#page2panels-container {
+    display: flex;
+
+}
 #kitty-satisfied {
     top: 20px;
     right: 55px;
@@ -561,6 +603,11 @@ html, body {
     margin-top: 30px;
     
 }
+
+#door-scratch {
+    width: 94.5%
+}
+
 
 
 

@@ -317,7 +317,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 <img src="/Assets/questioning-kitty.png" alt="" id="knock">
             </div>
             <div class="draggable panel" id="panel-4" draggable="true">
-                <img id="zzz" src="" alt="">
+            <img src="/Assets/kittyscratchingdoor.png" alt="" id="door-scratch">
+
             </div>
         </div>
     </div>
@@ -328,12 +329,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     `
  
-    <div class="draggable panel" id="panel-5" draggable="true">
+    <div id="page2panels-container">
+    
+        <div class="draggable panel" id="panel-10" draggable="true">
 
+        <img id="angry-at-door" src="./Assets/angryatdoorkitty.png" alt="kitty kicking door" />
+
+        </div>
+
+        <div class="draggable panel" id="panel-11" draggable="true">
+
+        <img id="kicking-door" src="./Assets/kickingdoor.png" alt="kitty kicking door" />
+
+        </div>
 
     </div>
 
-    <div class="draggable panel" id="panel-5" draggable="true">
+        <div class="draggable panel" id="panel-5" draggable="true">
 
 
     </div>
