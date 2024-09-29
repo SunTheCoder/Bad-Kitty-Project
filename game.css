@@ -220,6 +220,22 @@ h3{
 
 }
 
+#chickenbox {
+    width: 7%;
+    position: absolute;
+    z-index: 1;
+    left: 320px;
+    top: 472px
+}
+
+#chickenbone {
+    width: 10%;
+    position: absolute;
+    z-index: 1;
+    left: 210px;
+    bottom: 67px
+}
+
 .body-button {
    
     cursor: pointer;
