@@ -200,6 +200,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
                 document.getElementById('treatbagcounter').style.display = 'block';
                 document.getElementById('treatbagopen').style.display = 'block';
+            } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
+                // document.getElementById('treatbagcounter').style.display = 'block';
+                // document.getElementById('treatbagopen').style.display = 'block';
             }
 
             treats.filter((treat) => treat !== event.target).forEach((treat) => { treat.style.display = 'none' });
