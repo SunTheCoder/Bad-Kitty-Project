@@ -197,6 +197,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
             if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
                 document.getElementById('chickenbone').style.display = 'block';
                 document.getElementById('chickenbox').style.display = 'block';
+            } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
+                document.getElementById('treatbagcounter').style.display = 'block';
+                document.getElementById('treatbagopen').style.display = 'block';
             }
 
             treats.filter((treat) => treat !== event.target).forEach((treat) => { treat.style.display = 'none' });
@@ -350,7 +353,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     </div>
 
-        <div class="draggable panel" id="panel-5" draggable="true">
+    <div class="draggable panel" id="panel-5" draggable="true">
 
         <img id="kitty-walking" src="./Assets/kittywalking.png" alt="kitty walking" />
 

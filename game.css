@@ -219,6 +219,23 @@ h3{
     top: 700px
 
 }
+#treatbagopen {
+    width: 15%;
+    position: absolute;
+    z-index: 1;
+    left: 285px;
+    bottom: 65px;
+    rotate: 20deg;
+    display: none;
+}
+#treatbagcounter { 
+    width: 4.3%;
+    position: absolute;
+    z-index: 1;
+    left: 330px;
+    top: 442px;
+    display: none;
+}
 
 #chickenbox {
     width: 7%;
