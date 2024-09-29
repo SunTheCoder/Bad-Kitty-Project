@@ -225,7 +225,9 @@ h3{
     position: absolute;
     z-index: 1;
     left: 320px;
-    top: 472px
+    top: 472px;
+    display: none;
+
 }
 
 #chickenbone {
@@ -233,7 +235,8 @@ h3{
     position: absolute;
     z-index: 1;
     left: 210px;
-    bottom: 67px
+    bottom: 67px;
+    display: none;
 }
 
 .body-button {
