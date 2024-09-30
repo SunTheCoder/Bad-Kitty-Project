@@ -285,7 +285,7 @@ h3{
     width: 656px;
     height: 300px;
     margin-top: 87px;
-    border: 1px solid black;
+    border: 2px solid black;
     
 }
 #panel-2 {
@@ -293,19 +293,19 @@ h3{
     margin-right: 50px;
     width: 300px;
     height: 600px;
-    border: 1px solid black
+    border: 2px solid black
 }
 #panel-3 {
     margin-top: 50px;
     width: 300px;
     height: 272px;
-    border: 1px solid black
+    border: 2px solid black
 }
 #panel-4 {
     margin-top: 50px;
     width: 300px;
     height: 272px;
-    border: 1px solid black
+    border: 2px solid black
 }
 
 #panel-5 {
@@ -314,7 +314,7 @@ h3{
     margin-top: 50px;
     width: 450px;
     height: 136px;
-    border: 1px solid black;
+    border: 2px solid black;
 
 }
 #panel-6 {
@@ -324,7 +324,7 @@ h3{
     margin-top: 50px;
     width: 450px;
     height: 400px;
-    border: 1px solid black;
+    border: 2px solid black;
     margin: auto;
     margin-top: 15px;
 
@@ -338,7 +338,7 @@ h3{
     margin-top: 50px;
     width: 270px;
     height: 312px;
-    border: 1px solid black;
+    border: 2px solid black;
     margin-right: 52px
     
 }
@@ -358,7 +358,7 @@ h3{
    margin-top: 50px;
    width: 270px;
    height: 312px;
-   border: 1px solid black;
+   border: 2px solid black;
    margin-left: 52px
 
    
@@ -647,7 +647,7 @@ html, body {
 }
 
 #door-scratch {
-    width: 94.5%
+    width: 90.3%
 }
 
 

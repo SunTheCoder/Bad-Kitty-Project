@@ -201,8 +201,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 document.getElementById('treatbagcounter').style.display = 'block';
                 document.getElementById('treatbagopen').style.display = 'block';
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
-                // document.getElementById('treatbagcounter').style.display = 'block';
-                // document.getElementById('treatbagopen').style.display = 'block';
+                // document.getElementById('tunacounter').style.display = 'block';
+                // document.getElementById('tunaopen').style.display = 'block';
             }
 
             treats.filter((treat) => treat !== event.target).forEach((treat) => { treat.style.display = 'none' });
