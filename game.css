@@ -126,10 +126,13 @@ h3{
 }
 
 #kitty-1 {
+    position: relative;
     width: 35%;
     margin-top: 10px;
     padding: 0 10px;
     display: block;
+    z-index: 1000;
+
 }
 #kitty-2 {
     position: relative;
@@ -152,11 +155,11 @@ h3{
     
 }
 #thought-bubble-1{
-    display: block;
+    display: relative;
     position: relative;
     width: 68%;
-    bottom: 270px;
-    left: 210px
+    bottom: 415px;
+    left: 103px
 }
 #eyes-1 {
     width:75%;
@@ -287,6 +290,16 @@ h3{
     margin-top: 87px;
     border: 2px solid black;
     
+}
+
+#floor {
+
+    width: 100.3%;
+    position: relative;
+    bottom: 70px;
+    z-index: 0;
+    clip-path: inset(0 0 32% 0);
+    right: 1.5px;
 }
 #panel-2 {
     margin-top: 50px;
