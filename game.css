@@ -312,7 +312,7 @@ h3{
 
     /* margin-left: 90px; */
     margin-top: 50px;
-    width: 450px;
+    width: 375px;
     height: 136px;
     border: 2px solid black;
 
@@ -344,7 +344,9 @@ h3{
 }
 
 #kitty-walking {
-    width: 43.5%;
+    position: relative;
+    width: 99.975%;
+    
     
 }
 
