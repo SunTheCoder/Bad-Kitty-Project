@@ -156,20 +156,22 @@ h3{
 }
 #thought-bubble-1{
     display: relative;
-    position: relative;
-    width: 68%;
-    bottom: 415px;
-    left: 103px
+    position: absolute;
+    width: 52%;
+    /* height: 100%; */
+    bottom: 745px;
+    left: 315px
 }
 #eyes-1 {
     width:75%;
 }
 #eyes-1-kitty {
     position: relative;
-    bottom: 495px;
+    bottom: 372px;
     right: 221px;
     width:15%;
-    cursor: default
+    cursor: default;
+    z-index: 9999;
 
 
     

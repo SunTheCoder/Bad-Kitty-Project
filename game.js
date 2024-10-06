@@ -148,6 +148,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         
         const html = `<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
         
+        <img id="floor" class="floor" src="/Assets/floor.png" alt="floor">
+        
         <img src="/Assets/thought-bubble-panel-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
         
         <img id="eyes-1-kitty" class="body-button" src="${event.target.getAttribute('src')}" alt="">`
