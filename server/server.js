@@ -16,7 +16,7 @@ app.use(cors({
 }));
 
 // Middleware to parse JSON and handle large payloads
-app.use(express.json({ limit: '100mb' }));
+app.use(express.json({ limit: '200mb' }));
 
 // Route to handle uploading images to S3
 app.post('/upload-images', upload.none(), async (req, res) => {
