@@ -182,7 +182,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // <img id="eyes-1-kitty" class="body-button" src="${event.target.getAttribute('src')}" alt="">`
         
         
-        sessionStorage.setItem('eye-choice', eyeChoice)
+        sessionStorage.setItem('eye-choice', JSON.stringify(eyeChoice))
         
         panel1.innerHTML += `<img id=${eyeChoice.id} src=${eyeChoice.src} class=${eyeChoice.class}>`
         
@@ -329,6 +329,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
            }
     // Retrieving the stored attributes
     const storedChoice = JSON.parse(sessionStorage.getItem('treat-choice'));
+    const storedChoiceEye = JSON.parse(sessionStorage.getItem('eye-choice'));
         
     const page1ContainerHtmlVar = 
         
@@ -337,8 +338,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     <div class="draggable panel" id="panel-1" draggable="true">  
     
-    ${sessionStorage.getItem('eye-choice')}
-    
+    <img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
+    <img id="floor" class="floor" src="/Assets/floor.png" alt="floor">
+
+
+    <img src="/Assets/thought-bubble-panel-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
+
+    <img src="/Assets/happy-kitty-thought.png" alt="" id="happy-kitty-1" >
+
+    <img id=${storedChoiceEye.id} class=${storedChoiceEye.class} src=${storedChoiceEye.src}>
 
         <img id="eyes-1-kitty" class="body-button" src="/Assets/Pensive-Kitty-Eyes.png" alt="" hidden>
 
@@ -359,7 +367,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             </div>
             <div class="mini-panel" id="mini-panel-bottom">
         
-                <img src="/Assets/package-rip.png" alt="" id="rip">
+                <img src="/Assets/treatpounce.png" alt="" id="rip">
             </div>
             
             <textarea id="comic-text" style="opacity: 0" placeholder="Type your comic text here"></textarea>
@@ -616,6 +624,24 @@ document.getElementById('brushColor').addEventListener('input', function() {
             
             pageContainer.innerHTML = page1ContainerHtmlVar
             // page1.innerHTML = page2html
+
+            // document.getElementById('happy-kitty-1').style.opacity = 1
+
+            
+            document.getElementById('happy-kitty-1').style.opacity = 1
+
+            if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
+                document.getElementById('happy-kitty-1').style.left = '485px';
+                
+            } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
+                document.getElementById('happy-kitty-1').style.left = '485px';
+                
+            } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
+                document.getElementById('happy-kitty-1').style.left = '450px';
+                
+            }
+            
+
             paws.forEach(paw => {
                 paw.style.opacity = '1';
             })
