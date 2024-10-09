@@ -200,7 +200,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         setTimeout(() => {
                     tutorial1.style.opacity = 1
                 }, 5000)
-        })
+        }, { once: true })
 
 
     })
