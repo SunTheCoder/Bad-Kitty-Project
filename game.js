@@ -24,6 +24,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // const qr = document.getElementById('qrCanvas');
     // const qr2 = document.getElementById('qrCanvas3');
 
+    const happyKitty = document.getElementById('happy-kitty-1');
+
     const addText = document.getElementById('add-text')
     const comicText = document.getElementById('comic-text')
 
@@ -165,11 +167,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
         event.target.style.cursor = 'default';
 
 
-        tutorial1.innerText = 'Well done! Scroll to the next panel!'
+        tutorial1.innerHTML = 'Oh, what could Kitty be up to?! <br\> Pretty sure it\'s something...<b>bad</b>!'
         tutorial1.style.top = '15px'
 
         setTimeout(() => {
-                    tutorial1.style.opacity = 0
+                    tutorial1.style.opacity = 1
                 }, 5000)
         })
 
@@ -209,12 +211,28 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
             treats.filter((treat) => treat !== event.target).forEach((treat) => { treat.style.display = 'none' });
 
-            tutorial2.innerText = 'Mmmmm! Kitty definitely likes that choice!'
-            tutorial2.style.top = '15px'
-            tutorial2.style.left = '420px'
+            function handleChoice() {
+                happyKitty.style.opacity = 1;
+
+                if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
+                    happyKitty.style.left = '485px';
+                    return tutorial2.innerHTML = `Mmmmm! Kitty definitely likes chicken!`
+                } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
+                    happyKitty.style.left = '485px';
+                    return tutorial2.innerText = `Mmmmm! Kitty definitely likes her treats!`
+                } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
+                    happyKitty.style.left = '450px';
+                    return tutorial2.innerText = `Mmmmm! Kitty definitely likes tuna!`
+                }
+                
+            }
+
+            tutorial2.innerText = handleChoice()
+            tutorial2.style.top = '30px'
+            tutorial2.style.left = '430px'
 
             setTimeout(() => {
-                tutorial2.style.opacity = 0
+                tutorial2.style.opacity = 1
             }, 5000)
 
             event.target.style.cursor = 'default';
@@ -421,6 +439,10 @@ function clearCanvas() {
             if (counter % 2 === 0) {
                 // page1.innerHTML = page1html
                 pageContainer.innerHTML = page2ContainerHtml
+
+                paws.forEach(paw => {
+                    paw.style.opacity = '1';
+                })
 
                  const clearCanvas = document.getElementById('clearCanvas')
 
