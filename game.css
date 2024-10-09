@@ -181,9 +181,11 @@ h3{
 }
 #eyes-2-kitty {
     position: relative;
-    bottom: 497px;
+    bottom: 372px;
     right: 221px;
     width:15%;
+    cursor: default;
+    z-index: 9999;
 
 
     

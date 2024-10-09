@@ -163,18 +163,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     eyeButtons.forEach(button => {button.addEventListener('click', (event) => { 
 
+        const eyeChoice = {
+            src: event.target.getAttribute('src'),
+            id: event.target.getAttribute('id') + '-kitty', // Add other attributes like 'alt' if needed
+            class: event.target.getAttribute('class') // Add other classes if needed
+
+        };
+
         
-        const html = `<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
+        // const html = `<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
         
-        <img id="floor" class="floor" src="/Assets/floor.png" alt="floor">
+        // <img id="floor" class="floor" src="/Assets/floor.png" alt="floor">
         
-        <img src="/Assets/thought-bubble-panel-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
+        // <img src="/Assets/thought-bubble-panel-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
+
+        // <img src="/Assets/happy-kitty-thought.png" alt="" id="happy-kitty-1" class="">
         
-        <img id="eyes-1-kitty" class="body-button" src="${event.target.getAttribute('src')}" alt="">`
+        // <img id="eyes-1-kitty" class="body-button" src="${event.target.getAttribute('src')}" alt="">`
         
-        panel1.innerHTML = html
         
-        sessionStorage.setItem('eye-choice', html)
+        sessionStorage.setItem('eye-choice', eyeChoice)
+        
+        panel1.innerHTML += `<img id=${eyeChoice.id} src=${eyeChoice.src} class=${eyeChoice.class}>`
+        
 
         
         eyeButtons.filter((treat) => treat !== event.target).forEach((eyes) => { eyes.style.display = 'none' });
