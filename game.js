@@ -98,13 +98,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
         sessionStorage.setItem('comic-word-choice', document.getElementById('comic-text').value);
         console.log('Comic word choice:', sessionStorage.getItem('comic-word-choice'));
 
-        tutorial3.innerHTML = 'Ooooh. <br> Pretty <br> text! <br> Nice!!'
+        // function handleChoice() {
+        //     if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
+               
+        //         return tutorial3.innerHTML = 'Kitty will <br> get <br> her <br> chicken!!'
+
+        //     } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
+                
+        //         return tutorial3.innerHTML = 'Kitty will <br> get <br> her <br> treat!!'
+
+        //     } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
+                
+        //         return tutorial3.innerHTML = 'Kitty will <br> get <br> her <br> tuna!!'
+
+        //     }
+        // }
+
+        tutorial3.innerHTML = 'Kitty <br> will <br> get <br> her <br> food!!'
         tutorial3.style.bottom = '330px'
         tutorial3.style.left = '34px'
         
 
             setTimeout(() => {
-                tutorial3.style.opacity = 0
+                tutorial3.style.opacity = 1
             }, 2000)
         
         addTextCounter++;
@@ -216,7 +232,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
                 if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
                     happyKitty.style.left = '485px';
-                    return tutorial2.innerHTML = `Mmmmm! Kitty definitely likes chicken!`
+                    return tutorial2.innerText = `Mmmmm! Kitty definitely likes chicken!`
                 } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
                     happyKitty.style.left = '485px';
                     return tutorial2.innerText = `Mmmmm! Kitty definitely likes her treats!`

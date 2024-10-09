@@ -296,6 +296,7 @@ h3{
     margin-top: 87px;
     border: 2px solid black;
     
+    
 }
 
 #floor {
@@ -306,6 +307,7 @@ h3{
     z-index: 0;
     clip-path: inset(0 0 32% 0);
     right: 1.5px;
+    
 }
 #panel-2 {
     margin-top: 50px;
@@ -318,7 +320,8 @@ h3{
     margin-top: 50px;
     width: 300px;
     height: 272px;
-    border: 2px solid black
+    border: 2px solid black;
+    
 }
 #panel-4 {
     margin-top: 50px;
@@ -430,8 +433,12 @@ h3{
     display: block;
     position: relative;
     
-    
-    width: 100%;
+    right: .5px;
+    width: 100.7%;
+    border-top-left-radius: 1.5%;
+    border-top-right-radius: 1.5%;
+    bottom: 1px
+
 }
 #rip {
     display: block;
@@ -445,16 +452,19 @@ h3{
     display: block;
     position: relative;
     margin: auto;
-    top: 105px;
+    top: 145px;
     
-    width: 100%;
+    width: 80%;
 }
 #knock {
     display: block;
     position: relative;
     margin: auto;
-    top: 10px;
-    width: 100%;
+    /* top: 10px; */
+    width: 100.5%;
+    height: 100.5%;
+    right: 1px;
+    border-radius: 1.5%;
 }
 
 
@@ -670,6 +680,34 @@ html, body {
 #door-scratch {
     width: 90.3%
 }
+
+.storyText {
+    position: absolute;
+    font-family: 'Comic Neue';
+    font-size: large;
+
+}
+
+#text1 {
+    left: 120px
+}
+
+#text2 {
+    left: 240px;
+    top: 1410px
+}
+
+#text3 {
+    left: 567.5px;
+    top: 950px
+}
+
+#text4 {
+    left: 635px;
+    top: 1275px
+}
+
+
 
 
 
