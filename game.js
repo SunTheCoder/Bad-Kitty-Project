@@ -243,18 +243,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
                 if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
                     happyKitty.style.left = '485px';
-                    return tutorial2.innerText = `Mmmmm! Kitty definitely likes chicken!`
+                    return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
                 } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
                     happyKitty.style.left = '485px';
-                    return tutorial2.innerText = `Mmmmm! Kitty definitely likes her treats!`
+                    return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
                 } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
                     happyKitty.style.left = '450px';
-                    return tutorial2.innerText = `Mmmmm! Kitty definitely likes tuna!`
+                    return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes tuna!`
                 }
                 
             }
 
-            tutorial2.innerText = handleChoice()
+            tutorial2.innerHTML = handleChoice()
             tutorial2.style.top = '30px'
             tutorial2.style.left = '430px'
 
@@ -330,10 +330,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // Retrieving the stored attributes
     const storedChoice = JSON.parse(sessionStorage.getItem('treat-choice'));
     const storedChoiceEye = JSON.parse(sessionStorage.getItem('eye-choice'));
+
+    
         
     const page1ContainerHtmlVar = 
         
-    `<img id=${storedChoice.id} class=${storedChoice.class} src=${storedChoice.src}>
+    `
+    
+    <img id=${storedChoice.id} class=${storedChoice.class} src=${storedChoice.src}>
     
 
     <div class="draggable panel" id="panel-1" draggable="true">  
@@ -358,6 +362,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     </div>
 
+    <p id="text1" class="storyText"> There she goes. <i>Prowling</i> about. </p>
+            <p id="text2" class="storyText"><b>What?  No!</b> <br>Not quite what we were expecting.</p>
+            <p id="text3" class="storyText"><b>OH MY GOODNESS! COULD IT BE!?</b> <br><i>Good</i> fortune for a <i>bad</i> kitty? Of course!</p>
+            <p id="text4" class="storyText"><b>It's so close, Kitty! </b><br> Get <i>through</i> the door!</p>
     <div id="panel-container">
 
         <div class="draggable panel" id="panel-2" draggable="true">
@@ -625,7 +633,23 @@ document.getElementById('brushColor').addEventListener('input', function() {
             pageContainer.innerHTML = page1ContainerHtmlVar
             // page1.innerHTML = page2html
 
-            // document.getElementById('happy-kitty-1').style.opacity = 1
+            document.getElementById('tutorial-1').style.opacity = 1
+            document.getElementById('tutorial-1').innerHTML = 'Oh, what could Kitty be up to?! <br\> Pretty sure it\'s something...<b>bad</b>!'
+            function handleTreatChoice() {
+
+                if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
+                    return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
+                } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
+                    return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
+                } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
+                    return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes tuna!`
+                }
+                
+            }
+
+            tutorial2.innerHTML = handleTreatChoice()
+            tutorial2.style.top = '30px'
+            tutorial2.style.left = '430px'
 
             
             document.getElementById('happy-kitty-1').style.opacity = 1
@@ -640,7 +664,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
                 document.getElementById('happy-kitty-1').style.left = '450px';
                 
             }
-            
+
 
             paws.forEach(paw => {
                 paw.style.opacity = '1';
@@ -698,6 +722,8 @@ document.getElementById('brushColor').addEventListener('input', function() {
 
 
         </div>
+
+        
 
         <div id="panel-container">
 
