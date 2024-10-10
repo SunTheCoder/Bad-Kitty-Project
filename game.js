@@ -114,13 +114,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
         //     }
         // }
 
-        tutorial3.innerHTML = 'Kitty <br> will <br> get <br> her <br> food!!'
+        tutorial3.innerHTML = 'Oh!! <br> Pretty <br> text!!!'
         tutorial3.style.bottom = '330px'
         tutorial3.style.left = '34px'
         
 
             setTimeout(() => {
-                tutorial3.style.opacity = 1
+                tutorial3.style.opacity = 0
             }, 2000)
         
         addTextCounter++;
