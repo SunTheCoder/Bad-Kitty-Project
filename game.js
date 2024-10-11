@@ -578,12 +578,13 @@ const satisfied = document.getElementById('kitty-satisfied')
 
 satisfied.addEventListener('click', (e) => {
     e.target.style.opacity = 1
+    setTimeout(() => {
+    document.getElementById('tutorial-6').style.opacity = 0
+}, 1500)  
+        
 })
 
-setTimeout(() => {
-    document.getElementById('tutorial-6').style.opacity = 0
-}, 3000)  
-        
+
        
 
 // Get the canvas and context
@@ -833,6 +834,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
         console.log(page1Image);
         
         document.getElementById('tools').style.opacity = '0';
+        document.getElementById('tutorial-5').style.opacity = '0';
         const page2 = document.getElementById('container');
         
         // Wait for images in page2 to load

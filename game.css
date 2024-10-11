@@ -310,6 +310,8 @@ h3{
     z-index: 0;
     /* clip-path: inset(0 0 32% 0); */
     right: 1.5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 6.5px;
     
 }
 #panel-2 {
