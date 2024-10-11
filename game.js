@@ -349,6 +349,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
             });
         })
     );
+    
+    document.getElementById('tutorial-4').style.opacity = 0
+
 
     // Capture page 1 with html2canvas after all images are loaded
     let page1Canvas = await html2canvas(page1Container);
