@@ -725,16 +725,17 @@ html, body {
 
 #text2 {
     bottom: 182.5px;
-    left: 114px;
+    left: 150px;
 }
 
 #text3 {
-    left: 441.5px;
-    bottom: 639px;
+    left: 624.5px;
+    bottom: 55px;
+    font-size: larger;
 }
 
 #text4 {
-    left: 510px;
+    left: 441px;
     bottom: 313px;
 }
 #text5 {
