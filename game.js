@@ -86,6 +86,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
     let revealed = false
+    let hidden = false
 
     let counter = 1; //for page traversal
 
@@ -568,10 +569,12 @@ function clearCanvas() {
 
         document.getElementById('drawingCanvas').addEventListener('touchstart', () => {
             document.getElementById('tutorial-5').style.opacity = 0;  
+            hidden = hidden === false ? true : false
         })
 
         document.getElementById('drawingCanvas').addEventListener('click', () => {
             document.getElementById('tutorial-5').style.opacity = 0;  
+            hidden = hidden === false ? true : false
         })
 
                 restoreCanvasFromSession()
@@ -609,8 +612,9 @@ function clearCanvas() {
                 document.getElementById('kitty-satisfied').style.opacity = 1
                 document.getElementById('text8').style.opacity = 1    
                 document.getElementById('tutorial-6').style.opacity = 0
-                }   
                 
+                }   
+                document.getElementById('tutorial-5').style.opacity = 0
             }
 
             
