@@ -2,11 +2,16 @@ const express = require('express');
 const multer = require('multer');
 const cors = require('cors');  // Import CORS middleware
 const { uploadFileToS3 } = require('./s3Service'); // Import the S3 upload function
-const upload = multer();  // Initialize multer for handling file uploads
+const upload = multer({
+    limits: {
+      fieldSize: 1024 * 1024 * 200 // Increase field size limit to 200 MB (you can adjust this size)
+    }
+  });  // Initialize multer for handling file uploads
 const app = express();
 require('dotenv').config();
 
 const PORT = process.env.PORT || 3000 // Render will set PORT in production
+
 
 // Enable CORS for all routes and origins
 app.use(cors({
