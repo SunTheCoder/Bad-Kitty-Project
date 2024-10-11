@@ -340,7 +340,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             });
 
             
-
+            
 
             // Check if the dialog has been shown before
             if (!sessionStorage.getItem('page2DialogShown')) {
@@ -503,7 +503,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     <p id="tutorial-5" class="tutorial">
     
-            It's your turn to draw! <br> If you don't need the outline <br> ↓ just hit "Clear Outline" 
+            It's your turn to draw! <br> If you don't need the outline <br> ↓ just click "Clear Outline" 
             
             
     
@@ -555,6 +555,7 @@ function clearCanvas() {
 
         //EXPAND ON CONDITION SO THAT PAGE IS DONE BEFORE PROGRESSING TO THE NEXT PAGE
 
+       
 
             if (counter % 2 !== 0) {
 
@@ -564,7 +565,15 @@ function clearCanvas() {
             if (counter % 2 === 0) {
                 // page1.innerHTML = page1html
                 pageContainer.innerHTML = page2ContainerHtml
-                
+
+        document.getElementById('drawingCanvas').addEventListener('touchstart', () => {
+            document.getElementById('tutorial-5').style.opacity = 0;  
+        })
+
+        document.getElementById('drawingCanvas').addEventListener('click', () => {
+            document.getElementById('tutroial-5').style.opacity = 0;  
+        })
+        
                 restoreCanvasFromSession()
 
                 paws.forEach(paw => {
@@ -688,6 +697,7 @@ canvas.addEventListener('mouseout', stopDrawing);
 canvas.addEventListener('touchstart', startDrawing);
 canvas.addEventListener('touchmove', draw);
 canvas.addEventListener('touchend', stopDrawing);
+
 
 function startDrawing(e) {
     drawing = true;
