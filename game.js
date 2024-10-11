@@ -837,6 +837,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
         document.getElementById('tutorial-5').style.opacity = '0';
         const page2 = document.getElementById('container');
         
+        
         // Wait for images in page2 to load
         try {
             await Promise.all(
@@ -905,7 +906,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
                     qr2.make();
                     document.getElementById('qrDiv2').innerHTML = qr2.createImgTag(4);
                 }
-                
+                document.getElementById('tutorial-5').style.opacity = '1';
                 sessionStorage.clear();
             } else {
                 console.error('Error from server:', data);
