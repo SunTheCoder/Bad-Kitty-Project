@@ -697,11 +697,14 @@ html, body {
 
 
 #qrContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: 30px;
+    display: flex !important;
+    margin-top: 40px;
+    justify-content: center
     
+}
+
+.qr {
+    padding: 25px
 }
 
 #door-scratch {
