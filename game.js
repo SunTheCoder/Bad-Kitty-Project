@@ -363,7 +363,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const storedChoice = JSON.parse(sessionStorage.getItem('treat-choice'));
     const storedChoiceEye = JSON.parse(sessionStorage.getItem('eye-choice'));
 
-    if (counter < 2) {
+    if (counter <= 2) {
     const page1Container = document.getElementById('container')
 
     await Promise.all(
