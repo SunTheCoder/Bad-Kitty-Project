@@ -276,6 +276,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
    
     
     page2button.addEventListener('click', () => {
+        
+
+
 
         
         if (sessionStorage.getItem('eye-choice') && sessionStorage.getItem('treat-choice') && sessionStorage.getItem('comic-word-choice')){
@@ -789,42 +792,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
             paw.style.opacity = '0';
         });
     
-        // Capture page 1
-        const page1HTML = JSON.parse(sessionStorage.getItem('page1HTML'));
-        const page1Container = document.createElement('div');
-        page1Container.innerHTML = page1HTML;
-        document.body.appendChild(page1Container);
-        page1Container.style.position = 'absolute';
-        page1Container.style.zIndex = '-1';
-    
-        // Wait for images in page1Container to load
-        await Promise.all(
-            Array.from(page1Container.querySelectorAll('img')).map(img => {
-                return new Promise((resolve, reject) => {
-                    if (img.complete) {
-                        resolve();  // Image already loaded
-                    } else {
-                        img.onload = resolve;  // Wait for image to load
-                        img.onerror = reject;  // Handle loading errors
-                    }
-                });
-            })
-        );
-    
-        // Capture page 1 with html2canvas after all images are loaded
-        let page1Canvas = await html2canvas(page1Container);
-        document.body.removeChild(page1Container);
-    
-        // Create a new canvas and clip the bottom 50 pixels of page1Canvas
-        const clippedPage1Canvas = document.createElement('canvas');
-        const clipHeight1 = page1Canvas.height - 80;  // Clip the bottom 50 pixels
-        clippedPage1Canvas.width = page1Canvas.width;
-        clippedPage1Canvas.height = clipHeight1;
-    
-        const page1Ctx = clippedPage1Canvas.getContext('2d');
-        page1Ctx.drawImage(page1Canvas, 0, 0, page1Canvas.width, clipHeight1, 0, 0, page1Canvas.width, clipHeight1); // Draw original with clipped height
-    
-        const page1Image = clippedPage1Canvas.toDataURL('image/png');
+        
     
         // Capture page 2
         document.getElementById('tools').style.opacity = '0';
@@ -861,7 +829,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
 
         // Create form data to send images to the backend
         const formData = new FormData();
-        formData.append('page1', page1Image);
+        // formData.append('page1', page1Image);
         formData.append('page2', page2Image);
     
         formData.forEach((value, key) => {
@@ -876,16 +844,16 @@ document.getElementById('brushColor').addEventListener('input', function() {
         .then(response => response.json())
         .then(data => {
             // data.page1Url and data.page2Url contain the URLs of the images on S3
-            console.log('Page 1 Image URL:', data.page1Url);
+            // console.log('Page 1 Image URL:', data.page1Url);
             console.log('Page 2 Image URL:', data.page2Url);
     
             // Generate a QR code for Page 1 Image URL
-            if (data.page1Url) {
-                const qr = qrcode(0, 'L');
-                qr.addData(data.page1Url);  // Add the S3 URL of the first image to the QR code
-                qr.make();
-                document.getElementById('qrDiv').innerHTML = qr.createImgTag(4);  // Adjust the size with the argument (6)
-            }
+            // if (data.page1Url) {
+            //     const qr = qrcode(0, 'L');
+            //     qr.addData(data.page1Url);  // Add the S3 URL of the first image to the QR code
+            //     qr.make();
+            //     document.getElementById('qrDiv').innerHTML = qr.createImgTag(4);  // Adjust the size with the argument (6)
+            // }
     
             // Generate a QR code for Page 2 Image URL
             if (data.page2Url) {
