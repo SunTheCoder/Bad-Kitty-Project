@@ -429,6 +429,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     </div>
 
+    <p id="snatch" class="comic-output">SNATCH!!</p>
+
     <p id="text1" class="storyText"> There she goes. <i>Prowling</i> about. </p>
             <p id="text2" class="storyText"><b>What?  No!</b> <br><b>YUCK!</b> It's only leftovers!</p>
             <p id="text4" class="storyText"><b>OH MY GOODNESS! COULD IT BE!?</b> <br><i>Good</i> fortune for a <i>bad</i> kitty? Of course!</p>
