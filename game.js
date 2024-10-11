@@ -916,10 +916,5 @@ document.getElementById('brushColor').addEventListener('input', function() {
         }
     });
     
-    
-    
-
-    
-
 })
 
