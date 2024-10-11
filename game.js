@@ -335,6 +335,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const storedChoice = JSON.parse(sessionStorage.getItem('treat-choice'));
     const storedChoiceEye = JSON.parse(sessionStorage.getItem('eye-choice'));
 
+    if (counter < 2) {
     const page1Container = document.getElementById('container')
 
     await Promise.all(
@@ -368,6 +369,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const page1Image = clippedPage1Canvas.toDataURL('image/png');
 
     sessionStorage.setItem('page1Image', page1Image);
+
+    }
         
     const page1ContainerHtmlVar = 
         
@@ -444,7 +447,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             <p id="text7" class="storyText">So <i>bad</i>. <br> So <i>smart</i>. <br> So <i>proud</i>. <br> Who <b>wouldn't</b> spoil this kitty!?</p>
             <p id="text8" class="storyText">Now, <b>that</b> is a <br><i>satisfied</i> kitty!</p>
             <p id="text9" class="comic-output">BOOM!<p>
-            <p id="tutorial-6" class="tutorial">${window.innerWidth < 1024 ? '<b>Touch</b> the blank <br> panel to reveal <br> the ending.' : '<b>Click</b> the blank <br> panel to reveal <br> the ending.'}</p>
+            <p id="tutorial-6" class="tutorial">${window.innerWidth < 1024 ? '<b>Touch</b> the blank <br> panel to reveal <br> the ending.' : '<b>Click</b> the blank <br> panel to reveal <br> the ending. →'}</p>
 
  
     <div id="page2panels-container">
