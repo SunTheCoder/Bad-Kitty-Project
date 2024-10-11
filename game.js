@@ -571,9 +571,9 @@ function clearCanvas() {
         })
 
         document.getElementById('drawingCanvas').addEventListener('click', () => {
-            document.getElementById('tutroial-5').style.opacity = 0;  
+            document.getElementById('tutorial-5').style.opacity = 0;  
         })
-        
+
                 restoreCanvasFromSession()
 
                 paws.forEach(paw => {
