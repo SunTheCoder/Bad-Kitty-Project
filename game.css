@@ -167,7 +167,7 @@ h3{
 }
 #eyes-1-kitty {
     position: relative;
-    bottom: 372px;
+    bottom: 328px;
     right: 221px;
     width:15%;
     cursor: default;
@@ -181,7 +181,7 @@ h3{
 }
 #eyes-2-kitty {
     position: relative;
-    bottom: 372px;
+    bottom: 330px;
     right: 221px;
     width:15%;
     cursor: default;
@@ -308,7 +308,7 @@ h3{
     position: relative;
     bottom: 70px;
     z-index: 0;
-    clip-path: inset(0 0 32% 0);
+    /* clip-path: inset(0 0 32% 0); */
     right: 1.5px;
     
 }
