@@ -85,6 +85,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
+    let revealed = false
+
     let counter = 1; //for page traversal
 
     let inactivityTime = function () {
@@ -593,11 +595,12 @@ function clearCanvas() {
             })
             
             if (counter > 2) {
-                document.getElementById('kitty-satisfied').style.opacity = 1
-                document.getElementById('tutorial-6').style.opacity = 0
-                document.getElementById('text8').style.opacity = 1    
 
-                
+                if (revealed === true) {
+                document.getElementById('kitty-satisfied').style.opacity = 1
+                document.getElementById('text8').style.opacity = 1    
+                document.getElementById('tutorial-6').style.opacity = 0
+                }   
                 
             }
 
@@ -629,6 +632,7 @@ function clearCanvas() {
 const satisfied = document.getElementById('kitty-satisfied')
 
 satisfied.addEventListener('click', (e) => {
+    revealed = revealed === false ? true : false
     e.target.style.opacity = 1
     document.getElementById('text8').style.opacity = 1
     setTimeout(() => {
