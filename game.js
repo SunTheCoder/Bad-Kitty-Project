@@ -560,6 +560,11 @@ function clearCanvas() {
                 
             })
 
+            if (counter > 2) {
+                document.getElementById('kitty-satisfied').style.opacity = 1
+                document.getElementById('tutorial-6').style.opacity = 0
+            }
+
             buttons.innerHTML = `
 
             <img id="eyes-1" class="body-button" src="/Assets/eye-filler.png" alt="">
