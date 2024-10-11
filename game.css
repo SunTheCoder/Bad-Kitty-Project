@@ -596,6 +596,15 @@ h3{
     text-align: left;
     
 }
+#tutorial-6 {
+    position: absolute;
+    left: 70px;
+    bottom: 210px;
+    font-family: 'Comic Neue';
+    font-size: large;
+    text-align: left;
+    
+}
 
 html, body {
     overflow-x: hidden; /* Prevent horizontal scrolling */

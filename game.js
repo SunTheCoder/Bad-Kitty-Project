@@ -2,6 +2,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     event.preventDefault()
 
+    const windowWidth = window.innerWidth
+    const windowHeight = window.innerHeight
+
     let lastVisibleTime = new Date().getTime();
 
     document.addEventListener('visibilitychange', () => {
@@ -408,6 +411,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
             <p id="text7" class="storyText">So <i>bad</i>. <br> So <i>smart</i>. <br> So <i>proud</i>. <br> Who <b>wouldn't</b> spoil this kitty!?</p>
             <p id="text8" class="storyText">Now, <b>that</b> is a <br><i>satisfied</i> kitty!</p>
             <p id="text9" class="comic-output">BOOM!<p>
+            <p id="tutorial-6" class="tutorial">${windowWidth < 800 ? '<b>Touch</b> the blank <br> panel to reveal <br> the ending.' : '<b>Click</b> the blank <br> panel to reveal <br> the ending.'}</p>
+
  
     <div id="page2panels-container">
     
@@ -477,6 +482,7 @@ function clearCanvas() {
    
 
 </div>
+
     
 
 
