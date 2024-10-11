@@ -61,6 +61,30 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     const pageContainer = document.getElementById('page-container')
 
+    function saveCanvasToSession() {
+        const canvas = document.getElementById('drawingCanvas');  // Get your canvas element
+        const drawingData = canvas.toDataURL();  // Convert the canvas content to a base64 string
+        sessionStorage.setItem('savedDrawing', drawingData);  // Save it in sessionStorage
+        console.log('Canvas drawing saved to sessionStorage');
+    }
+
+    function restoreCanvasFromSession() {
+        const canvas = document.getElementById('drawingCanvas');
+        const context = canvas.getContext('2d');
+        const savedDrawing = sessionStorage.getItem('savedDrawing');
+    
+        if (savedDrawing) {
+            const img = new Image();  // Create a new image element
+            img.src = savedDrawing;  // Set the image source to the saved drawing data
+            img.onload = function () {
+                context.clearRect(0, 0, canvas.width, canvas.height);  // Clear the canvas
+                context.drawImage(img, 0, 0);  // Draw the saved image onto the canvas
+            };
+        } else {
+            console.log('No saved drawing found in sessionStorage');
+        }
+    }
+
     let counter = 1; //for page traversal
 
     let inactivityTime = function () {
@@ -281,6 +305,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         
         if (sessionStorage.getItem('eye-choice') && sessionStorage.getItem('treat-choice') && sessionStorage.getItem('comic-word-choice')){
             counter++
+            console.log(counter)
 
             paws.forEach(paw => {
                 paw.style.opacity = '0';
@@ -444,7 +469,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     <p id="text5" class="storyText"> Kitty is <i>disappointed</i>; <br> but she has not given up! <br> 
     I see <b>determination</b>!</p>
             <p id="text6" class="storyText"></p>
-            <p id="text7" class="storyText">So <i>bad</i>. <br> So <i>smart</i>. <br> So <i>proud</i>. <br> Who <b>wouldn't</b> spoil this kitty!?</p>
+            <p id="text7" class="storyText"><b>So</b> <i>bad</i>. <br> <b>So</b> <i>smart</i>. <br> <b> So</b> <i>proud</i>. <br> Who <b>wouldn't</b> spoil this kitty!?</p>
             <p id="text8" class="storyText">Now, <b>that</b> is a <br><i>satisfied</i> kitty!</p>
             <p id="text9" class="comic-output">BOOM!<p>
             <p id="tutorial-6" class="tutorial">${window.innerWidth < 1024 ? '<b>Touch</b> the blank <br> panel to reveal <br> the ending.' : '<b>Click</b> the blank <br> panel to reveal <br> the ending. →'}</p>
@@ -527,11 +552,18 @@ function clearCanvas() {
 
 
         //EXPAND ON CONDITION SO THAT PAGE IS DONE BEFORE PROGRESSING TO THE NEXT PAGE
-      
+
+
+            if (counter % 2 !== 0) {
+
+                saveCanvasToSession()
+            }
 
             if (counter % 2 === 0) {
                 // page1.innerHTML = page1html
                 pageContainer.innerHTML = page2ContainerHtml
+                
+                restoreCanvasFromSession()
 
                 paws.forEach(paw => {
                     paw.style.opacity = '1';
@@ -559,11 +591,20 @@ function clearCanvas() {
                     
                 
             })
-
+            
             if (counter > 2) {
                 document.getElementById('kitty-satisfied').style.opacity = 1
                 document.getElementById('tutorial-6').style.opacity = 0
+                document.getElementById('text8').style.opacity = 1    
+
+                
+                
             }
+
+            
+            
+            
+            
 
             buttons.innerHTML = `
 
