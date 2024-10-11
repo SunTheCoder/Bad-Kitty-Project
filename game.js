@@ -552,7 +552,7 @@ removeOutlineButton.addEventListener('click', () => {
     // Clear the portion of the canvas where the outline was drawn
     ctx.clearRect(50, 20, 300, 280);  // Adjust the coordinates and size to match the image
 
-    window.confirm('If you remove the outline; it will erase any drawing on that portion of the canvas.')
+    window.confirm('If you remove the outline; it will erase any drawing on that portion of the canvas. Are you sure?')
     
     console.log('Outline removed!');
 });
