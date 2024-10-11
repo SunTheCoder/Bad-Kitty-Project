@@ -421,7 +421,7 @@ h3{
     position: absolute;
     width: 400px;   
     opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 3s ease-in-out;
 
 }
 
@@ -752,11 +752,15 @@ html, body {
     text-align: left;
 }
 #text8 {
-    left: 210px;
-    bottom: 363px;
+    left: 215px;
+    bottom: 340px;
+    font-size: xx-large;
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+
 }
 #text9 {
-    left: 650px;
+    left: 655px;
     top: 60px;
 }
 .comic-output {

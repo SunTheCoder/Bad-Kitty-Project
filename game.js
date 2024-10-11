@@ -578,6 +578,7 @@ const satisfied = document.getElementById('kitty-satisfied')
 
 satisfied.addEventListener('click', (e) => {
     e.target.style.opacity = 1
+    document.getElementById('text8').style.opacity = 1
     setTimeout(() => {
     document.getElementById('tutorial-6').style.opacity = 0
 }, 1500)  
