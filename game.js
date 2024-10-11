@@ -402,6 +402,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const page2ContainerHtml = 
 
     `
+    <p id="text5" class="storyText"> Kitty is <i>disappointed</i>; <br> but she has not given up! <br> 
+    I see <b>determination</b>!</p>
+            <p id="text6" class="storyText"></p>
+            <p id="text7" class="storyText">So <i>bad</i>. <br> So <i>smart</i>. <br> So <i>proud</i>. <br> Who <b>wouldn't</b> spoil this kitty!?</p>
+            <p id="text8" class="storyText">Now, <b>that</b> is a <br><i>satisfied</i> kitty!</p>
+            <p id="text9" class="comic-output">BOOM!<p>
  
     <div id="page2panels-container">
     
