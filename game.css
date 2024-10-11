@@ -777,6 +777,14 @@ html, body {
     position: absolute; 
 }
 
+#snatch {
+    font-size: 35px;
+    position: absolute;
+    left: 324px;
+    top: 504px;
+    rotate: -12deg
+}
+
 
 
 
