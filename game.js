@@ -474,6 +474,8 @@ function clearCanvas() {
 
     <img src="/Assets/zzz-treats.png" alt="satisfied kitty" id="kitty-satisfied">
 
+   
+
 </div>
     
 
@@ -533,6 +535,16 @@ function clearCanvas() {
 
                 
                 page2button.innerText = 'Page 1'
+
+              
+
+const satisfied = document.getElementById('kitty-satisfied')
+
+satisfied.addEventListener('click', (e) => {
+    e.target.style.opacity = 1
+})
+        
+       
 
 // Get the canvas and context
 const canvas = document.getElementById('drawingCanvas');

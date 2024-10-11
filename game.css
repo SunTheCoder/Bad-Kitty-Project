@@ -417,7 +417,10 @@ h3{
     top: 20px;
     right: 55px;
     position: absolute;
-    width: 400px
+    width: 400px;   
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+
 }
 
 .mini-panel {
