@@ -21,27 +21,32 @@ app.use(cors({
 }));
 
 // Middleware to parse JSON and handle large payloads
+app.use(express.urlencoded({ extended: true }));  // Parse URL-encoded bodies
+
 app.use(express.json({ limit: '200mb' }));
 
 // Route to handle uploading images to S3
 app.post('/upload-images', upload.none(), async (req, res) => {
     console.log('Request Body:', req.body);
     try {
-        const { page } = req.body;
+        const { page1, page2 } = req.body;
 
-        if (!page) {
+        if (!page1 || !page2) {
             return res.status(400).json({ error: 'Missing image data' });
         }
 
         // Convert base64 to Buffer (needed for S3 upload)
         const page1Buffer = Buffer.from(page1.replace(/^data:image\/png;base64,/, ''), 'base64');
+        const page2Buffer = Buffer.from(page2.replace(/^data:image\/png;base64,/, ''), 'base64');
 
         // Upload the images to S3
         const page1Upload = await uploadFileToS3(page1Buffer, 'page1.png');
+        const page2Upload = await uploadFileToS3(page2Buffer, 'page2.png');
 
         // Send back the URLs of the uploaded images
         res.json({
             page1Url: page1Upload.Location,
+            page2Url: page2Upload.Location
         });
     } catch (error) {
         console.error('Error uploading images:', error);
