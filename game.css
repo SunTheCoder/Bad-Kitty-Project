@@ -167,7 +167,7 @@ h3{
 }
 #eyes-1-kitty {
     position: relative;
-    bottom: 328px;
+    bottom: 541px;
     right: 221px;
     width:15%;
     cursor: default;
@@ -181,7 +181,7 @@ h3{
 }
 #eyes-2-kitty {
     position: relative;
-    bottom: 330px;
+    bottom: 542px;
     right: 221px;
     width:15%;
     cursor: default;
@@ -785,6 +785,15 @@ html, body {
     rotate: -12deg
 }
 
+.wall {
+
+    position: relative;
+    width: 99.5%;
+    height: 69.2%;
+    top: -374px;
+    left: 0px;
+    z-index: 0;
+}
 
 
 
