@@ -720,8 +720,10 @@ html, body {
 }
 
 #door-scratch {
-    width: 90.3%;
-    height: 100.431%
+    width: 100%;
+    height: 100.431%;
+    border-radius: 1%;
+    bottom: 1px
 }
 
 .storyText {
