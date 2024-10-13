@@ -1,6 +1,11 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
     event.preventDefault()
+    
+    window.addEventListener('beforeunload', function () {
+        sessionStorage.clear();  // or localStorage.clear();
+    });
+    
 
     const windowWidth = window.innerWidth
     const windowHeight = window.innerHeight
@@ -557,7 +562,7 @@ function clearCanvas() {
     
 <div id='congrats' class='tutorial'>
         <b>Congratulations! You just made a comic! Great work!</b> <br>
-        ↓ Save your pictures using the QR coes below. ↓
+        ↓ Save your pictures using the QR codes below. ↓
 </div>
 
 
