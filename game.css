@@ -471,9 +471,10 @@ h3{
     display: block;
     position: relative;
     margin: auto;
-    top: 145px;
+    top: 143px;
+    border-radius: 1%;
     
-    width: 80%;
+    width: 100%;
 }
 #knock {
     display: block;
