@@ -399,7 +399,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     // Create a new canvas and clip the bottom 50 pixels of page1Canvas
     const clippedPage1Canvas = document.createElement('canvas');
-    const clipHeight1 = page1Canvas.height - 80;  // Clip the bottom 50 pixels
+    const clipHeight1 = page1Canvas.height - 299;  // Clip the bottom 50 pixels
     clippedPage1Canvas.width = page1Canvas.width;
     clippedPage1Canvas.height = clipHeight1;
 
@@ -950,7 +950,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
         let page2Canvas = await html2canvas(page2);
         
         const clippedPage2Canvas = document.createElement('canvas');
-        const clipHeight2 = page2Canvas.height - 179; 
+        const clipHeight2 = page2Canvas.height - 299; 
         clippedPage2Canvas.width = page2Canvas.width;
         clippedPage2Canvas.height = clipHeight2;
         
