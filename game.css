@@ -551,6 +551,15 @@ h3{
     transition: opacity 1.5s ease-in-out;
 }
 
+#congrats {
+    position: absolute;
+    font-family: 'Comic Neue';
+    font-size: large;   
+    left: 212px;
+    bottom: 5px;
+    opacity: 0;
+}
+
 #tutorial-1 {
     position: absolute;
     left: 100px;

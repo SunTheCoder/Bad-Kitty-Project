@@ -87,6 +87,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     let revealed = false
     let hidden = false
+    let saved = false
 
     let counter = 1; //for page traversal
 
@@ -122,8 +123,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let addTextCounter = 0
     addText.addEventListener('click', (event) => {
         event.preventDefault()
+
         
-        if (document.getElementById('comic-text').value.length <= 5) {
+        
+        if (document.getElementById('comic-text').value.length <= 5 && document.getElementById('comic-text').value.length) {
 
         sessionStorage.setItem('comic-word-choice', document.getElementById('comic-text').value);
         console.log('Comic word choice:', sessionStorage.getItem('comic-word-choice'));
@@ -166,7 +169,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById('comic-text').style.opacity = '0';
         addText.style.opacity = '0';
         } else {
-            alert('You can only add up to 5 characters to the comic.')
+            alert('Please enter up to 5 characters.')
         }
     });
     
@@ -380,6 +383,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     );
     
     document.getElementById('tutorial-4').style.opacity = 0
+    addText.style.opacity = 0;
+    document.getElementById('reset-text').style.opacity = 0;
 
 
     // Capture page 1 with html2canvas after all images are loaded
@@ -550,7 +555,10 @@ function clearCanvas() {
 </div>
 
     
-
+<div id='congrats' class='tutorial'>
+        <b>Congratulations! You just made a comic! Great work!</b> <br>
+        ↓ Save your pictures using the QR coes below. ↓
+</div>
 
 
     </div>`
@@ -578,6 +586,8 @@ function clearCanvas() {
             document.getElementById('tutorial-5').style.opacity = 0;  
             hidden = hidden === false ? true : false
         })
+
+                saved === true ? document.getElementById('congrats').style.opacity= '1' : document.getElementById('congrats').style.opacity= '0'
 
                 restoreCanvasFromSession()
 
@@ -980,7 +990,10 @@ document.getElementById('brushColor').addEventListener('input', function() {
                     document.getElementById('qrDiv2').innerHTML = qr2.createImgTag(4);
                 }
                 document.getElementById('tutorial-5').style.opacity = '1';
-                sessionStorage.clear();
+                document.getElementById('congrats').style.opacity = '1'
+                // sessionStorage.clear();
+                saved = true;
+
             } else {
                 console.error('Error from server:', data);
             }
