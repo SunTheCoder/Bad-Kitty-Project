@@ -569,6 +569,8 @@ function clearCanvas() {
         ↓ Save your pictures using the QR codes below. ↓
 </div>
 
+<p id="credits" class='tutorial'><i>Game, Illustrations, and Story</i> created by, <b>Bobby (Sun) English Jr.</b> <br> <i>Bad Kitty originally</i> created by, <b>Nick Bruel</b></p>
+
 
     </div>`
 

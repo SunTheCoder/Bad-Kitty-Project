@@ -810,7 +810,14 @@ html, body {
     z-index: 0;
 }
 
-
+#credits {
+    font-size: large;
+    position: absolute;
+    font-family: 'Comic Neue';
+    bottom: -132px;
+    text-align: center;
+    left: 160px
+}
 
 
 
