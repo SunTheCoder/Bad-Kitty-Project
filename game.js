@@ -487,7 +487,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     I see <b>determination</b>!</p>
             <p id="text6" class="storyText"></p>
             <p id="text7" class="storyText"><b>So</b> <i>bad</i>. <br> <b>So</b> <i>smart</i>. <br> <b> So</b> <i>proud</i>. <br> Who <b>wouldn't</b> spoil this kitty!?</p>
-            <p id="text8" class="storyText">Now, <b>that</b> is a <br><i>satisfied</i> kitty!</p>
+            <p id="text8" class="storyText">Now, <b>that</b> is a <i>satisfied</i> kitty!</p>
             <p id="text9" class="comic-output">BOOM!<p>
             <p id="tutorial-6" class="tutorial">${window.innerWidth < 1024 ? '<b>Touch</b> the blank <br> panel to reveal <br> the ending.' : '<b>Click</b> the blank <br> panel to reveal <br> the ending. →'}</p>
 

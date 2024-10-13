@@ -349,7 +349,7 @@ h3{
     /* margin-left: 90px; */
     position: relative;
     margin-top: 50px;
-    width: 450px;
+    width: 420px;
     height: 400px;
     border: 2px solid black;
     margin: auto;
@@ -416,12 +416,14 @@ h3{
 
 }
 #kitty-satisfied {
-    top: 20px;
-    right: 55px;
+    top: 0px;
+    right: -1.2px;
     position: absolute;
-    width: 400px;   
+    height: 100%;
+    width: 105.5%;   
     opacity: 0;
     transition: opacity 3s ease-in-out;
+    border-radius: 5px;
 
 }
 
@@ -762,11 +764,12 @@ html, body {
     text-align: left;
 }
 #text8 {
-    left: 215px;
-    bottom: 340px;
+    left: 233px;
+    bottom: 370px;
     font-size: xx-large;
     opacity: 0;
     transition: opacity 3s ease-in-out;
+    z-index: 9999;
 
 }
 #text9 {
