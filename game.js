@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
     event.preventDefault()
-    
+
     window.addEventListener('beforeunload', function () {
         sessionStorage.clear();  // or localStorage.clear();
     });
@@ -277,15 +277,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
             treats.filter((treat) => treat !== event.target).forEach((treat) => { treat.style.display = 'none' });
 
             function handleChoice() {
-                happyKitty.style.opacity = 1;
-
+                
                 if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
+                    happyKitty.style.opacity = 1;
                     happyKitty.style.left = '485px';
                     return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
                 } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
+                    happyKitty.style.opacity = 1;
                     happyKitty.style.left = '485px';
                     return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
                 } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
+                    happyKitty.style.opacity = 1;
                     happyKitty.style.left = '450px';
                     return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes tuna!`
                 }
@@ -516,7 +518,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     <p id="tutorial-5" class="tutorial">
     
-            It's your turn to draw! <br> If you don't need the outline <br> ↓ just click "Clear Outline" 
+            <i>It's your turn to draw!</i> <br> An expression? A treat? <b>Your choice!</b> <br> If you don't need the outline ↓ just click "Clear Outline" 
             
             
     
