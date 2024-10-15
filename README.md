@@ -14,7 +14,7 @@ The game was created by Bobby "Sun" English Jr.
 
 ### Game Features
 
-- **Responsive Design**: The application is fully responsive, providing an optimized experience across devices (tablet, desktop).
+- **Responsive Design**: The application is fully responsive, providing an optimized experience across devices (tablet, desktop, and mobile(landscaped)).
 - **Dynamic Storytelling**: The game adapts based on user choices, creating a unique storyline for each player.
 - **Save**: Users can save their comic pages (using AWS)
 
