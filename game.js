@@ -379,6 +379,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 tutorial.style.opacity = '1';
             });
 
+
+
             
             
 
@@ -483,20 +485,37 @@ window.addEventListener('DOMContentLoaded', (event) => {
         <div class="draggable panel" id="panel-2" draggable="true">
 
             <div class="mini-panel" id="mini-panel-lg">
-                <img src="/Assets/sneaky-kitty-sketch.png" alt="" id="wall-sneak">
-            </div>
-            <div class="mini-panel" id="mini-panel-bottom">
-        
-                <img src="/Assets/treatpounce.png" alt="" id="rip">
-            </div>
+                        <img src="/Assets/treatbagcounter.png" alt="" id="treatbagcounter">
+                        <img src="/Assets/tunacounter.png" alt="" id="tunacounter">
+
+
+                        <img src="/Assets/chickenbox.png" alt="" id="chickenbox">
+                        <img src="/Assets/sneaky-kitty-sketch.png" alt="" id="wall-sneak">
+                    </div>
+                    <div class="mini-panel" id="mini-panel-bottom">
+                        <p id="riptext" class="storyText"><i>Use <br> those <br> claws, <br> <b>Kitty!</b></i></p>
+                        <img src="/Assets/treatpounce.png" alt="" id="rip">
+                        <img src="Assets/treatbagrip.png" id="ripbag">
+                        <img src="Assets/chickenboxrip.png" id="ripbox">
+                        <img src="Assets/tunarip.png" id="riptuna">
+
+                    </div>
             
             <textarea id="comic-text" style="opacity: 0" placeholder="Type your comic text here"></textarea>
                         <button id="add-text" style="opacity: 0" type="button">Add Text</button>
                         <button id="reset-text"style="opacity: 0" >Reset Text</button>
                         <div id="comic-output">${sessionStorage.getItem('comic-word-choice')}</div>
 
-            <div class="mini-panel"><img src="/Assets/mad-kitty-sketch.png" alt="" id="mad"></div>
-        </div>
+            <div class="mini-panel">
+                        <img src="/Assets/mad-kitty-sketch.png" alt="" id="mad">
+                        <img src="/Assets/ShreddedBag.png" alt="" id="treatbagopen">
+                        <img src="/Assets/ShreddedBox.png" alt="" id="chickenboxripped">
+
+                        <img src="/Assets/chickenbone.png" alt="" id="chickenbone">
+                        <img src="/Assets/TunaEmpty.png" alt="" id="tunaempty">
+
+                    </div>
+                </div>
 
         <div id="small-container">
             <div class="draggable panel" id="panel-3" draggable="true">
@@ -819,36 +838,78 @@ document.getElementById('brushColor').addEventListener('input', function() {
 
             document.getElementById('tutorial-1').style.opacity = 1
             document.getElementById('tutorial-1').innerHTML = 'Oh, what could Kitty be up to?! <br\> Pretty sure it\'s something...<b>bad</b>!'
-            function handleTreatChoice() {
+            
 
                 if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
-                    return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
+                    tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
+                    document.getElementById('happy-kitty-1').style.left = '485px';
                 } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
-                    return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
+                    tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
+                    document.getElementById('happy-kitty-1').style.left = '485px';
                 } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
-                    return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes tuna!`
+                    tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes tuna!`
+                    document.getElementById('happy-kitty-1').style.left = '485px';
                 }
                 
-            }
+                
 
-            tutorial2.innerHTML = handleTreatChoice()
+            
             tutorial2.style.top = '30px'
             tutorial2.style.left = '430px'
 
             
             document.getElementById('happy-kitty-1').style.opacity = 1
 
+            // if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
+            //     document.getElementById('happy-kitty-1').style.left = '485px';
+                
+            // } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
+            //     document.getElementById('happy-kitty-1').style.left = '485px';
+                
+            // } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
+            //     document.getElementById('happy-kitty-1').style.left = '450px';
+                
+            // }
+          
             if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
-                document.getElementById('happy-kitty-1').style.left = '485px';
-                
-            } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
-                document.getElementById('happy-kitty-1').style.left = '485px';
-                
-            } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
-                document.getElementById('happy-kitty-1').style.left = '450px';
-                
-            }
+                document.getElementById('text2').style.opacity = '1'
+                document.getElementById('chickenbone').style.display = 'block';
+                document.getElementById('chickenbox').style.display = 'block';
+                document.getElementById('ripbox').style.opacity = '1';
+                document.getElementById('chickenboxripped').style.opacity = '1';
+                document.getElementById('riptext').style.opacity= '1'
+                document.getElementById('riptext').innerHTML = "Use <br> those <br> claws, <br> <b>Kitty!</b></i>"
 
+                happyKitty.style.opacity = 1;
+                    happyKitty.style.left = '485px';
+                    tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
+            } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
+                document.getElementById('text2').style.opacity = '1'
+                document.getElementById('text2').style.left = '135px'
+                document.getElementById('text2').innerHTML = '<b>What?  No!</b> <br>There are <b><i>no more TREATS!</i></b>'
+                document.getElementById('riptext').style.opacity= '1'
+                document.getElementById('riptext').innerHTML = "Use <br> those <br> claws, <br> <b>Kitty!</b></i>"
+                document.getElementById('treatbagcounter').style.display = 'block';
+                document.getElementById('treatbagopen').style.display = 'block';
+                document.getElementById('ripbag').style.opacity = '1';
+                happyKitty.style.opacity = 1;
+                    happyKitty.style.left = '485px';
+                    tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
+            } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
+                document.getElementById('text2').style.opacity = '1'
+                document.getElementById('text2').style.left = '170px'
+
+
+                document.getElementById('text2').innerHTML = '<b>What?  No!</b> <br><i>Nothing</i> but <b><i>BONES!</i></b>'
+                document.getElementById('tunaempty').style.opacity = '1';
+                document.getElementById('tunacounter').style.opacity = '1';
+                document.getElementById('riptuna').style.opacity = '1';
+                document.getElementById('riptext').style.opacity= '1'
+                document.getElementById('riptext').innerHTML = "<i>Get it</i> <br> open, <br> <b>Kitty!</b>"
+                happyKitty.style.opacity = 1;
+                    happyKitty.style.left = '450px';
+                    tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes tuna!`
+            }
 
             paws.forEach(paw => {
                 paw.style.opacity = '1';
@@ -858,6 +919,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
                 button.style.opacity = '1';
             })
 
+            
             page2button.innerText = 'Page 2'
 
             buttons.innerHTML = `
