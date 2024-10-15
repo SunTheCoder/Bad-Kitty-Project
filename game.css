@@ -93,7 +93,7 @@ h3{
     width: 8%;
     top: 130px;
     left: 520px;
-    rotate: 10deg;
+    /* rotate: 10deg; */
     z-index: 1;
 }
 /* kitty surronding page */
@@ -263,22 +263,44 @@ h3{
     opacity: 0
 }
 
+#ripbox {
+    width: 20%;
+    position: absolute;
+    opacity: 1;
+    bottom: 246px;
+    left: 160px;
+    /* rotate: 15deg; */
+    opacity: 0
+}
+
+
 #chickenbox {
     width: 7%;
     position: absolute;
     z-index: 1;
-    left: 320px;
-    top: 472px;
+    left: 315px;
+    top: 475px;
     display: none;
+    rotate: 1.3deg;
 
 }
 
+#chickenboxripped {
+    width: 28%;
+    position: absolute;
+    z-index: 1;
+    left: 115px;
+    bottom: 49px;
+    rotate: -5deg;
+    opacity: 0
+}
+
 #chickenbone {
-    width: 10%;
+    width: 8%;
     position: absolute;
     z-index: 1;
     left: 210px;
-    bottom: 67px;
+    bottom: 64px;
     display: none;
 }
 

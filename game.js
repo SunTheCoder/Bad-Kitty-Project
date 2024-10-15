@@ -264,8 +264,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
             sessionStorage.setItem('treat-choice', JSON.stringify(treatChoice));
 
             if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
+                document.getElementById('text2').style.opacity = '1'
                 document.getElementById('chickenbone').style.display = 'block';
                 document.getElementById('chickenbox').style.display = 'block';
+                document.getElementById('ripbox').style.opacity = '1';
+                document.getElementById('chickenboxripped').style.opacity = '1';
+
                 happyKitty.style.opacity = 1;
                     happyKitty.style.left = '485px';
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
