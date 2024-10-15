@@ -272,6 +272,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
                 document.getElementById('treatbagcounter').style.display = 'block';
                 document.getElementById('treatbagopen').style.display = 'block';
+                document.getElementById('ripbag').style.opacity = '1';
                 happyKitty.style.opacity = 1;
                     happyKitty.style.left = '485px';
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
