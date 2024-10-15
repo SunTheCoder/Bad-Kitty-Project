@@ -14,7 +14,7 @@ The game logic, story, concept, and art are created by Bobby "Sun" English Jr.
 - HTML5 Canvas: Used for allowing users to draw on the second page of the comic.
 - CSS: For styling the game interface.
 - Netlify hosting
-- 
+  
 **Backend**:
 
 - Node.js (for handling backend logic, if applicable)
