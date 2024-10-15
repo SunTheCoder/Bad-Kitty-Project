@@ -6,11 +6,23 @@
 
 The game logic, story, concept, and art are created by Bobby "Sun" English Jr.
 
-### Services
+### Services/Stack
 
-- **Amazon Web Services/AWS**
-- **Render**
-- **Netlify**
+**Frontend**: 
+
+- Vanilla JavaScript: For direct DOM manipulation to handle user interactions and updates to the game interface (e.g., rendering selections, handling canvas drawings).
+- HTML5 Canvas: Used for allowing users to draw on the second page of the comic.
+- CSS: For styling the game interface.
+- Netlify hosting
+- 
+**Backend**:
+
+- Node.js (for handling backend logic, if applicable)
+- Render hosting
+
+**Storage**: 
+
+- **Amazon Web Services/AWS** for QR code generation and saving images from the game’s pages
 
 ### Game Features
 
