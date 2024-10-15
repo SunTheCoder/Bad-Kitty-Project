@@ -234,6 +234,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         tutorial1.innerHTML = 'Oh, what could Kitty be up to?! <br\> Pretty sure it\'s something...<b>bad</b>!'
         tutorial1.style.top = '15px'
+        tutorial1.style.left = '100px'
 
         setTimeout(() => {
                     tutorial1.style.opacity = 1
@@ -921,6 +922,8 @@ document.getElementById('brushColor').addEventListener('input', function() {
             })
 
             saveButton.style.opacity = '0'
+            tutorial1.style.left = '100px'
+            
             
             page2button.innerText = 'Page 2'
 
