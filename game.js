@@ -266,35 +266,44 @@ window.addEventListener('DOMContentLoaded', (event) => {
             if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
                 document.getElementById('chickenbone').style.display = 'block';
                 document.getElementById('chickenbox').style.display = 'block';
+                happyKitty.style.opacity = 1;
+                    happyKitty.style.left = '485px';
+                    tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
                 document.getElementById('treatbagcounter').style.display = 'block';
                 document.getElementById('treatbagopen').style.display = 'block';
+                happyKitty.style.opacity = 1;
+                    happyKitty.style.left = '485px';
+                    tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
                 // document.getElementById('tunacounter').style.display = 'block';
                 // document.getElementById('tunaopen').style.display = 'block';
+                happyKitty.style.opacity = 1;
+                    happyKitty.style.left = '450px';
+                    tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes tuna!`
             }
 
             treats.filter((treat) => treat !== event.target).forEach((treat) => { treat.style.display = 'none' });
 
-            function handleChoice() {
+            // function handleChoice() {
                 
-                if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
-                    happyKitty.style.opacity = 1;
-                    happyKitty.style.left = '485px';
-                    return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
-                } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
-                    happyKitty.style.opacity = 1;
-                    happyKitty.style.left = '485px';
-                    return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
-                } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
-                    happyKitty.style.opacity = 1;
-                    happyKitty.style.left = '450px';
-                    return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes tuna!`
-                }
+            //     if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
+            //         happyKitty.style.opacity = 1;
+            //         happyKitty.style.left = '485px';
+            //         return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
+            //     } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
+            //         happyKitty.style.opacity = 1;
+            //         happyKitty.style.left = '485px';
+            //         return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
+            //     } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
+            //         happyKitty.style.opacity = 1;
+            //         happyKitty.style.left = '450px';
+            //         return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes tuna!`
+            //     }
                 
-            }
+            // }
 
-            tutorial2.innerHTML = handleChoice()
+            // tutorial2.innerHTML = handleChoice()
             tutorial2.style.top = '30px'
             tutorial2.style.left = '430px'
 
@@ -569,7 +578,7 @@ function clearCanvas() {
         ↓ Save your pictures using the QR codes below. ↓
 </div>
 
-<p id="credits" class='tutorial'><i>Game, Illustrations, and Story</i> created by, <b>Bobby (Sun) English Jr.</b> <br> <i>Bad Kitty originally</i> created by, <b>Nick Bruel</b></p>
+<p id="credits" class='tutorial'><i>Bad Kitty originally</i> created by, <b>Nick Bruel</b><i><br> Game, Illustrations, and Story</i> created by, <b>Bobby (Sun) English Jr.</b> </p>
 
 
     </div>`
