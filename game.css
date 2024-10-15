@@ -756,6 +756,7 @@ html, body {
 #text2 {
     bottom: 182.5px;
     left: 150px;
+    opacity: 0;
 }
 
 #text3 {

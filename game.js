@@ -270,6 +270,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     happyKitty.style.left = '485px';
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
+                document.getElementById('text2').style.opacity = '1'
+                document.getElementById('text2').style.left = '170px'
+                document.getElementById('text2').innerHTML = '<b>What?  No!</b> <br>There\'s <b><i>no TREATS!</i></b>'
                 document.getElementById('treatbagcounter').style.display = 'block';
                 document.getElementById('treatbagopen').style.display = 'block';
                 document.getElementById('ripbag').style.opacity = '1';
