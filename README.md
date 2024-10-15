@@ -17,6 +17,13 @@ The game was created by Bobby "Sun" English Jr.
 - **Responsive Design**: The application is fully responsive, providing an optimized experience across devices (tablet, desktop, and mobile(landscaped)).
 - **Dynamic Storytelling**: The game adapts based on user choices, creating a unique storyline for each player.
 - **Save**: Users can save their comic pages (using AWS)
+  
+### User Instructions:
+-**How to Play**: 
+
+- Choose options on the first page to shape the story.
+- Draw on the canvas on the second page to illustrate story.
+- Save the comic as images using the QR code feature.
 
 ### Planned Features
 
