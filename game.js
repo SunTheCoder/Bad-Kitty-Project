@@ -269,14 +269,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 document.getElementById('chickenbox').style.display = 'block';
                 document.getElementById('ripbox').style.opacity = '1';
                 document.getElementById('chickenboxripped').style.opacity = '1';
+                document.getElementById('riptext').style.opacity= '1'
+                document.getElementById('riptext').innerHTML = "Use <br> those <br> claws, <br> <b>Kitty!</b></i>"
 
                 happyKitty.style.opacity = 1;
                     happyKitty.style.left = '485px';
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
                 document.getElementById('text2').style.opacity = '1'
-                document.getElementById('text2').style.left = '170px'
-                document.getElementById('text2').innerHTML = '<b>What?  No!</b> <br>There\'s <b><i>no TREATS!</i></b>'
+                document.getElementById('text2').style.left = '135px'
+                document.getElementById('text2').innerHTML = '<b>What?  No!</b> <br>There are <b><i>no more TREATS!</i></b>'
+                document.getElementById('riptext').style.opacity= '1'
+                document.getElementById('riptext').innerHTML = "Use <br> those <br> claws, <br> <b>Kitty!</b></i>"
                 document.getElementById('treatbagcounter').style.display = 'block';
                 document.getElementById('treatbagopen').style.display = 'block';
                 document.getElementById('ripbag').style.opacity = '1';
@@ -284,8 +288,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     happyKitty.style.left = '485px';
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
-                // document.getElementById('tunacounter').style.display = 'block';
-                // document.getElementById('tunaopen').style.display = 'block';
+                document.getElementById('text2').style.opacity = '1'
+                document.getElementById('text2').style.left = '150px'
+
+
+                document.getElementById('text2').innerHTML = '<b>What?  No!</b> <br>There is <b><i>no more TUNA!</i></b>'
+                document.getElementById('tunacounter').style.opacity = '1';
+                document.getElementById('riptuna').style.opacity = '1';
+                document.getElementById('riptext').style.opacity= '1'
+                document.getElementById('riptext').innerHTML = "<i>Get it</i> <br> open, <br> <b>Kitty!</b>"
                 happyKitty.style.opacity = 1;
                     happyKitty.style.left = '450px';
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes tuna!`
