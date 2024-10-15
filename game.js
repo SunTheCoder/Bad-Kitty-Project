@@ -41,6 +41,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const tutorial1 = document.getElementById('tutorial-1')
     const tutorial2 = document.getElementById('tutorial-2')
     const tutorial3 = document.getElementById('tutorial-3')
+    const tutorial4 = document.getElementById('tutorial-4')
 
     const treat = document.getElementById('treat-thought')
     const tunaCan = document.getElementById('tuna-thought')
@@ -126,6 +127,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     //text area
     let addTextCounter = 0
+
+    tutorial4.innerHTML = `${window.innerWidth < 1024 ? '<b>Touch</b> "Page 2," below after you\'ve completed this page. There\'s more of the story to play with! ↓↓' : '<b>Click</b> "Page 2," below after you\'ve completed this page. There\'s more of the story to play with! ↓↓'}`
+
     addText.addEventListener('click', (event) => {
         event.preventDefault()
 
