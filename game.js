@@ -289,10 +289,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
                 document.getElementById('text2').style.opacity = '1'
-                document.getElementById('text2').style.left = '150px'
+                document.getElementById('text2').style.left = '170px'
 
 
-                document.getElementById('text2').innerHTML = '<b>What?  No!</b> <br>There is <b><i>no more TUNA!</i></b>'
+                document.getElementById('text2').innerHTML = '<b>What?  No!</b> <br><i>Nothing</i> but <b><i>BONES!</i></b>'
+                document.getElementById('tunaempty').style.opacity = '1';
                 document.getElementById('tunacounter').style.opacity = '1';
                 document.getElementById('riptuna').style.opacity = '1';
                 document.getElementById('riptext').style.opacity= '1'

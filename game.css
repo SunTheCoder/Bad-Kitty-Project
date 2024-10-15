@@ -255,6 +255,16 @@ h3{
     top: 472px;
     opacity: 0
 }
+#tunaempty{
+    width: 25%;
+    position: absolute;
+    z-index: 1;
+    left: 105px;
+    bottom: 55px;
+    opacity: 0;
+    /* rotate: -5deg; */
+
+}
 #riptext {
     left: 345px;
     bottom: 345px;
