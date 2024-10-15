@@ -421,6 +421,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     );
     
     document.getElementById('tutorial-4').style.opacity = 0
+    document.getElementById('tutorial-3').style.opacity = 0
     addText.style.opacity = 0;
     document.getElementById('reset-text').style.opacity = 0;
 
@@ -919,6 +920,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
                 button.style.opacity = '1';
             })
 
+            saveButton.style.opacity = '0'
             
             page2button.innerText = 'Page 2'
 
