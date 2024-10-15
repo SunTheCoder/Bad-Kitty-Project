@@ -260,6 +260,15 @@ h3{
     bottom: 345px
 }
 
+#riptuna{
+    width: 20%;
+    position: absolute;
+    z-index: 1;
+    left: 160px;
+    top: 755px;
+    opacity: 1
+}
+
 #ripbag {
     width: 20%;
     position: absolute;
