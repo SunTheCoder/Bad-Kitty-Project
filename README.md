@@ -2,7 +2,7 @@
 
 ## Description
 
-- A **full-stack** browser game designed to enrich the visitor experience at the Bad Kitty exhibition, hosted by the Longwood Center for the Visual Arts in October 2024 as part of the Virginia Children's Book Festival. The game is based on the book series **"Bad Kitty"** by Nick Bruel. This game was made with their permission.
+- A **full-stack** browser game designed to enrich the visitor experience at the Bad Kitty exhibition, hosted by the **Longwood Center for the Visual Arts** in October 2024 as part of the **Virginia Children's Book Festival**. The game is based on the book series **"Bad Kitty"** by Nick Bruel. This game was made with their permission.
 
 The game logic, story, concept, and art are created by Bobby "Sun" English Jr.
 
