@@ -247,7 +247,14 @@ h3{
     top: 487px;
     display: none;
 }
-
+#tunacounter {
+    width: 9%;
+    position: absolute;
+    z-index: 1;
+    left: 312px;
+    top: 464px;
+    opacity: 1
+}
 #riptext {
     left: 345px;
     bottom: 345px
