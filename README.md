@@ -21,3 +21,5 @@ The game was created by Bobby "Sun" English Jr.
 ### Planned Features
 
 - **Social Media Integration**: Allow users to share comics on social platforms.
+- **REACT/JSX/Redux**: Switch code to utilize React and Redux
+- **REACT Library**: Create library for components to make easier comic creation in the future
