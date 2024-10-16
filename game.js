@@ -2,9 +2,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     event.preventDefault()
 
-    window.addEventListener('beforeunload', function () {
-        sessionStorage.clear();  // or localStorage.clear();
-    });
+    // window.addEventListener('beforeunload', function () {
+    //     sessionStorage.clear();  // or localStorage.clear();
+    // });
+    sessionStorage.clear()
     
 
     const windowWidth = window.innerWidth
