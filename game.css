@@ -775,13 +775,15 @@ html, body {
 
 #qrContainer {
     display: flex !important;
-    margin-top: 40px;
+    margin-top: 80px;
     justify-content: center
     
 }
 
 .qr {
-    padding: 25px
+    padding: 25px;
+    font-family: 'Comic Neue';
+    
 }
 
 #door-scratch {
@@ -881,7 +883,7 @@ html, body {
     font-size: large;
     position: absolute;
     font-family: 'Comic Neue';
-    bottom: -132px;
+    bottom: -145px;
     text-align: center;
     left: 160px
 }

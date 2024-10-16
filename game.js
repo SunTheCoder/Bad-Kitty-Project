@@ -1091,14 +1091,16 @@ document.getElementById('brushColor').addEventListener('input', function() {
                     const qr = qrcode(0, 'L');
                     qr.addData(data.page1Url);
                     qr.make();
-                    document.getElementById('qrDiv').innerHTML = qr.createImgTag(4);
+                    document.getElementById('qrDiv').innerHTML = `Page 1 Image QRCode: <br> <br> ${qr.createImgTag(4)}`;
+                    
                 }
                 
                 if (data.page2Url) {
                     const qr2 = qrcode(0, 'L');
                     qr2.addData(data.page2Url);
                     qr2.make();
-                    document.getElementById('qrDiv2').innerHTML = qr2.createImgTag(4);
+
+                    document.getElementById('qrDiv2').innerHTML = `Page 2 Image QRCode: <br> <br> ${qr2.createImgTag(4)}`;
                 }
                 document.getElementById('tutorial-5').style.opacity = '1';
                 document.getElementById('congrats').style.opacity = '1'
