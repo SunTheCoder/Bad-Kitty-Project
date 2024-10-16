@@ -481,10 +481,10 @@ h3{
 }
 #kitty-satisfied {
     top: 0px;
-    right: -1.2px;
+    right: 0px;
     position: absolute;
     height: 100%;
-    width: 105.5%;   
+    width: 100%;   
     opacity: 0;
     transition: opacity 3s ease-in-out;
     border-radius: 5px;
