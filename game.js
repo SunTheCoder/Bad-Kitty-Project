@@ -57,6 +57,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const saveButton = document.getElementById('save-button')
 
     const panel1 = document.getElementById('panel-1')
+    const panel2 = document.getElementById('panel-2')
+    const panel3 = document.getElementById('panel-3')
+    const panel4 = document.getElementById('panel-4')
+    const panel5 = document.getElementById('panel-5')
+    const panel6 = document.getElementById('panel-6')
+    const panel10 = document.getElementById('panel-10')
+    const panel11= document.getElementById('panel-11')
 
     const eyeButtons = Array.from(document.querySelectorAll('.body-button'))
     const eyes1 = document.getElementById('eyes-1')
@@ -92,7 +99,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
+    
     let revealed = false
+    let scratchreveal = false
     let hidden = false
     let saved = false
 
@@ -157,6 +166,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
         //     }
         // }
 
+        Array.from(panel3.children).forEach(child => {child.style.opacity = '1'})
+        Array.from(panel4.children).forEach(child => {child.style.opacity = '1'})
+        document.getElementById('text3').style.opacity = '1'
+        document.getElementById('text4').style.opacity = '1'
+        tutorial4.style.opacity = '1'
+
+
         tutorial3.innerHTML = 'Oh!! <br> Pretty <br> text!!!'
         tutorial3.style.bottom = '330px'
         tutorial3.style.left = '34px'
@@ -187,9 +203,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // Reset the counter
         addTextCounter = 0;
     
-        tutorial3.innerHTML = 'Create <br> your own <br> comic <br> text. <br> →'
+        tutorial3.innerHTML = `<b>Create   <br> 
+        your own <br>
+        sound <br>
+        effect! </b><br>
+        → <br>
+        Use the <br>
+        "Add Text" <br>
+        button <br>
+        after <br>
+        typing.`
         tutorial3.style.opacity = 1
-        tutorial3.style.bottom = '340px'
+        tutorial3.style.bottom = '260px'
         tutorial3.style.left = '15px'
 
         
@@ -203,7 +228,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     });
     
-
+    Array.from(panel2.children).forEach(child => {child.style.opacity = '0'})
+    Array.from(panel3.children).forEach(child => {child.style.opacity = '0'})
+    Array.from(panel4.children).forEach(child => {child.style.opacity = '0'})
+    
+    
+    
     eyeButtons.forEach(button => {button.addEventListener('click', (event) => { 
 
         const eyeChoice = {
@@ -240,6 +270,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         tutorial1.innerHTML = 'Oh, what could Kitty be up to?! <br\> Pretty sure it\'s something...<b>bad</b>!'
         tutorial1.style.top = '15px'
         tutorial1.style.left = '100px'
+        tutorial2.style.opacity = '1'
+        treats.forEach(treat => { treat.style.opacity = '1'})
 
         setTimeout(() => {
                     tutorial1.style.opacity = 1
@@ -330,6 +362,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
             // }
 
             // tutorial2.innerHTML = handleChoice()
+
+            Array.from(panel2.children).forEach(child => {child.style.opacity = '1'})
+            document.getElementById('snatch').style.opacity = '1'
+            tutorial3.style.opacity = '1'
+            document.getElementById('text1').style.opacity = '1'
+
             tutorial2.style.top = '30px'
             tutorial2.style.left = '430px'
 
@@ -546,7 +584,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             <p id="text7" class="storyText"><b>So</b> <i>bad</i>. <br> <b>So</b> <i>smart</i>. <br> <b> So</b> <i>proud</i>. <br> Who <b>wouldn't</b> spoil this kitty!?</p>
             <p id="text8" class="storyText">Now, <b>that</b> is a <i>satisfied</i> kitty!</p>
             <p id="text9" class="comic-output">BOOM!<p>
-            <p id="tutorial-6" class="tutorial">${window.innerWidth < 1024 ? '<b>Touch</b> the blank <br> panel to reveal <br> the ending.' : '<b>Click</b> the blank <br> panel to reveal <br> the ending. →'}</p>
+            <p id="tutorial-6" class="tutorial">${window.innerWidth < 1024 ? '<b>Touch</b> the blank <br> panel to show <br> the ending.' : '<b>Click</b> the blank <br> panel to show <br> the ending. →'}</p>
 
  
     <div id="page2panels-container">
@@ -554,6 +592,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         <div class="draggable panel" id="panel-10" draggable="true">
 
         <img id="angry-at-door" src="./Assets/angryatdoorkitty.png" alt="kitty kicking door" />
+        <p id="scratchtutorial" class="tutorial">${window.innerWidth < 1024 ? '<b>Scratch</b> the panel below to show <br> how Kitty gets through the door! ↓' : '<b>Click</b> the panel below to show <br> how Kitty gets through the door! ↓'}</p>
 
         </div>
 
@@ -575,7 +614,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     <p id="tutorial-5" class="tutorial">
     
-            <i>It's your turn to draw!</i> <br> An expression? A treat? <b>Your choice!</b> <br> If you don't need the outline ↓ just click "Clear Outline" 
+            <i>It's your turn to <b>draw in the panel below</b>!</i> <br> An expression? A treat? <b>Your choice!</b> <br> If you don't need the outline ↓ just click "Clear Outline" 
             
             
     
@@ -685,15 +724,21 @@ function clearCanvas() {
             })
             
             if (counter > 2) {
-
+                document.getElementById('tutorial-6').style.opacity = '1'
                 if (revealed === true) {
-                document.getElementById('kitty-satisfied').style.opacity = 1
-                document.getElementById('text8').style.opacity = 1    
-                document.getElementById('tutorial-6').style.opacity = 0
+                document.getElementById('kitty-satisfied').style.opacity = '1'
+                document.getElementById('text8').style.opacity = '1'    
+                document.getElementById('tutorial-6').style.opacity = '0'
                 
                 }   
-                document.getElementById('tutorial-5').style.opacity = 0
+                document.getElementById('tutorial-5').style.opacity = '0'
+               
+
+                
+               
             }
+
+           
 
             
             
@@ -713,7 +758,26 @@ function clearCanvas() {
             
             `
                     tutorials.forEach((tutorial) => {tutorial.innerText = ''})
-                   
+                    
+                    
+
+                
+                Array.from(document.getElementById('panel-5').children).forEach(child => child.style.opacity= '0')
+                // Array.from(document.getElementById('panel-6').children).forEach(child => child.style.opacity= '0')
+                // Array.from(document.getElementById('panel-10').children).forEach(child => child.style.opacity= '0')
+                Array.from(document.getElementById('panel-11').children).forEach(child => child.style.opacity= '0')
+                document.getElementById('text5').style.opacity = '1'
+                document.getElementById('text9').style.opacity = '0'
+                document.getElementById('scratchtutorial').style.opacity = '1'
+
+                if (counter > 2 && scratchreveal === true) {
+                    document.getElementById('scratchtutorial').style.opacity = '0'
+                    document.getElementById('kicking-door').style.opacity = '1'
+                    document.getElementById('kitty-walking').style.opacity = '1'
+                    document.getElementById('text7').style.opacity = '1'
+                    document.getElementById('text9').style.opacity = '1'
+
+               }
 
                 
                 page2button.innerText = 'Page 1'
@@ -728,8 +792,30 @@ satisfied.addEventListener('click', (e) => {
     document.getElementById('text8').style.opacity = 1
     setTimeout(() => {
     document.getElementById('tutorial-6').style.opacity = 0
+    
 }, 1500)  
+    setTimeout(() => {
+    
+    document.getElementById('congrats').style.opacity = '1'
+}, 2500)  
         
+})
+
+const doorkick = document.getElementById('kicking-door')
+
+doorkick.addEventListener('click', (e) => {
+    scratchreveal = scratchreveal === false ? true : false
+    e.target.style.opacity = 1
+    document.getElementById('text9').style.opacity = '1'
+    document.getElementById('scratchtutorial').style.opacity = '0'
+    
+    setTimeout(() => {
+        document.getElementById('kitty-walking').style.opacity = '1'
+        document.getElementById('tutorial-5').style.opacity = '1'
+        document.getElementById('tutorial-6').style.opacity = '1'
+        document.getElementById('text7').style.opacity = '1'
+        
+    }, 2000)
 })
 
 
@@ -879,6 +965,8 @@ document.getElementById('brushColor').addEventListener('input', function() {
             // }
           
             if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
+                document.getElementById('chicken-thought').style.opacity = '1';
+                
                 document.getElementById('text2').style.opacity = '1'
                 document.getElementById('chickenbone').style.display = 'block';
                 document.getElementById('chickenbox').style.display = 'block';
@@ -891,6 +979,8 @@ document.getElementById('brushColor').addEventListener('input', function() {
                     happyKitty.style.left = '485px';
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
+
+                document.getElementById('treat-thought').style.opacity = '1'
                 document.getElementById('text2').style.opacity = '1'
                 document.getElementById('text2').style.left = '135px'
                 document.getElementById('text2').innerHTML = '<b>What?  No!</b> <br>There are <b><i>no more TREATS!</i></b>'
@@ -903,6 +993,7 @@ document.getElementById('brushColor').addEventListener('input', function() {
                     happyKitty.style.left = '485px';
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
+                document.getElementById('tuna-thought').style.opacity = '1'
                 document.getElementById('text2').style.opacity = '1'
                 document.getElementById('text2').style.left = '170px'
 
@@ -928,6 +1019,8 @@ document.getElementById('brushColor').addEventListener('input', function() {
 
             saveButton.style.opacity = '0'
             tutorial1.style.left = '100px'
+
+            Array.from(document.querySelectorAll('.storyText')).forEach(text => text.style.opacity= '1')
             
             
             page2button.innerText = 'Page 2'
@@ -1030,6 +1123,8 @@ document.getElementById('brushColor').addEventListener('input', function() {
         
         document.getElementById('tools').style.opacity = '0';
         document.getElementById('tutorial-5').style.opacity = '0';
+        document.getElementById('congrats').style.opacity = '0';
+
         const page2 = document.getElementById('container');
         
         
@@ -1104,7 +1199,10 @@ document.getElementById('brushColor').addEventListener('input', function() {
                     document.getElementById('qrDiv2').innerHTML = `Page 2 Image QRCode: <br> <br> ${qr2.createImgTag(4)}`;
                 }
                 document.getElementById('tutorial-5').style.opacity = '1';
-                document.getElementById('congrats').style.opacity = '1'
+                document.getElementById('congrats').style.opacity = '1';
+                
+                document.getElementById('credits').style.opacity = 1
+
                 // sessionStorage.clear();
                 saved = true;
 
