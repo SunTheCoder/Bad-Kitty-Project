@@ -120,8 +120,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     addText.addEventListener('click', (event) => {
         event.preventDefault()
 
-        
-        
         if (document.getElementById('comic-text').value.length <= 5 && document.getElementById('comic-text').value.length) {
 
         sessionStorage.setItem('comic-word-choice', document.getElementById('comic-text').value);
