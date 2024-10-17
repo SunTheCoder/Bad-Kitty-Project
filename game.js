@@ -593,7 +593,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         <div class="draggable panel" id="panel-10" draggable="true">
 
         <img id="angry-at-door" src="./Assets/angryatdoorkitty.png" alt="kitty kicking door" />
-        <p id="scratchtutorial" class="tutorial">${window.innerWidth < 1024 ? '<b>Scratch</b> the panel below to show <br> how Kitty gets through the door! ↓' : '<b>Click</b> the panel below to show <br> how Kitty gets through the door! ↓'}</p>
+        <p id="scratchtutorial" class="tutorial">${window.innerWidth < 1024 ? '<b>Touch</b> the panel below to show <br> how Kitty gets through the door! ↓' : '<b>Click</b> the panel below to show <br> how Kitty gets through the door! ↓'}</p>
 
         </div>
 
