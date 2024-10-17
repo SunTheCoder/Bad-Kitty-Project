@@ -296,6 +296,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 class: event.target.getAttribute('class') // Add other classes if needed
 
             };
+            
 
             console.log(treatChoice);
 
@@ -310,8 +311,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 document.getElementById('riptext').style.opacity= '1'
                 document.getElementById('riptext').innerHTML = "Use <br> those <br> claws, <br> <b>Kitty!</b></i>"
 
-                happyKitty.style.opacity = 1;
-                    happyKitty.style.left = '485px';
+                document.getElementById('happy-kitty-1').style.opacity = '1';
+                document.getElementById('happy-kitty-1').style.left = '485px';
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
                 document.getElementById('text2').style.opacity = '1'
@@ -322,8 +323,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 document.getElementById('treatbagcounter').style.display = 'block';
                 document.getElementById('treatbagopen').style.display = 'block';
                 document.getElementById('ripbag').style.opacity = '1';
-                happyKitty.style.opacity = 1;
-                    happyKitty.style.left = '485px';
+                document.getElementById('happy-kitty-1').style.opacity = '1';                    
+                document.getElementById('happy-kitty-1').style.left = '485px';
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
                 document.getElementById('text2').style.opacity = '1'
@@ -336,8 +337,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 document.getElementById('riptuna').style.opacity = '1';
                 document.getElementById('riptext').style.opacity= '1'
                 document.getElementById('riptext').innerHTML = "<i>Get it</i> <br> open, <br> <b>Kitty!</b>"
-                happyKitty.style.opacity = 1;
-                    happyKitty.style.left = '450px';
+                document.getElementById('happy-kitty-1').style.opacity = '1';                    
+                document.getElementById('happy-kitty-1').style.left = '450px';
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes tuna!`
             }
 
