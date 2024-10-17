@@ -6,7 +6,7 @@
 
 The game logic, story, concept, and art are created by Bobby "Sun" English Jr.
 
-![Alt text](./Assets/Screen%20Shot%202024-10-17%20at%204.55.34%20PM.png)
+![Alt text](./Assets/kittycomicgame.png)
 
 ### Services/Stack
 
