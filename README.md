@@ -42,3 +42,8 @@ The game logic, story, concept, and art are created by Bobby "Sun" English Jr.
 - **Social Media Integration**: Allow users to share comics on social platforms.
 - **REACT/JSX/Redux**: Switch code to utilize React and Redux
 - **REACT Library**: Create library for components to make easier comic creation in the future
+
+### Updates
+
+-**Release**: Game Released Oct 16th, 2024 in conjunction with Virginia Children's Book Festival
+-**Patch**: Based on witnessing the game being played by multiple people. Completely overhauled UX so that game flow follows the natural path of the story. Much easier to play and follow. Released Oct 17th, 2024
