@@ -17,16 +17,16 @@ The game logic, story, concept, and art are created by Bobby "Sun" English Jr.
   
 **Backend**:
 
-- Node.js (for handling backend logic, if applicable)
+- Node.js
 - Render hosting
 
 **Storage**: 
 
-- **Amazon Web Services/AWS** for QR code generation and saving images from the game’s pages
+- **Amazon Web Services/AWS** was used as image storage for QR code integration.
 
 ### Game Features
 
-- **Responsive Design**: The application is fully responsive, providing an optimized experience across devices (tablet, desktop, and mobile(landscaped)).
+- **Responsive Design**: The application is fully responsive, providing an optimized experience across devices (tablet, desktop, and large mobile devices(landscaped Iphone Pros, etc.)).
 - **Dynamic Storytelling**: The game adapts based on user choices, creating a unique storyline for each player.
 - **Save**: Users can save their comic pages (using AWS)
   
