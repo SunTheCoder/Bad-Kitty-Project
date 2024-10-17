@@ -2,14 +2,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     event.preventDefault()
 
-    // window.addEventListener('beforeunload', function () {
-    //     sessionStorage.clear();  // or localStorage.clear();
-    // });
     sessionStorage.clear()
-    
-
-    const windowWidth = window.innerWidth
-    const windowHeight = window.innerHeight
 
     let lastVisibleTime = new Date().getTime();
 
@@ -19,7 +12,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             const timeDifference = currentTime - lastVisibleTime;
 
             // Check if the time difference is long enough to assume the device was asleep
-            if (timeDifference > 60000) {  // 60 seconds (adjust this as needed)
+            if (timeDifference > 60000) {  
                 // Clears all session storage data
                 sessionStorage.clear();
 
@@ -30,23 +23,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    // const qr = document.getElementById('qrCanvas');
-    // const qr2 = document.getElementById('qrCanvas3');
-
     const happyKitty = document.getElementById('happy-kitty-1');
 
     const addText = document.getElementById('add-text')
-    const comicText = document.getElementById('comic-text')
-
+    
     const tutorials = Array.from(document.querySelectorAll('.tutorial'))
     const tutorial1 = document.getElementById('tutorial-1')
     const tutorial2 = document.getElementById('tutorial-2')
     const tutorial3 = document.getElementById('tutorial-3')
     const tutorial4 = document.getElementById('tutorial-4')
 
-    const treat = document.getElementById('treat-thought')
-    const tunaCan = document.getElementById('tuna-thought')
-    const friedchicken = document.getElementById('chicken-thought')
     const treats = Array.from(document.querySelectorAll('.treats'))
     const paws = Array.from(document.querySelectorAll('.paws'))
     
@@ -60,16 +46,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const panel2 = document.getElementById('panel-2')
     const panel3 = document.getElementById('panel-3')
     const panel4 = document.getElementById('panel-4')
-    const panel5 = document.getElementById('panel-5')
-    const panel6 = document.getElementById('panel-6')
-    const panel10 = document.getElementById('panel-10')
-    const panel11= document.getElementById('panel-11')
-
+    
     const eyeButtons = Array.from(document.querySelectorAll('.body-button'))
-    const eyes1 = document.getElementById('eyes-1')
-    const eyes2 = document.getElementById('eyes-2')
-    const eyes3 = document.getElementById('eyes-3')
-    const eyes4 = document.getElementById('eyes-4')
     
     const page2button = document.getElementById('page-2-button')
     
@@ -99,7 +77,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
-    
     let revealed = false
     let scratchreveal = false
     let hidden = false
@@ -149,22 +126,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         sessionStorage.setItem('comic-word-choice', document.getElementById('comic-text').value);
         console.log('Comic word choice:', sessionStorage.getItem('comic-word-choice'));
-
-        // function handleChoice() {
-        //     if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
-               
-        //         return tutorial3.innerHTML = 'Kitty will <br> get <br> her <br> chicken!!'
-
-        //     } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
-                
-        //         return tutorial3.innerHTML = 'Kitty will <br> get <br> her <br> treat!!'
-
-        //     } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
-                
-        //         return tutorial3.innerHTML = 'Kitty will <br> get <br> her <br> tuna!!'
-
-        //     }
-        // }
 
         Array.from(panel3.children).forEach(child => {child.style.opacity = '1'})
         Array.from(panel4.children).forEach(child => {child.style.opacity = '1'})
@@ -216,8 +177,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         tutorial3.style.opacity = 1
         tutorial3.style.bottom = '260px'
         tutorial3.style.left = '15px'
-
-        
+ 
         // Clear the comic output
         document.getElementById('comic-output').innerText = '';
     
@@ -232,8 +192,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     Array.from(panel3.children).forEach(child => {child.style.opacity = '0'})
     Array.from(panel4.children).forEach(child => {child.style.opacity = '0'})
     
-    
-    
     eyeButtons.forEach(button => {button.addEventListener('click', (event) => { 
 
         const eyeChoice = {
@@ -242,18 +200,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
             class: event.target.getAttribute('class') // Add other classes if needed
 
         };
-
-        
-        // const html = `<img id="kitty-1" class="body" src="/Assets/Pensive-Kitty-blank-v2.png" alt="">
-        
-        // <img id="floor" class="floor" src="/Assets/floor.png" alt="floor">
-        
-        // <img src="/Assets/thought-bubble-panel-1.png" alt="" id="thought-bubble-1" class="speech-bubble">
-
-        // <img src="/Assets/happy-kitty-thought.png" alt="" id="happy-kitty-1" class="">
-        
-        // <img id="eyes-1-kitty" class="body-button" src="${event.target.getAttribute('src')}" alt="">`
-        
         
         sessionStorage.setItem('eye-choice', JSON.stringify(eyeChoice))
         
@@ -281,13 +227,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     })
 
-
-    
-
     treats.forEach((treat) => {
 
         treat.addEventListener('click', (event) => {
-
 
             // Storing multiple attributes
             const treatChoice = {
@@ -295,8 +237,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 id: event.target.getAttribute('id'), // Add other attributes like 'alt' if needed
                 class: event.target.getAttribute('class') // Add other classes if needed
 
-            };
-            
+            }; 
 
             console.log(treatChoice);
 
@@ -344,26 +285,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
             treats.filter((treat) => treat !== event.target).forEach((treat) => { treat.style.display = 'none' });
 
-            // function handleChoice() {
-                
-            //     if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
-            //         happyKitty.style.opacity = 1;
-            //         happyKitty.style.left = '485px';
-            //         return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
-            //     } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
-            //         happyKitty.style.opacity = 1;
-            //         happyKitty.style.left = '485px';
-            //         return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
-            //     } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
-            //         happyKitty.style.opacity = 1;
-            //         happyKitty.style.left = '450px';
-            //         return tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes tuna!`
-            //     }
-                
-            // }
-
-            // tutorial2.innerHTML = handleChoice()
-
             Array.from(panel2.children).forEach(child => {child.style.opacity = '1'})
             document.getElementById('snatch').style.opacity = '1'
             tutorial3.style.opacity = '1'
@@ -380,15 +301,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         });
 
-
     })
-
-    
-//    let page1QR = null
     
     page2button.addEventListener('click', async () => {
-        
-
         
         if (sessionStorage.getItem('eye-choice') && sessionStorage.getItem('treat-choice') && sessionStorage.getItem('comic-word-choice')){
             counter++
@@ -423,11 +338,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
             tutorials.forEach(tutorial => {
                 tutorial.style.opacity = '1';
             });
-
-
-
-            
-            
 
             // Check if the dialog has been shown before
             if (!sessionStorage.getItem('page2DialogShown')) {
@@ -622,15 +532,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         </p>
     
     <canvas id="drawingCanvas" width="650" height="300">
-
-    
-
-
-        
-        
+   
     </canvas>
-
-    
 
     <div id="tools">
     <label for="brushSize">Brush Size:</label>
@@ -654,11 +557,8 @@ function clearCanvas() {
 
     <img src="/Assets/zzz-treats.png" alt="satisfied kitty" id="kitty-satisfied">
 
-   
-
 </div>
 
-    
 <div id='congrats' class='tutorial'>
         <b>Congratulations! You just made a comic! Great work!</b> <br>
         ↓ Save your pictures using the QR codes below. ↓
@@ -666,13 +566,7 @@ function clearCanvas() {
 
 <p id="credits" class='tutorial'><i>Bad Kitty originally</i> created by, <b>Nick Bruel</b><i><br> Game, Illustrations, and Story</i> created by, <b>Bobby (Sun) English Jr.</b> </p>
 
-
     </div>`
-
-
-        //EXPAND ON CONDITION SO THAT PAGE IS DONE BEFORE PROGRESSING TO THE NEXT PAGE
-
-       
 
             if (counter % 2 !== 0) {
 
@@ -720,8 +614,6 @@ function clearCanvas() {
                         ctx.drawImage(img, 50, 20, 300, 280);
                     };
 
-                    
-                
             })
             
             if (counter > 2) {
@@ -733,18 +625,8 @@ function clearCanvas() {
                 
                 }   
                 document.getElementById('tutorial-5').style.opacity = '0'
-               
 
-                
-               
             }
-
-           
-
-            
-            
-            
-            
 
             buttons.innerHTML = `
 
@@ -755,7 +637,6 @@ function clearCanvas() {
             <img id="eyes-3" class="body-button" src="/Assets/eye-filler.png" alt="" >
 
             <img id="eyes-4" class="body-button" src="/Assets/eye-filler.png" alt="" >
-            
             
             `
                     tutorials.forEach((tutorial) => {tutorial.innerText = ''})
@@ -836,10 +717,7 @@ doorkick.addEventListener('touchstart', (e) => {
         document.getElementById('text7').style.opacity = '1'
         
     }, 2000)
-})
-
-
-       
+});
 
 // Get the canvas and context
 const canvas = document.getElementById('drawingCanvas');
@@ -942,7 +820,6 @@ document.getElementById('brushColor').addEventListener('input', function() {
     setBrushColor(this.value);
 });
 
-            
             return
             }
             
@@ -964,25 +841,10 @@ document.getElementById('brushColor').addEventListener('input', function() {
                     document.getElementById('happy-kitty-1').style.left = '485px';
                 }
                 
-                
-
-            
             tutorial2.style.top = '30px'
             tutorial2.style.left = '430px'
 
-            
             document.getElementById('happy-kitty-1').style.opacity = 1
-
-            // if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
-            //     document.getElementById('happy-kitty-1').style.left = '485px';
-                
-            // } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
-            //     document.getElementById('happy-kitty-1').style.left = '485px';
-                
-            // } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
-            //     document.getElementById('happy-kitty-1').style.left = '450px';
-                
-            // }
           
             if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
                 document.getElementById('chicken-thought').style.opacity = '1';
@@ -1054,10 +916,8 @@ document.getElementById('brushColor').addEventListener('input', function() {
             <img id="eyes-3" class="body-button" src="/Assets/eye-filler.png" alt="" >
 
             <img id="eyes-4" class="body-button" src="/Assets/eye-filler.png" alt="" >
-            
-            
             `
-            
+
             return
 
         } else {
@@ -1223,7 +1083,6 @@ document.getElementById('brushColor').addEventListener('input', function() {
                 
                 document.getElementById('credits').style.opacity = 1
 
-                // sessionStorage.clear();
                 saved = true;
 
             } else {
@@ -1234,5 +1093,4 @@ document.getElementById('brushColor').addEventListener('input', function() {
         }
     });
     
-})
-
+});
