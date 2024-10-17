@@ -45,5 +45,5 @@ The game logic, story, concept, and art are created by Bobby "Sun" English Jr.
 
 ### Updates
 
-- **Release**: Game Released Oct 16th, 2024 in conjunction with Virginia Children's Book Festival
-- **Patch**: Based on witnessing the game being played by multiple people. Completely overhauled UX so that game flow follows the natural path of the story. Much easier to play and follow. Released Oct 17th, 2024
+- **Release v.1.0**: Game Released Oct 16th, 2024 in conjunction with Virginia Children's Book Festival
+- **Patch v1.1**: Based on witnessing the game being played by multiple people. Completely overhauled UX so that game flow follows the natural path of the story. Much easier to play and follow. Released Oct 17th, 2024
