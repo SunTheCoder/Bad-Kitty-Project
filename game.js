@@ -780,6 +780,10 @@ function clearCanvas() {
 
                }
 
+               document.getElementById('kicking-door').addEventListener('touchmove', function(event) {
+                event.preventDefault();  // This stops the default scroll behavior
+            }, { passive: false });  
+
                 
                 page2button.innerText = 'Page 1'
 
