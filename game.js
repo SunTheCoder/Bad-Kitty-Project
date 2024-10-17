@@ -783,6 +783,7 @@ function clearCanvas() {
                document.getElementById('kicking-door').addEventListener('touchmove', function(event) {
                 event.preventDefault();  // This stops the default scroll behavior
             }, { passive: false });  
+           
 
                 
                 page2button.innerText = 'Page 1'
@@ -809,6 +810,20 @@ satisfied.addEventListener('click', (e) => {
 const doorkick = document.getElementById('kicking-door')
 
 doorkick.addEventListener('click', (e) => {
+    scratchreveal = scratchreveal === false ? true : false
+    e.target.style.opacity = 1
+    document.getElementById('text9').style.opacity = '1'
+    document.getElementById('scratchtutorial').style.opacity = '0'
+    
+    setTimeout(() => {
+        document.getElementById('kitty-walking').style.opacity = '1'
+        document.getElementById('tutorial-5').style.opacity = '1'
+        document.getElementById('tutorial-6').style.opacity = '1'
+        document.getElementById('text7').style.opacity = '1'
+        
+    }, 2000)
+})
+doorkick.addEventListener('touchstart', (e) => {
     scratchreveal = scratchreveal === false ? true : false
     e.target.style.opacity = 1
     document.getElementById('text9').style.opacity = '1'
