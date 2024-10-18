@@ -118,6 +118,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     tutorial4.innerHTML = `${window.innerWidth < 1024 ? '<b>Touch</b> "Page 2," below after you\'ve completed this page. There\'s more of the story to play with! ↓↓' : '<b>Click</b> "Page 2," below after you\'ve completed this page. There\'s more of the story to play with! ↓↓'}`
 
     document.getElementById('bulb').style.opacity = '0';
+
     addText.addEventListener('click', (event) => {
         event.preventDefault()
 
@@ -154,6 +155,36 @@ window.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById('comic-text').value = '';
         document.getElementById('comic-text').style.opacity = '0';
         addText.style.opacity = '0';
+
+        document.getElementById('mad').style.opacity = '1'
+        document.getElementById('text2').style.opacity = '1'
+
+        if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
+            document.getElementById('chickenbone').style.display = 'block';
+            document.getElementById('chickenboxripped').style.opacity = '1';
+          
+        } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
+            document.getElementById('text2').style.opacity = '1'
+            document.getElementById('text2').style.left = '135px'
+            document.getElementById('text2').innerHTML = '<b>What?  No!</b> <br>There are <b><i>no more TREATS!</i></b>'
+            
+            document.getElementById('treatbagopen').style.display = 'block';
+
+        } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
+            document.getElementById('text2').style.opacity = '1'
+            document.getElementById('text2').style.left = '170px'
+
+
+            document.getElementById('text2').innerHTML = '<b>What?  No!</b> <br><i>Nothing</i> but <b><i>BONES!</i></b>'
+            document.getElementById('tunaempty').style.opacity = '1';
+            document.getElementById('riptuna').style.opacity = '1';
+        }
+        
+        
+
+
+
+
         } else {
             alert('Please enter up to 5 characters.')
         }
@@ -243,11 +274,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
             sessionStorage.setItem('treat-choice', JSON.stringify(treatChoice));
 
             if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "chicken-thought") {
-                document.getElementById('text2').style.opacity = '1'
-                document.getElementById('chickenbone').style.display = 'block';
+                // document.getElementById('text2').style.opacity = '1'
+                // document.getElementById('chickenbone').style.display = 'block';
                 document.getElementById('chickenbox').style.display = 'block';
                 document.getElementById('ripbox').style.opacity = '1';
-                document.getElementById('chickenboxripped').style.opacity = '1';
+                // document.getElementById('chickenboxripped').style.opacity = '1';
+                document.getElementById('mad').style.opacity = '0';
                 document.getElementById('riptext').style.opacity= '1'
                 document.getElementById('riptext').innerHTML = "Use <br> those <br> claws, <br> <b>Kitty!</b></i>"
 
@@ -255,24 +287,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 document.getElementById('happy-kitty-1').style.left = '485px';
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes chicken!`
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "treat-thought") {
-                document.getElementById('text2').style.opacity = '1'
-                document.getElementById('text2').style.left = '135px'
-                document.getElementById('text2').innerHTML = '<b>What?  No!</b> <br>There are <b><i>no more TREATS!</i></b>'
                 document.getElementById('riptext').style.opacity= '1'
                 document.getElementById('riptext').innerHTML = "Use <br> those <br> claws, <br> <b>Kitty!</b></i>"
                 document.getElementById('treatbagcounter').style.display = 'block';
-                document.getElementById('treatbagopen').style.display = 'block';
                 document.getElementById('ripbag').style.opacity = '1';
+                document.getElementById('mad').style.opacity = '0';
+
                 document.getElementById('happy-kitty-1').style.opacity = '1';                    
                 document.getElementById('happy-kitty-1').style.left = '485px';
                     tutorial2.innerHTML = `Mmmmm! Kitty <b>definitely</b> likes her treats!`
             } else if (JSON.parse(sessionStorage.getItem('treat-choice')).id === "tuna-thought") {
-                document.getElementById('text2').style.opacity = '1'
-                document.getElementById('text2').style.left = '170px'
+                
 
 
-                document.getElementById('text2').innerHTML = '<b>What?  No!</b> <br><i>Nothing</i> but <b><i>BONES!</i></b>'
-                document.getElementById('tunaempty').style.opacity = '1';
+                document.getElementById('mad').style.opacity = '0';
+                
                 document.getElementById('tunacounter').style.opacity = '1';
                 document.getElementById('riptuna').style.opacity = '1';
                 document.getElementById('riptext').style.opacity= '1'
