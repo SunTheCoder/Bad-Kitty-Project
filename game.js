@@ -117,6 +117,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     tutorial4.innerHTML = `${window.innerWidth < 1024 ? '<b>Touch</b> "Page 2," below after you\'ve completed this page. There\'s more of the story to play with! ↓↓' : '<b>Click</b> "Page 2," below after you\'ve completed this page. There\'s more of the story to play with! ↓↓'}`
 
+    document.getElementById('bulb').style.opacity = '0';
     addText.addEventListener('click', (event) => {
         event.preventDefault()
 
@@ -210,9 +211,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         event.target.style.opacity = 0;
         event.target.style.cursor = 'default';
 
-
+        document.getElementById('bulb').style.opacity = '1';
         tutorial1.innerHTML = 'Oh, what could Kitty be up to?! <br\> Pretty sure it\'s something...<b>bad</b>!'
-        tutorial1.style.top = '15px'
+        tutorial1.style.top = '1px'
         tutorial1.style.left = '100px'
         tutorial2.style.opacity = '1'
         treats.forEach(treat => { treat.style.opacity = '1'})
@@ -400,6 +401,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const page1ContainerHtmlVar = 
         
     `
+    <img src="/Assets/bulb.png" alt="idea bulb" id="bulb">
     
     <img id=${storedChoice.id} class=${storedChoice.class} src=${storedChoice.src}>
     
