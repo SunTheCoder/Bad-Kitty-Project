@@ -53,6 +53,6 @@ The game logic, story, concept, and art are created by Bobby "Sun" English Jr.
 - **Patch version 1.1**: Based on witnessing the game being played by multiple people. Completely overhauled UX so that game flow follows the natural path of the story. Much easier to play and follow.
 
     *Released Oct 17th, 2024*
-- **Patch version 1.12**: Small UX update to increase ease of play.
+- **Patch version 1.12**: Small UX update to smooth transitions and increase ease of play.
 
     *Released Oct 18th, 2024*
