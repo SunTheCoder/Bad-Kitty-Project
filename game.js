@@ -127,14 +127,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
         sessionStorage.setItem('comic-word-choice', document.getElementById('comic-text').value);
         console.log('Comic word choice:', sessionStorage.getItem('comic-word-choice'));
 
-        Array.from(panel3.children).forEach(child => {child.style.opacity = '1'})
-        Array.from(panel4.children).forEach(child => {child.style.opacity = '1'})
-        document.getElementById('text3').style.opacity = '1'
-        document.getElementById('text4').style.opacity = '1'
+        
+        
         tutorial4.style.opacity = '1'
 
 
-        tutorial3.innerHTML = 'Oh!! <br> Pretty <br> text!!!'
+        tutorial3.innerHTML = '<b>Oh!! <br> Pretty <br> text</b>!!!'
         tutorial3.style.bottom = '330px'
         tutorial3.style.left = '34px'
         
@@ -181,7 +179,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
         
         
-
+        setTimeout(() => {
+            Array.from(panel3.children).forEach(child => {child.style.opacity = '1'})
+            Array.from(panel4.children).forEach(child => {child.style.opacity = '1'})
+            document.getElementById('text3').style.opacity = '1'
+            document.getElementById('text4').style.opacity = '1'
+        }, 2500)
 
 
 
@@ -463,7 +466,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     <p id="text1" class="storyText"> There she goes. <i>Prowling</i> about. </p>
             <p id="text2" class="storyText"><b>What?  No!</b> <br><b>YUCK!</b> It's only <i>leftovers</i>!</p>
-            <p id="text4" class="storyText"><b>OH MY GOODNESS! COULD IT BE!?</b> <br><i>Good</i> fortune for a <i>bad</i> kitty? Of course!</p>
+            <p id="text4" class="storyText"><b>OH MY GOODNESS! COULD IT BE!?</b> <br><i>Good</i> fortune for a <i>bad</i> Kitty? Of course!</p>
             <p id="text3" class="storyText"><b>It's so close, Kitty! </b><br> Get <i>through</i> the door!</p>
     <div id="panel-container">
 
