@@ -242,7 +242,10 @@ h4{
     left: 130px;
     bottom: 49px;
     rotate: -12deg;
-    display: none;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    
+
 }
 #treatbagcounter { 
     width: 8%;
@@ -250,7 +253,8 @@ h4{
     z-index: 1;
     left: 305px;
     top: 487px;
-    display: none;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
 }
 #tunacounter {
     width: 9%;
@@ -268,6 +272,8 @@ h4{
     bottom: 55px;
     opacity: 0;
     /* rotate: -5deg; */
+    
+    transition: opacity 1.5s ease-in-out;
 
 }
 #riptext {
@@ -312,8 +318,11 @@ h4{
     z-index: 1;
     left: 315px;
     top: 475px;
-    display: none;
+    
     rotate: 1.3deg;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    
 
 }
 
@@ -324,7 +333,8 @@ h4{
     left: 115px;
     bottom: 49px;
     rotate: -5deg;
-    opacity: 0
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
 }
 
 #chickenbone {
@@ -333,7 +343,8 @@ h4{
     z-index: 1;
     left: 210px;
     bottom: 64px;
-    display: none;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
 }
 
 .body-button {
@@ -896,6 +907,7 @@ html, body {
     top: 504px;
     rotate: -12deg;
     opacity: 0;
+    transition: opacity 1.5s ease-in-out;
 }
 
 .wall {
