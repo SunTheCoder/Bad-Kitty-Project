@@ -6,6 +6,8 @@
 
 The game logic, story, concept, and art are created by Bobby "Sun" English Jr.
 
+[Bad Kitty Comic Game Link](https://badkittycomicgame.netlify.app)
+
 ![Alt text](./Assets/kittycomicgame.png)
 
 ### Services/Stack
