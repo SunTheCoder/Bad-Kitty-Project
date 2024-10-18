@@ -213,7 +213,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         document.getElementById('bulb').style.opacity = '1';
         tutorial1.innerHTML = 'Oh, what could Kitty be up to?! <br\> Pretty sure it\'s something...<b>bad</b>!'
-        tutorial1.style.top = '1px'
+        tutorial1.style.top = '-10px'
         tutorial1.style.left = '100px'
         tutorial2.style.opacity = '1'
         treats.forEach(treat => { treat.style.opacity = '1'})
@@ -289,8 +289,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
             tutorial3.style.opacity = '1'
             document.getElementById('text1').style.opacity = '1'
 
-            tutorial2.style.top = '30px'
-            tutorial2.style.left = '430px'
+            document.getElementById('tutorial-2').style.top = '11px'
+            document.getElementById('tutorial-2').style.left = '423px'
 
             setTimeout(() => {
                 tutorial2.style.opacity = 1
@@ -901,6 +901,9 @@ document.getElementById('brushColor').addEventListener('input', function() {
 
             saveButton.style.opacity = '0'
             tutorial1.style.left = '100px'
+
+            document.getElementById('tutorial-2').style.top = '11px'
+            document.getElementById('tutorial-2').style.left = '423px'
 
             Array.from(document.querySelectorAll('.storyText')).forEach(text => text.style.opacity= '1')
             
